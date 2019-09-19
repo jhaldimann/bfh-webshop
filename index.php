@@ -11,6 +11,12 @@
             <img class="user-logo" src="images/user.png" alt="user">
             <img class="shopping-cart-logo" src="images/shoppingcart.png" alt="shoppingcart">
         </div>
+        <div class="gender-section">
+            <h3>Select a category</h3> <br/>
+            <div class="section"></div>
+            <div class="section"></div>
+            <div class="section"></div>
+        </div>
     </body>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/main.css">
