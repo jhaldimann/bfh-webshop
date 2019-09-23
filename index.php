@@ -8,9 +8,15 @@
         <?php include './views/header.php';?>
         <section class="gender-section">
             <h3>Select a category</h3> <br/>
-            <div class="section"></div>
-            <div class="section"></div>
-            <div class="section"></div>
+            <a href="views/products.php">
+                <div class="section"></div>
+            </a>
+            <a href="views/products.php">
+                <div class="section"></div>
+            </a>
+            <a href="views/products.php">
+                <div class="section"></div>
+            </a>
         </section>
     </body>
     <link rel="stylesheet" href="styles/header.css">
