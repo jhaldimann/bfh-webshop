@@ -5,18 +5,13 @@
         <title>GameFameClothing</title>
     </head>
     <body>
-        <div class="header">
-            <img class="home-logo" src="images/home.png" alt="home">
-            <h2>GamefameClothing</h2>
-            <img class="user-logo" src="images/user.png" alt="user">
-            <img class="shopping-cart-logo" src="images/shoppingcart.png" alt="shoppingcart">
-        </div>
-        <div class="gender-section">
+        <?php include './views/header.php';?>
+        <section class="gender-section">
             <h3>Select a category</h3> <br/>
             <div class="section"></div>
             <div class="section"></div>
             <div class="section"></div>
-        </div>
+        </section>
     </body>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/main.css">
