@@ -28,3 +28,45 @@ h2 {
 	display: inline-block;
 	transform: translateY(40%);
 }
+
+.special-offers > .title {
+	text-align: center;
+}
+
+.special-offers > .title > h2 {
+	transform: translateY(-15%);
+}
+
+.inner-search-section > label > input {
+	font-size: 20px;
+	width: 100%;
+	border-radius: 50px;
+	padding-left: 10px;
+	margin: 0;
+	outline: none;
+	border: none;
+}
+
+.inner-search-section > label {
+	margin-left: -5px;
+}
+
+.search-icon {
+	height: 20px;
+	position: absolute;
+	right: 0;
+	top: 15%;
+	cursor: pointer;
+}
+
+.inner-search-section {
+	position: relative;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.search-section {
+	background-color: whitesmoke;
+	padding: 10px;
+	margin: 20px 0;
+}

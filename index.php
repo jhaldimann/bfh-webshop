@@ -6,14 +6,7 @@
     </head>
     <body>
         <?php include './views/header.php';?>
-        <section class="search-section">
-            <div class="inner-search-section">
-                <label>
-                    <input type="text" placeholder="What are you looking for?" alt="search-bar">
-                    <img class="search-icon" src="images/search.png">
-                </label>
-            </div>
-        </section>
+
         <section class="gender-section main-section">
             <h3>Select a category</h3> <br/>
             <a href="views/products.php">
