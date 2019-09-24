@@ -5,7 +5,9 @@
         <title>GameFameClothing</title>
     </head>
     <body>
-        <?php include './views/header.php';?>
+        <?php
+            include('./views/header.php');
+        ?>
 
         <section class="gender-section main-section">
             <h3>Select a category</h3> <br/>
@@ -32,7 +34,9 @@
                 <img class="lightning" src="/images/lightning.png" alt="lightning">
             </div>
         </section>
-        <?php include 'views/footer.php'; ?>
+        <?php
+            include('./views/footer.php');
+        ?>
     </body>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/index.css">
