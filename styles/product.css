@@ -11,7 +11,6 @@
     border: 1px solid gray;
     background-color: white;
     transition: all .3s ease;
-    z-index: 1;
 }
 
 #product-image:hover {
@@ -19,8 +18,10 @@
 }
 
 #information {
+
+    position: absolute;
+    left: 30%;
     z-index: -1;
-    position: relative;
 }
 
 #description-title {
@@ -51,6 +52,12 @@
     background-color: white;
     border-radius: 20px;
     border: 2px solid black;
+    transition: all .3s ease;
+}
+
+#add-to-cart:hover {
+    transform: scale(1.05);
+    background-color: rgba(240,240,240,1);
 }
 
 #add-to-cart-img {
