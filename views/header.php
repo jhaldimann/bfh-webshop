@@ -13,7 +13,7 @@ echo "  <header class=\"header\">
             <div class=\"inner-search-section\">
                 <label>
                     <input type=\"text\" placeholder=\"What are you looking for?\" alt=\"search-bar\">
-                    <img class=\"search-icon\" src=\"images/search.png\">
+                    <img class=\"search-icon\" src=\"/images/search.png\">
                 </label>
             </div>
         </section>

@@ -3,7 +3,7 @@
 }
 
 #product-image {
-    margin-top: 100px;
+    margin-top: 200px;
     height: 300px;
     margin-left: 25%;
     float: left;
@@ -20,6 +20,7 @@
 
     position: absolute;
     left: 50%;
+    top: 150px;
     z-index: -1;
 }
 
