@@ -70,3 +70,28 @@ h2 {
 	padding: 10px;
 	margin: 20px 0;
 }
+
+@media only screen and (max-width: 600px) {
+	img {
+		display: none;
+	}
+	.burger {
+		display: flex;
+		width: 50px;
+		position: absolute;
+		left: 0;
+		cursor: pointer;
+	}
+	.special-offers > .title > h2 {
+		font-size: 15px;
+	}
+	
+	.search-section {
+		display: none;
+	}
+}
+@media only screen and (min-width: 600px) {
+	.burger {
+		display: none;
+	}
+}

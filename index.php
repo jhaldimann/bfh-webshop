@@ -26,6 +26,7 @@
                 <img class="lightning" src="/images/lightning.png">
             </div>
         </section>
+        <?php include 'views/footer.php'; ?>
     </body>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/main.css">
