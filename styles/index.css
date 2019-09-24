@@ -1,0 +1,65 @@
+* {
+	font-family: 'Roboto', sans-serif;
+}
+body {
+	margin: 0;
+}
+
+.section {
+	box-shadow: 4px 4px 4px grey;
+	width: 30%;
+	height: 130px;
+	display: inline-flex;
+	border-radius: 4px;
+	position: relative;
+	margin: 5px;
+	border: 2px solid black;
+}
+
+.section:hover {
+	transform:scale(1.01);
+}
+
+.lightning {
+	height: 30px;
+	width: 30px;
+	transform: translateY(15%);
+}
+
+.main-section {
+	width: 80%;
+	position: relative;
+	margin: 20px auto;
+	border: 1px solid black;
+	text-align: center;
+	top: 100px;
+}
+
+.main-section > a {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+
+.main-section > a:visited {
+	color: black;
+}
+
+.section-title {
+	margin: 0;
+	text-decoration: none;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+
+.gender-section {
+	padding-bottom: 50px;
+}
+
+.main-section > h3 {
+	font-size: 25px;
+	margin-bottom: 0;
+	text-decoration: underline;
+}
