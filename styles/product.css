@@ -13,11 +13,11 @@
 }
 
 #product-image:hover {
-    transform: scale(1.5);
+    cursor:zoom-in;
+    transform: scale(1.3);
 }
 
 #information {
-
     position: absolute;
     left: 50%;
     top: 150px;
@@ -35,9 +35,6 @@
     display: flex;
 }
 
-#size-selector-label {
-}
-
 #size-selector {
     margin-left: 5px;
     margin-bottom: 30px;
@@ -53,6 +50,7 @@
     border-radius: 20px;
     border: 2px solid black;
     transition: all .3s ease;
+    cursor: pointer;
 }
 
 #add-to-cart:hover {
