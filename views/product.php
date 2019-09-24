@@ -6,6 +6,7 @@
     </head>
     <body>
     <?php include './header.php'; ?>
+    <?php include './sidebar.php'; ?>
     <section class="product">
         <img id="product-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrvn5FHHEUeWRTtLIG0SMjHbla700rHzxdpw-edXUKf6YAojxE" alt="product">
         <section id="information">
