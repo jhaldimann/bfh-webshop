@@ -7,6 +7,7 @@
     <body>
         <?php
             include('./views/header.php');
+            include('./views/login.php');
         ?>
 
         <section class="gender-section main-section">

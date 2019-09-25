@@ -4,9 +4,15 @@
         <img class='home-logo' src='/images/home.png' alt='home'>
     </a>
     <h2>GameFameClothing</h2>
-    <a href='/views/user.php'>
-        <img class='user-logo' src='/images/user.png' alt='user'>
-    </a>
+    <div class="dropdown-button">
+        <img class='user-logo' onclick="toggleDropDown()" src='/images/user.png' alt='user'>
+        <div id="user-dropdown" class="user-dropdown">
+            <button class="user-login-button" onclick="toggleLoginPopup(); toggleDropDown()">Login</button>
+            <a class="register-label" href="/views/register.php">New? Register Now</a>
+            <hr class="horizontal-line">
+            <a class="profile-label" href="/views/user.php">My Profile</a>
+        </div>
+    </div>
     <a href='/views/cart.php'>
         <img class='shopping-cart-logo' src='/images/shoppingcart.png' alt='shoppingcart'>
     </a>
@@ -20,4 +26,5 @@
             </label>
         </section>
     </section>
+    <script src="/scripts/header.js"> </script>
 </header>

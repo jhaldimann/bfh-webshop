@@ -8,6 +8,7 @@
     <?php
         include('./header.php');
         include('./sidebar.php');
+        include('./views/login.php');
     ?>
     <section id="special-offers">
         <div id="special-offers-title">

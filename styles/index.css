@@ -33,6 +33,7 @@ body {
 	border: 1px solid black;
 	text-align: center;
 	top: 100px;
+	z-index: -1;
 }
 
 .main-section > a {

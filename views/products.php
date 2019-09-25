@@ -7,6 +7,7 @@
     <body>
         <?php include './header.php'; ?>
         <?php include './sidebar.php'; ?>
+        <?php include './login.php'; ?>
 
         <section class="">
             <?php echo "<h1>".$_GET['type']."</h1>"; ?>

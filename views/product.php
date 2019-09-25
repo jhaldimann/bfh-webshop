@@ -8,6 +8,7 @@
     <?php
         include('./header.php');
         include('./sidebar.php');
+        include('./views/login.php');
     ?>
     <section class="product">
         <img id="product-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrvn5FHHEUeWRTtLIG0SMjHbla700rHzxdpw-edXUKf6YAojxE" alt="product">
