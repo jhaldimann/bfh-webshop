@@ -5,8 +5,11 @@
         <title>GameFameClothing</title>
     </head>
     <body style="text-align:center;">
-        <?php include './header.php'; ?>
-        <?php include './sidebar.php'; ?>
+        <?php
+            include('./header.php');
+            include('./sidebar.php');
+            include('./login.php');
+            ?>
         <section class="register-form">
             <form method="post">
                 <label>
@@ -32,4 +35,4 @@
     </body>
     <link rel="stylesheet" href="../styles/register.css">
 </html>
-<?php include '../utilities/register_process.php'; ?>
+<?php include('../utilities/register_process.php'); ?>
