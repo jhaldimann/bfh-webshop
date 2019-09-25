@@ -17,7 +17,7 @@
                 <img class="lightning" src="/images/lightning.png" alt="lightning">
             </div>
         </section>
-        <section id="cart">
+        <section class="cart">
             <h2>Shopping Cart</h2>
             <ol id="items-in-cart">
                 <li class="cart-item">
@@ -40,7 +40,7 @@
             <section class="checkout-section">
                 <label>Total Price: </label>
                 <label class="total-price">60$</label>
-                <button id="checkout-button">Go to checkout</button>
+                <button class="checkout-button">Go to checkout</button>
             </section>
         </section>
         <?php
