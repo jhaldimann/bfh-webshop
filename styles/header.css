@@ -46,7 +46,7 @@
 	box-shadow: 0 0 3px 2px gray;
 }
 
-.user-dropdown:after {
+.user-dropdown:before {
 	content: '';
 	position: absolute;
 	right: 7px;

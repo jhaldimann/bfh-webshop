@@ -48,11 +48,15 @@ body {
 
 .section-title {
 	margin: 0;
+	color: black;
+	font-weight: bold;
+	font-size: 30px;
 	text-decoration: none;
 	top: 50%;
 	left: 50%;
 	position: absolute;
 	transform: translate(-50%, -50%);
+	z-index: 1;
 }
 
 .gender-section {

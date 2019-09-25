@@ -5,11 +5,13 @@
         <title>Products</title>
     </head>
     <body>
-        <?php include './header.php'; ?>
-        <?php include './sidebar.php'; ?>
-        <?php include './login.php'; ?>
-        <?php include '../utilities/helper.php' ?>
-        <?php echo "<h1>".$_GET['type']."</h1>"; ?>
+        <?php
+            include('./header.php');
+            include('./sidebar.php');
+            include('./login.php');
+            include('../utilities/helper.php');
+            echo "<h1>".$_GET['type']."</h1>";
+            ?>
         <section class="products">
             <?php
             $result = getProducts($_GET['type']);
@@ -20,7 +22,9 @@
 
             ?>
         </section>
-        <?php include './footer.php'; ?>
+        <?php
+            include('./footer.php');
+            ?>
     </body>
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/products.css">

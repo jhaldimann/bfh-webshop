@@ -1,7 +1,7 @@
 <?php
 
 function connect () {
-    $connection = mysqli_connect("sql", "root", "example", "gamefameclothing");
+    $connection = mysqli_connect("localhost", "root", "", "gamefameclothing");
     return $connection;
 }
 
@@ -9,7 +9,7 @@ function checkUser($email, $passwd) {
     // create db connection
     $mysqli = connect();
     // define the sql query to check the user
-    $sql = "SELECT * FROM user where email = '" . $email . "' and password = '" . $passwd . "'";
+    $sql = "SELECT * FROM user WHERE email = '" . $email . "' AND password = '" . $passwd . "'";
 
     $result = $mysqli->query($sql);
     if ($result == true && $result->num_rows == 1) {

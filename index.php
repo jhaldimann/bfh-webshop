@@ -25,7 +25,7 @@
             <a href="views/products.php?type=kids">
                 <div class="section">
                     <h3 class="section-title">Kids</h3>
-                </div>
+                 </div>
             </a>
         </section>
         <section class="special-offers main-section">
