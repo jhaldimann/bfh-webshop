@@ -116,3 +116,14 @@
 #checkout-button:hover {
     background-color: rgb(0, 155, 16);
 }
+
+@media (max-width: 1350px) {
+    #special-offers {
+        display: none;
+    }
+
+    #cart {
+        float: left;
+        left: 300px;
+    }
+}

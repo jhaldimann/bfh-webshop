@@ -10,7 +10,7 @@ function getProducts($cat) {
         return $mysqli->query($query);
 
     } else {
-        $query = $sql = "SELECT * FROM products where category = '".$categorie."'"."OR gender ='".$categorie."'";
+        $query = $sql = "SELECT * FROM products WHERE category = '".$categorie."'"."OR gender ='".$categorie."'";
         return $mysqli->query($query);
 
     }
