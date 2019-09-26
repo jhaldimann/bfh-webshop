@@ -6,15 +6,20 @@
 	left: 60%;
 	position: absolute;
 	transform: translateX(-50%);
+	margin-bottom: 70px;
 	z-index: -1;
-	margin-bottom: 70px
 }
 
 .product {
-	height: 350px;
-	border: 2px solid black;
+	height: 400px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
 	margin: 10px;
+	transition: all .3s ease;
 	text-align: center;
+}
+
+.product:hover {
+	transform: scale(1.03);
 }
 
 .product-link {
