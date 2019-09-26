@@ -17,3 +17,8 @@ function toggleLoginPopup() {
         login.className = login.className.replace(` ${className}`, '');
     }
 }
+
+function showSidebar() {
+    let el = document.querySelector('.navigation-mobile');
+    el.className = "navigation-mobile show";
+}

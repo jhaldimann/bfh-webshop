@@ -1,5 +1,5 @@
 <header class='header'>
-    <img class='burger' src='/images/burger.png' alt='burger'>
+    <img class='burger' src='/images/burger.png' alt='burger' onclick="showSidebar()">
     <a href='/'>
         <img class='home-logo' src='/images/home.png' alt='home'>
     </a>
