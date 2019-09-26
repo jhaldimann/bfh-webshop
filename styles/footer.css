@@ -5,9 +5,28 @@
     left: 0;
     bottom: 0;
     width: 100%;
+    display: flex;
     text-align: center;
 }
 
-#copyright {
+.company-copyright {
+    display: inline-block;
+    position: absolute;
+    left: 40%;
+}
 
+.social-media-section {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+.social-media-link {
+    text-decoration: none;
+}
+
+.social-media-icon {
+    height: 30px;
+    margin-left: 5px;
+    filter: grayscale(100%);
 }
