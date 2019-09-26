@@ -17,6 +17,11 @@
 	text-align: center;
 }
 
+.product-link {
+	text-decoration: none;
+	color: black;
+}
+
 .product > img {
 	width: 80%;
 	margin-top: 20px
