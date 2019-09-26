@@ -9,21 +9,28 @@
         include('./header.php');
         include('./sidebar.php');
         include('./login.php');
+        include('../utilities/helper.php');
     ?>
     <section class="product">
-        <img id="product-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrvn5FHHEUeWRTtLIG0SMjHbla700rHzxdpw-edXUKf6YAojxE" alt="product">
-        <section id="information">
-            <h2 id="description-title">Description</h2>
-            <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi asperiores ducimus eos odio perspiciatis placeat quidem reprehenderit similique soluta ullam. A ab dolorem et in iusto modi, pariatur rerum veritatis.</p>
-            <label id="size-selector-label" for="size-selector">Size:</label>
-            <select id="size-selector">
-                <option value="na">N/A</option>
-            </select>
-            <button id="add-to-cart">
-                <img id="add-to-cart-img" src="/images/shoppingcart.png" alt="add to cart">
-                <label id="add-to-cart-label"l>Add to cart</label>
-            </button>
-        </section>
+        <?php
+            $result = getProduct($_GET['id']);
+            if ($row = mysqli_fetch_assoc($result))
+            {
+                echo "<img class='product-image' src='".$row['image']."' alt='product'>"
+                    ."<section class='information'>"
+                        ."<h2 class='description-title'>Product Description</h2>"
+                        ."<p class='product-description'>".$row['description']."</p>"
+                        ."<label class='product-brand'>".$row['brand']."</label>"
+                        ."<select class='size-selector'>"
+                            ."<option value='".$row['size']."'>".strtoupper($row['size'])."</option>"
+                        ."</select>"
+                        ."<label class='product-price'>Price: ".$row['price']."</label>"
+                        ."<button class='add-to-cart'>"
+                        ."<img class='add-to-cart-img' src='/images/shoppingcart.png' alt='add to cart'>"
+                        ."<label class='add-to-cart-label'l>Add to cart</label>"
+                        ."</button>"
+                    ."</section>";
+        } ?>
     </section>
 
     <?php

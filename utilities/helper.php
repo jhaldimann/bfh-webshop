@@ -15,3 +15,15 @@ function getProducts($cat) {
 
     }
 }
+
+function getProduct($id) {
+    $mysqli = connect();
+    @$identifier = $mysqli->real_escape_string($id);
+
+    if($identifier === "") {
+        return;
+    } else {
+        $query = $sql = "SELECT * FROM products WHERE id = '".$identifier."'";
+        return $mysqli->query($query);
+    }
+}
