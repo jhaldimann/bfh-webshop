@@ -10,7 +10,11 @@
             <button class="user-login-button" onclick="toggleLoginPopup(); toggleDropDown()">Login</button>
             <a class="register-label" href="/views/register.php">New? Register Now</a>
             <hr class="horizontal-line">
-            <a class="profile-label" href="/views/user.php">My Profile</a>
+            <div class="navs">
+                <a class="nav-label" href="/views/user.php">My Profile</a>
+                <a class="nav-label" href="#">My Orders</a>
+                <a class="nav-label" href="#">Help & Contact</a>
+            </div>
         </div>
     </div>
     <a href='/views/cart.php'>
