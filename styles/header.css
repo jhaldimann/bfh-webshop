@@ -182,10 +182,15 @@ h2 {
 	margin: 20px 0;
 }
 
-@media only screen and (max-width: 600px) {
-	img {
+@media only screen and (max-width: 1000px) {
+	header > img {
 		display: none;
 	}
+	
+	header > a > img {
+		display: none;
+	}
+	
 	.burger {
 		display: flex;
 		width: 50px;
@@ -193,6 +198,7 @@ h2 {
 		left: 0;
 		cursor: pointer;
 	}
+	
 	.special-offers > .title > h2 {
 		font-size: 15px;
 	}
@@ -201,7 +207,7 @@ h2 {
 		display: none;
 	}
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 1000px) {
 	.burger {
 		display: none;
 	}

@@ -20,3 +20,14 @@
     background-color: rgb(240,240,240);
     color: black;
 }
+
+@media only screen and (max-width: 1000px) {
+    #sidebar {
+        display: none;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    #sidebar {
+        display: block;
+    }
+}

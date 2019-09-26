@@ -10,7 +10,7 @@
             include('./sidebar.php');
             include('./login.php');
             include('../utilities/helper.php');
-            echo "<h1>".$_GET['type']."</h1>";
+            echo "<h1>".ucfirst($_GET['type'])."</h1>";
             ?>
         <section class="products">
             <?php
