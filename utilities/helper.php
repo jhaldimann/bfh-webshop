@@ -4,6 +4,8 @@ if(array_key_exists('register', $_POST)) {
     register();
 } else if(array_key_exists('login', $_POST)) {
     login();
+} else if(array_key_exists('add-to-cart', $_POST)) {
+    addToCart();
 }
 
 function connect () {
@@ -71,6 +73,14 @@ function login() {
     @$password = $mysqli->real_escape_string($_POST["password"]);
     checkUser($email,$password);
 }
+
+/*function addToCart() {
+    $mysqli = connect();
+
+    if() {
+        $query = "INSERT INTO cart_items (user_id, product_id) values"
+    }
+}*/
 
 function checkUser($email, $passwd) {
     // create db connection

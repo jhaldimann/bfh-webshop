@@ -10,6 +10,7 @@
         include('./sidebar.php');
         include('./login.php');
         include('../utilities/helper.php');
+        $isLoggedIn = true;
     ?>
     <section class="product">
         <?php
@@ -25,9 +26,9 @@
                             ."<option value='".$row['size']."'>".strtoupper($row['size'])."</option>"
                         ."</select>"
                         ."<label class='product-price'>Price: ".$row['price']."</label>"
-                        ."<button class='add-to-cart'>"
-                        ."<img class='add-to-cart-img' src='/images/shoppingcart.png' alt='add to cart'>"
-                        ."<label class='add-to-cart-label'l>Add to cart</label>"
+                        ."<button class='add-to-cart' type='submit' name='add-to-cart'>"
+                            ."<img class='add-to-cart-img' src='/images/shoppingcart.png' alt='add to cart'>"
+                            ."<label class='add-to-cart-label'>Add to cart</label>"
                         ."</button>"
                     ."</section>";
         } ?>
