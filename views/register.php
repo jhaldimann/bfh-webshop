@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>GameFameClothing</title>
     </head>
-    <body style="text-align:center;">
+    <body>
         <?php
             include('./header.php');
             include('./sidebar.php');
@@ -13,20 +13,24 @@
         <section class="register-form">
             <form method="post">
                 <label>
-                    <p class="title">Prename</p>
-                    <input type="text" name="prename">
+                    <p class="title">Firstname</p>
+                    <input type="text" name="prename" required>
                 </label>
                 <label>
                     <p class="title">Name</p>
-                    <input type="text" name="name">
+                    <input type="text" name="name" required>
                 </label>
                 <label>
                     <p class="title">Email</p>
-                    <input type="email" name="email">
+                    <input type="email" name="email" required>
                 </label>
                 <label>
                     <p class="title">Password</p>
-                    <input type="password" name="password">
+                    <input type="password" name="password" required>
+                </label>
+                <label>
+                    <p class="title">Password confirm</p>
+                    <input type="password" name="password-confirm" required>
                 </label>
                 <input type="submit" name="register" class="button" value="Send" />
             </form>
@@ -35,4 +39,4 @@
     </body>
     <link rel="stylesheet" href="../styles/register.css">
 </html>
-<?php include('../utilities/register_process.php'); ?>
+<?php include('../utilities/helper.php'); ?>
