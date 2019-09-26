@@ -1,7 +1,8 @@
 <?php
 
 function connect () {
-    $connection = mysqli_connect("localhost", "root", "", "gamefameclothing");
+    $config = include ('../config.php');
+    $connection = mysqli_connect($config['host'], $config['username'], $config['password'], $config['database']);
     return $connection;
 }
 
