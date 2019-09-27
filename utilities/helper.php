@@ -1,5 +1,10 @@
 <?php
 
+if(session_id() == '' || !isset($_SESSION)) {
+    // session isn't started
+    session_start();
+}
+
 if(array_key_exists('register', $_POST)) {
     register();
 } else if(array_key_exists('login', $_POST)) {
@@ -9,14 +14,14 @@ if(array_key_exists('register', $_POST)) {
 }
 
 function connect () {
-    $config = include ('../config.php');
+    $config = include ($_SERVER['DOCUMENT_ROOT'].'config.php');
     $connection = mysqli_connect($config['host'], $config['username'], $config['password'], $config['database']);
     return $connection;
 }
 
 function getProducts($cat) {
     $mysqli = connect();
-    @$categorie =  $mysqli->real_escape_string($cat);
+    $categorie =  $mysqli->real_escape_string($cat);
 
     if($categorie === "") {
         $query =   $sql = "SELECT * FROM products";
@@ -31,7 +36,7 @@ function getProducts($cat) {
 
 function getProduct($id) {
     $mysqli = connect();
-    @$identifier = $mysqli->real_escape_string($id);
+    $identifier = $mysqli->real_escape_string($id);
 
     if($identifier === "") {
         return;
@@ -43,11 +48,11 @@ function getProduct($id) {
 
 function register() {
     $mysqli = connect();
-    @$prename = $mysqli->real_escape_string($_POST["prename"]);
-    @$name = $mysqli->real_escape_string($_POST["name"]);
-    @$email = $mysqli->real_escape_string($_POST["email"]);
-    @$password = $mysqli->real_escape_string($_POST["password"]);
-    @$passwordConfirm = $mysqli->real_escape_string($_POST["password-confirm"]);
+    $prename = $mysqli->real_escape_string($_POST["prename"]);
+    $name = $mysqli->real_escape_string($_POST["name"]);
+    $email = $mysqli->real_escape_string($_POST["email"]);
+    $password = $mysqli->real_escape_string($_POST["password"]);
+    $passwordConfirm = $mysqli->real_escape_string($_POST["password-confirm"]);
     if($password === $passwordConfirm) {
         if($prename !== "" && $name !== "" && $email !== "" && $password !== "") {
             if(!checkUser($email,$password)) {
@@ -67,11 +72,20 @@ function register() {
 }
 
 function login() {
-    $mysqli = connect();
 
-    @$email = $mysqli->real_escape_string($_POST["email"]);
-    @$password = $mysqli->real_escape_string($_POST["password"]);
-    checkUser($email,$password);
+    $mysqli = connect();
+    $email = $mysqli->real_escape_string($_POST["email"]);
+    $password = $mysqli->real_escape_string($_POST["password"]);
+
+    if(checkUser($email,$password)) {
+        $_SESSION['logged_in'] = true;
+        $_SESSION['email'] = $email;
+    }
+}
+
+function logout() {
+    session_destroy();
+    header("Location: index.php");
 }
 
 /*function addToCart() {

@@ -1,11 +1,12 @@
 <section id="login" class="login">
     <div class="login-popup">
-        <form class="login-form">
+        <form class="login-form" method="post">
             <h2 class="login-title">Login</h2>
             <img class="close-form" onclick="toggleLoginPopup()" src="/images/close.png" alt="close form">
             <label>
                 <p class="title">Email</p>
                 <input type="email" name="email">
+                <?php echo $_SESSION['logged_in'] ?>
             </label>
             <label>
                 <p class="title">Password</p>

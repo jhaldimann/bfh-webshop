@@ -1,3 +1,4 @@
+<?php include($_SERVER['DOCUMENT_ROOT'].'utilities/helper.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,4 +40,4 @@
     </body>
     <link rel="stylesheet" href="../styles/register.css">
 </html>
-<?php include('../utilities/helper.php'); ?>
+
