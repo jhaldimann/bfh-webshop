@@ -78,7 +78,13 @@ function login() {
     $password = $mysqli->real_escape_string($_POST["password"]);
 
     if(checkUser($email,$password)) {
+        $query = "SELECT * FROM user WHERE email = '".$email."'";
+        $data = $mysqli->query($query);
+        $row = mysqli_fetch_assoc($data);
         $_SESSION['logged_in'] = true;
+        $_SESSION['name'] = $row['name'];
+        $_SESSION['prename'] = $row['prename'];
+        $_SESSION['id'] = $row['id'];
         $_SESSION['email'] = $email;
     }
 }

@@ -6,7 +6,6 @@
             <label>
                 <p class="title">Email</p>
                 <input type="email" name="email">
-                <?php echo $_SESSION['logged_in'] ?>
             </label>
             <label>
                 <p class="title">Password</p>

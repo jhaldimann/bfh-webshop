@@ -212,3 +212,16 @@ h2 {
 		display: none;
 	}
 }
+
+.user-details {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+}
+.logged-in-user {
+	position: absolute;
+	text-align: left;
+	top: 35%;
+	left: 20px;
+}

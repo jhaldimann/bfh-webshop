@@ -8,17 +8,27 @@
     <div class="dropdown-button">
         <img class='user-logo' onclick="toggleDropDown()" src='/images/user.png' alt='user'>
         <div id="user-dropdown" class="user-dropdown">
-            <?php if(!isset($_SESSION['email'])) {
-                echo"<button class=\"user-login-button\" onclick=\"toggleLoginPopup(); toggleDropDown()\">Login</button>";
-                echo"<a class=\"register-label\" href=\"/views/register.php\">New? Register Now</a>";
-            } ?>
+            <?php
+                if(!isset($_SESSION['logged_in'])) {
+                    echo"<button class=\"user-login-button\" onclick=\"toggleLoginPopup(); toggleDropDown()\">Login</button>";
+                    echo"<a class=\"register-label\" href=\"/views/register.php\">New? Register Now</a>";
+                } else {
+                    echo "<p class='user-details'> Hello".$_SESSION['prename']." ".$_SESSION['name']."</p>";
+                }
+            ?>
             <hr class="horizontal-line">
-            <div class="navs">
-                <?php if(isset($_SESSION['email'])) {
-                    echo "<a class=\"nav-label\" href=\"/views/user.php\">My Profile</a>
-                          <a class=\"nav-label\" href=\"#\">My Orders</a>";
+            <?php
+                if (isset($_SESSION['logged_in'])) {
+                    echo"<div class=\"navs logged-in-user\">";
+                } else {
+                    echo"<div class=\"navs\">";
+                }
+            ?>
+                <?php if(isset($_SESSION['logged_in'])) {
+                    echo "<a class=\"nav-label\" href=\"/views/user.php\">My Profile</a>";
+                    echo "<a class=\"nav-label\" href=\"#\">My Orders</a>";
+                    echo "<button class=\"user-login-button\">Logout</button>";
                 }?>
-
                 <a class="nav-label" href="#">Help & Contact</a>
             </div>
         </div>

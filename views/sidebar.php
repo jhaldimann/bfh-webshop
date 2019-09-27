@@ -12,6 +12,7 @@
    <div class="close" onclick="toggleSidebar()"></div>
     <div id="menuToggle">
         <ul id="menu">
+            <a href="/index.php">Home</a>
             <a href='/views/products.php?type=caps'>Caps</a>
             <a href='/views/products.php?type=shirts'>Shirts</a>
             <a href='/views/products.php?type=sweatshirts'>Sweatshirts</a>
