@@ -1,4 +1,5 @@
-<?php include('./views/login.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'utilities/helper.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/views/login.php'); ?>
 <header class='header'>
     <img class='burger' src='/images/burger.png' alt='burger' onclick="showSidebar()">
     <a href='/'>
@@ -13,7 +14,7 @@
                     echo"<button class=\"user-login-button\" onclick=\"toggleLoginPopup(); toggleDropDown()\">Login</button>";
                     echo"<a class=\"register-label\" href=\"/views/register.php\">New? Register Now</a>";
                 } else {
-                    echo "<p class='user-details'> Hello".$_SESSION['prename']." ".$_SESSION['name']."</p>";
+                    echo "<p class='user-details'> Hello ".$_SESSION['prename']." ".$_SESSION['name']."</p>";
                 }
             ?>
             <hr class="horizontal-line">
@@ -27,7 +28,7 @@
                 <?php if(isset($_SESSION['logged_in'])) {
                     echo "<a class=\"nav-label\" href=\"/views/user.php\">My Profile</a>";
                     echo "<a class=\"nav-label\" href=\"#\">My Orders</a>";
-                    echo "<button class=\"user-login-button\">Logout</button>";
+                    echo "<input type=\"submit\" name=\"logout\" class=\"user-login-button\" value=\"Send\" />";
                 }?>
                 <a class="nav-label" href="#">Help & Contact</a>
             </div>
@@ -48,4 +49,3 @@
     </section>
     <script src="/scripts/header.js"> </script>
 </header>
-

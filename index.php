@@ -1,4 +1,3 @@
-<?php include('utilities/helper.php'); ?>
 <?php include('./views/header.php'); ?>
 <?php include('./views/footer.php'); ?>
 <?php include('./views/sidebar.php'); ?>

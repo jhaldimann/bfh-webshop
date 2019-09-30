@@ -1,7 +1,6 @@
 <?php
 
 if(session_id() == '' || !isset($_SESSION)) {
-    // session isn't started
     session_start();
 }
 
@@ -11,6 +10,8 @@ if(array_key_exists('register', $_POST)) {
     login();
 } else if(array_key_exists('add-to-cart', $_POST)) {
     addToCart();
+} else if(array_key_exists('logout', $_POST)) {
+    logout();
 }
 
 function connect () {
