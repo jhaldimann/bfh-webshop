@@ -9,7 +9,6 @@
         include('./header.php');
         include('./sidebar.php');
         include('./login.php');
-        include('../utilities/helper.php');
         $isLoggedIn = true;
     ?>
     <section class="product">
@@ -26,7 +25,7 @@
                             ."<option value='".$row['size']."'>".strtoupper($row['size'])."</option>"
                         ."</select>"
                         ."<label class='product-price'>Price: ".$row['price']."</label>"
-                        ."<button class='add-to-cart' type='submit' name='add-to-cart'>"
+                        ."<button class='add-to-cart' onclick='addToCart(".json_encode($row).")'>"
                             ."<img class='add-to-cart-img' src='/images/shoppingcart.png' alt='add to cart'>"
                             ."<label class='add-to-cart-label'>Add to cart</label>"
                         ."</button>"
@@ -38,6 +37,7 @@
         include('./footer.php');
     ?>
     </body>
+    <script type="application/javascript" src="/scripts/product.js"></script>
     <link href="/styles/product.css" rel="stylesheet">
     <link href="/styles/global.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
