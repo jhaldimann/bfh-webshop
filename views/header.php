@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'].'utilities/helper.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/utilities/helper.php'); ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/views/login.php'); ?>
 <header class='header'>
     <img class='burger' src='/images/burger.png' alt='burger' onclick="showSidebar()">
@@ -28,7 +28,7 @@
                 <?php if(isset($_SESSION['logged_in'])) {
                     echo "<a class=\"nav-label\" href=\"/views/user.php\">My Profile</a>";
                     echo "<a class=\"nav-label\" href=\"#\">My Orders</a>";
-                    echo "<input type=\"submit\" name=\"logout\" class=\"user-login-button\" value=\"Send\" />";
+                    echo "<input type=\"submit\" name=\"logout\" class=\"user-login-button\" value=\"Logout\" />";
                 }?>
                 <a class="nav-label" href="#">Help & Contact</a>
             </div>

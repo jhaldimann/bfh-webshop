@@ -9,14 +9,11 @@
         include('./header.php');
         include('./sidebar.php');
         include('./login.php');
-        include('../utilities/helper.php');
-        $isLoggedIn = true;
     ?>
     <section class="product">
         <?php
             $result = getProduct($_GET['id']);
-            if ($row = mysqli_fetch_assoc($result))
-            {
+            if ($row = mysqli_fetch_assoc($result)) {
                 echo "<img class='product-image' src='".$row['image']."' alt='product'>"
                     ."<section class='information'>"
                         ."<h2 class='description-title'>Product Description</h2>"

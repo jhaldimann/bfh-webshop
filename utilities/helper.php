@@ -115,3 +115,9 @@ function checkUser($email, $passwd) {
     }
     return false;
 }
+
+function getUser($id) {
+    $mysqli = connect();
+    $sql = "SELECT * FROM user WHERE id ='".$id."'";
+    return $mysqli->query($sql);
+}

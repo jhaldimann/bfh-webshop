@@ -1,3 +1,10 @@
+<?php
+include('./header.php');
+include('./login.php');
+include('./footer.php');
+include('./sidebar.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,15 +12,17 @@
     <title>GameFameClothing</title>
 </head>
 <body>
-<?php
-include('./header.php');
-include('./sidebar.php');
-include('./login.php');
-?>
-<section class="register-form">
 
+<section class="user-info">
+    <?php
+        $result = getUser($_SESSION['id']);
+        if ($row = mysqli_fetch_assoc($result)) {
+            echo "<h1>".$row['prename']."</h1>";
+        }
+
+    ?>
 </section>
-<?php include './footer.php'; ?>
+
 </body>
 <link rel="stylesheet" href="../styles/user.css">
 </html>
