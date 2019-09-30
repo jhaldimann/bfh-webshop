@@ -21,7 +21,7 @@ function populateCart() {
         `</li>`
     });
   } else {
-    itemsInCart.innerHTML += ""
+    itemsInCart.innerHTML += "";
   }
 
   totalPriceLabel.innerHTML = `${calculateTotalPrice()} CHF`;
