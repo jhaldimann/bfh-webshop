@@ -20,6 +20,7 @@
 
 .product:hover {
 	transform: scale(1.03);
+	border: 2px solid rgba(0,0,0,.5);
 }
 
 .product-link {
