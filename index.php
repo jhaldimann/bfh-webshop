@@ -1,3 +1,7 @@
+<?php include('utilities/helper.php'); ?>
+<?php include('./views/header.php'); ?>
+<?php include('./views/footer.php'); ?>
+<?php include('./views/sidebar.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,14 +9,6 @@
         <title>GameFameClothing</title>
     </head>
     <body>
-        <?php
-            if (session_status() == PHP_SESSION_NONE) {
-                session_start();
-            }
-            include('./views/header.php');
-            include('./views/login.php');
-        ?>
-
         <section class="gender-section main-section">
             <h3>Select a category</h3> <br/>
             <a href="views/products.php?type=women">
@@ -38,9 +34,6 @@
                 <img class="lightning" src="/images/lightning.png" alt="lightning">
             </div>
         </section>
-        <?php
-            include('./views/footer.php');
-        ?>
     </body>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/index.css">

@@ -1,3 +1,9 @@
+<?php
+    include('./header.php');
+    include('./sidebar.php');
+    include('../utilities/helper.php');
+    include('./footer.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,18 +11,11 @@
         <title>Products</title>
     </head>
     <body>
-        <?php
-            include('./header.php');
-            include('./sidebar.php');
-            include('./login.php');
-            include('../utilities/helper.php');
-            echo "<h1>".ucfirst($_GET['type'])."</h1>";
-            ?>
+        <?php echo "<h1>".ucfirst($_GET['type'])."</h1>"; ?>
         <section class="products">
             <?php
             $result = getProducts($_GET['type']);
-            while ($row = mysqli_fetch_assoc($result))
-            {
+            while ($row = mysqli_fetch_assoc($result)) {
                 echo "<a class='product-link' href='./product.php?id=".$row['id']."'>"
                         ."<div class='product'>"
                             ."<img src=".$row['image']." alt="."'".$row['description']."'".">"
@@ -28,9 +27,7 @@
                     "</a>";
             } ?>
         </section>
-        <?php
-            include('./footer.php');
-            ?>
+
     </body>
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/products.css">
