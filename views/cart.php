@@ -1,3 +1,9 @@
+<?php
+    include('./header.php');
+    include('./sidebar.php');
+    include('./login.php');
+    include('./footer.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,11 +11,7 @@
         <title>GameFameClothing</title>
     </head>
     <body>
-        <?php
-            include('./header.php');
-            include('./sidebar.php');
-            include('./login.php');
-            ?>
+
         <section id="special-offers">
             <div id="special-offers-title">
                 <img class="lightning" src="/images/lightning.png" alt="lightning">
@@ -27,9 +29,6 @@
                 <button class="checkout-button">Go to checkout</button>
             </section>
         </section>
-        <?php
-            include('./footer.php');
-        ?>
     </body>
     <script type="application/javascript" src="/scripts/cart.js"></script>
     <link href="/styles/cart.css" rel="stylesheet">

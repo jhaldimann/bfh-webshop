@@ -1,9 +1,8 @@
 <?php
-include('./header.php');
-include('./login.php');
-include('./footer.php');
-include('./sidebar.php');
-
+    include('./header.php');
+    include('./login.php');
+    include('./footer.php');
+    include('./sidebar.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +16,10 @@ include('./sidebar.php');
     <?php
         $result = getUser($_SESSION['id']);
         if ($row = mysqli_fetch_assoc($result)) {
-            echo "<h1>".$row['prename']."</h1>";
-        }
+            echo "<h1>".$row['prename']." ".$row['name']."</h1>";
+            echo "<p>Email: ".$row['email']."</p>";
 
+        }
     ?>
 </section>
 
