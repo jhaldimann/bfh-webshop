@@ -46,7 +46,7 @@
     border: 2px solid lightgray;
     width: 500px;
     position: relative;
-    z-index: -1;
+    z-index: 0;
 }
 
 .cart-item label {
@@ -94,6 +94,10 @@
 .item-remove:hover {
     transform: scale(1.1);
     opacity: .6;
+}
+
+.item-remove:active {
+  opacity: .8;
 }
 
 .checkout-section {
