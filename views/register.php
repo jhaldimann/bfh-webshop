@@ -1,4 +1,3 @@
-<?php include($_SERVER['DOCUMENT_ROOT'].'utilities/helper.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
