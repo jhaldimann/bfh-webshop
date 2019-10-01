@@ -39,6 +39,19 @@ h1 {
 	margin-bottom: 0;
 }
 
+.add-to-cart-button {
+	border-radius: 10px;
+  background-color: blue;
+  border: 1px solid rgba(0,0,0,.5);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+	transition: all .3 ease;
+}
+
+.add-to-cart-button:hover {
+	cursor: pointer;
+	background-color: green;
+}
+
 @media only screen and (max-width: 1000px) {
 	.products {
 		grid-template-columns: 50% 50%;
