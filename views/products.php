@@ -28,8 +28,8 @@
         </section>
 
     </body>
+    <script type="application/javascript" src="/scripts/product.js"></script>
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/products.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </html>
-

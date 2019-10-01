@@ -31,6 +31,7 @@
         </section>
     </body>
     <script type="application/javascript" src="/scripts/cart.js"></script>
+    <link rel="stylesheet" href="/styles/quantity-selection.css">
     <link href="/styles/cart.css" rel="stylesheet">
     <link href="/styles/global.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
