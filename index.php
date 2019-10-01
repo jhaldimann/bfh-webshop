@@ -8,23 +8,21 @@
         <title>GameFameClothing</title>
     </head>
     <body>
-        <section class="gender-section main-section">
-            <h3>Select a category</h3> <br/>
-            <a href="views/products.php?type=women">
-                <div class="section">
-                    <h3 class="section-title">Women</h3>
-                </div>
-            </a>
-            <a href="views/products.php?type=men">
-                <div class="section">
-                    <h3 class="section-title">Men</h3>
-                </div>
-            </a>
-            <a href="views/products.php?type=kids">
-                <div class="section">
-                    <h3 class="section-title">Kids</h3>
-                 </div>
-            </a>
+        <h2>Random Picks</h2>
+        <section class="main-section random-picks">
+            <?php
+            $result = pickRandomItem();
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<a class='product-link' href='./views/product.php?id=".$row['id']."'>"
+                    ."<div class='product'>"
+                    ."<img src=".$row['image']." alt="."'".$row['description']."'".">"
+                    ."<h3>".$row['brand']." ".$row['category']."</h3>"
+                    ."<p>Price: <label>".$row['price']." CHF</label></p>"
+                    ."<p>Size: <label>".$row['size']."</label></p>"
+                    ."<p>Quantity: <label>".$row['quantity']."</label></p>"
+                    ."</div>".
+                    "</a>";
+            } ?>
         </section>
         <section class="special-offers main-section">
             <div class="title">
@@ -34,8 +32,9 @@
             </div>
         </section>
     </body>
-    <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/products.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </html>
 

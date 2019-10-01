@@ -12,12 +12,12 @@
             <?php
                 if(!isset($_SESSION['logged_in'])) {
                     echo"<button class=\"user-login-button\" onclick=\"toggleLoginPopup(); toggleDropDown()\">Login</button>";
-                    echo"<a class=\"register-label\" href=\"/views/register.php\">New? Register Now</a>";
+                    echo"<a class=\"register-label\" href=\"/views/register.php\"><button class=\"user-login-button\">Register</button></a>";
                 } else {
                     echo "<p class='user-details'> Hello ".$_SESSION['prename']." ".$_SESSION['name']."</p>";
                 }
             ?>
-            <hr class="horizontal-line">
+
             <?php
                 if (isset($_SESSION['logged_in'])) {
                     echo"<div class=\"navs logged-in-user\">";
@@ -26,11 +26,15 @@
                 }
             ?>
                 <?php if(isset($_SESSION['logged_in'])) {
+                    echo"<hr class=\"horizontal-line-logged-in\">";
+                    echo"<form method=\"post\">";
                     echo "<a class=\"nav-label\" href=\"/views/user.php\">My Profile</a>";
                     echo "<a class=\"nav-label\" href=\"#\">My Orders</a>";
-                    echo "<input type=\"submit\" name=\"logout\" class=\"user-login-button\" value=\"Logout\" />";
+                    echo "<a class=\"nav-label\" href=\"#\">Help & Contact</a>";
+                    echo "<input type=\"submit\" name=\"logout\" class=\"user-logout-button\" value=\"Logout\" />";
+                    echo"</form>";
                 }?>
-                <a class="nav-label" href="#">Help & Contact</a>
+
             </div>
         </div>
     </div>
@@ -49,3 +53,5 @@
     </section>
     <script src="/scripts/header.js"> </script>
 </header>
+
+<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">

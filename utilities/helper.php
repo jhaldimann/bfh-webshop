@@ -59,8 +59,15 @@ function register() {
             if(!checkUser($email,$password)) {
                 $query = "INSERT INTO user (prename,name,email,password) values "."('$prename','$name','$email','".md5( $password )."')";
                 $mysqli->query($query);
-                echo"<div class='message-box success'><p>Registration successfully</p></div>";
-
+                $sql = "SELECT * FROM user WHERE email = '".$email."'";
+                $data = $mysqli->query($sql);
+                $row = mysqli_fetch_assoc($data);
+                $_SESSION['logged_in'] = true;
+                $_SESSION['name'] = $row['name'];
+                $_SESSION['prename'] = $row['prename'];
+                $_SESSION['id'] = $row['id'];
+                $_SESSION['email'] = $email;
+                header("Location: /index.php");
             } else {
                 echo"<div class='message-box failed'><p>User already exists</p></div>";
             }
@@ -92,7 +99,7 @@ function login() {
 
 function logout() {
     session_destroy();
-    header("Location: index.php");
+    header("Location: /index.php");
 }
 
 /*function addToCart() {
@@ -119,5 +126,11 @@ function checkUser($email, $passwd) {
 function getUser($id) {
     $mysqli = connect();
     $sql = "SELECT * FROM user WHERE id ='".$id."'";
+    return $mysqli->query($sql);
+}
+
+function pickRandomItem() {
+    $mysqli = connect();
+    $sql = "SELECT * FROM `products` ORDER BY RAND() LIMIT 3";
     return $mysqli->query($sql);
 }

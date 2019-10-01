@@ -1,3 +1,8 @@
+<?php
+    include('./header.php');
+    include('./sidebar.php');
+    include('./login.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,11 +10,6 @@
         <title>GameFameClothing</title>
     </head>
     <body>
-        <?php
-            include('./header.php');
-            include('./sidebar.php');
-            include('./login.php');
-            ?>
         <section class="register-form">
             <form method="post">
                 <label>

@@ -30,7 +30,6 @@ body {
 	width: 80%;
 	position: relative;
 	margin: 20px auto;
-	border: 1px solid black;
 	text-align: center;
 	top: 100px;
 	z-index: 0;
@@ -72,3 +71,24 @@ body {
 #sidebar {
 	display: none;
 }
+
+.random-picks {
+	margin: 0;
+	position: relative !important;
+	left: 50%;
+	transform: translateX(-50%);
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+	width: 80%;
+	z-index: 0;
+}
+
+.product {
+	transition: none!important;
+}
+
+.product:hover {
+	transform: scale(1)!important;
+}
+
+
