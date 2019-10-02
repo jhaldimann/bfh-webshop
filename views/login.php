@@ -1,6 +1,6 @@
 <section id="login" class="login">
     <div class="login-popup">
-        <form class="login-form" method="post">
+        <form class="login-form" method="post" target="login">
             <h2 class="login-title">Login</h2>
             <img class="close-form" onclick="toggleLoginPopup()" src="/images/close.png" alt="close form">
             <label>

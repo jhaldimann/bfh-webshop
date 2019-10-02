@@ -30,6 +30,22 @@
                 <h2>Special Offers</h2>
                 <img class="lightning" src="/images/lightning.png" alt="lightning">
             </div>
+            <section class="main-section sale">
+                <?php
+                $result = getSaleProducts();
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<a class='product-link' href='./views/product.php?id=".$row['id']."'>"
+                        ."<div class='product'>"
+                        ."<img src=".$row['image']." alt="."'".$row['description']."'".">"
+                        ."<h3>".$row['brand']." ".$row['category']."</h3>"
+                        ."<p class='percent'>Sale: <label>".$row['percent']."%</label></p>"
+                        ."<p>Price: <label>".($row['price']/100 * (100-$row['percent']))." CHF</label></p>"
+                        ."<p>Size: <label>".$row['size']."</label></p>"
+                        ."<p>Quantity: <label>".$row['quantity']."</label></p>"
+                        ."</div>".
+                        "</a>";
+                } ?>
+            </section>
         </section>
     </body>
     <link rel="stylesheet" href="styles/index.css">

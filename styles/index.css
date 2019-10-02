@@ -91,4 +91,11 @@ body {
 	transform: scale(1)!important;
 }
 
+.sale {
+	width: 100%;
+	margin-bottom: 100px;
+}
 
+.percent {
+	color: red;
+}
