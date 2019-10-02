@@ -30,7 +30,12 @@
                 <h2>Special Offers</h2>
                 <img class="lightning" src="/images/lightning.png" alt="lightning">
             </div>
-            <section class="main-section sale">
+            <div class="down-arrow bounce">
+              <a href="#sales">
+                <img class="down-arrow-image" src="/images/down_arrow.png" alt="down arrow">
+              </a>
+            </div>
+            <section id="sales" class="main-section sale">
                 <?php
                 $result = getSaleProducts();
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -53,5 +58,3 @@
     <link rel="stylesheet" href="styles/products.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </html>
-
-

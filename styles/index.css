@@ -5,6 +5,10 @@ body {
 	margin: 0;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 .section {
 	box-shadow: 4px 4px 4px grey;
 	width: 30%;
@@ -98,4 +102,26 @@ body {
 
 .percent {
 	color: red;
+}
+
+.down-arrow {
+	margin-top: 5px;
+}
+
+.bounce {
+	-moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
 }
