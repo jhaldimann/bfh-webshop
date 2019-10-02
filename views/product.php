@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<?php
+    include('./header.php');
+    include('./sidebar.php');
+    include('./login.php');
+?>
+!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>GameFameClothing</title>
     </head>
     <body>
-    <?php
-        include('./header.php');
-        include('./sidebar.php');
-        include('./login.php');
-    ?>
     <section class="product">
         <?php
             $result = getProduct($_GET['id']);
