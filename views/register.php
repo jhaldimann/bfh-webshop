@@ -26,11 +26,11 @@
                 </label>
                 <label>
                     <p class="title">Password</p>
-                    <input type="password" name="password" required>
+                    <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                 </label>
                 <label>
                     <p class="title">Password confirm</p>
-                    <input type="password" name="password-confirm" required>
+                    <input type="password" name="password-confirm" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                 </label>
                 <input type="submit" name="register" class="button" value="Send" />
             </form>
