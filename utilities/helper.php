@@ -8,8 +8,6 @@ if(array_key_exists('register', $_POST)) {
     register();
 } else if(array_key_exists('login', $_POST)) {
     login();
-} else if(array_key_exists('add-to-cart', $_POST)) {
-    addToCart();
 } else if(array_key_exists('logout', $_POST)) {
     logout();
 }
@@ -102,14 +100,6 @@ function logout() {
     header("Location: /index.php");
 }
 
-/*function addToCart() {
-    $mysqli = connect();
-
-    if() {
-        $query = "INSERT INTO cart_items (user_id, product_id) values"
-    }
-}*/
-
 function checkUser($email, $passwd) {
     // create db connection
     $mysqli = connect();
@@ -131,6 +121,12 @@ function getUser($id) {
 
 function pickRandomItem() {
     $mysqli = connect();
-    $sql = "SELECT * FROM `products` ORDER BY RAND() LIMIT 3";
+    $sql = "SELECT * FROM products ORDER BY RAND() LIMIT 3";
+    return $mysqli->query($sql);
+}
+
+function getSaleProducts() {
+    $mysqli = connect();
+    $sql = "SELECT * FROM products WHERE sale = 1 LIMIT 3";
     return $mysqli->query($sql);
 }
