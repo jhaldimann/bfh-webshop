@@ -35,32 +35,30 @@
 }
 
 .user-dropdown {
-	color: black;
-	background-color: white;
 	display: none;
 	position: relative;
-	min-width: 200px;
-	margin-top: 60px;
-	margin-right: 10px;
-	height: 200px;
-	z-index: 1;
-	box-shadow: 0 0 3px 2px gray;
+	background: #ffffff;
+	padding: 15px 15px 65px 15px;
+	border: 1px solid #dddddd;
+	margin-top: 50px;
 }
 
-.user-dropdown:before {
+.user-dropdown:before, .user-dropdown:after {
 	content: '';
 	position: absolute;
-	right: 7px;
-	top: -18px;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 0 17px 17px 17px;
-	border-color: transparent transparent white transparent;
+	bottom: 100%;
+	left: 80%;
+	border: 11px solid transparent;
+	border-bottom-color: #dddddd;
+}
+
+.user-dropdown:after {
+	left: 80%;
+	border: 10px solid transparent;
+	border-bottom-color: #ffffff;
 }
 
 .dropdown-show {
-	padding: 20px 0 0 0;
 	display: block;
 }
 
