@@ -10,6 +10,14 @@ if(array_key_exists('register', $_POST)) {
     login();
 } else if(array_key_exists('logout', $_POST)) {
     logout();
+} else if(array_key_exists('getRandomPicks', $_POST)) {
+    pickRandomItem();
+} else if(array_key_exists('getSaleProducts', $_POST)) {
+    getSaleProducts();
+} else if(array_key_exists('getUser', $_POST)) {
+    getUser($_SESSION['id']);
+} else {
+
 }
 
 function connect () {
@@ -29,7 +37,6 @@ function getProducts($cat) {
     } else {
         $query = $sql = "SELECT * FROM products WHERE category = '".$categorie."'"."OR gender ='".$categorie."'";
         return $mysqli->query($query);
-
     }
 }
 
@@ -78,7 +85,6 @@ function register() {
 }
 
 function login() {
-
     $mysqli = connect();
     $email = $mysqli->real_escape_string($_POST["email"]);
     $password = $mysqli->real_escape_string($_POST["password"]);
@@ -115,18 +121,43 @@ function checkUser($email, $passwd) {
 
 function getUser($id) {
     $mysqli = connect();
-    $sql = "SELECT * FROM user WHERE id ='".$id."'";
-    return $mysqli->query($sql);
+    $myArray = array();
+    if ($result = $mysqli->query("SELECT name, prename, email FROM user WHERE id =".$id)) {
+        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $myArray[] = $row;
+        }
+        echo json_encode($myArray);
+    }
+
+    $result->close();
+    $mysqli->close();
 }
 
 function pickRandomItem() {
     $mysqli = connect();
-    $sql = "SELECT * FROM products ORDER BY RAND() LIMIT 3";
-    return $mysqli->query($sql);
+    $myArray = array();
+    if ($result = $mysqli->query("SELECT * FROM products ORDER BY RAND() LIMIT 3")) {
+        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $myArray[] = $row;
+        }
+        echo json_encode($myArray);
+    }
+
+    $result->close();
+    $mysqli->close();
 }
 
 function getSaleProducts() {
     $mysqli = connect();
-    $sql = "SELECT * FROM products WHERE sale = 1 LIMIT 3";
-    return $mysqli->query($sql);
+    $myArray = array();
+    if ($result = $mysqli->query("SELECT * FROM products WHERE sale = 1 LIMIT 3")) {
+
+        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $myArray[] = $row;
+        }
+        echo json_encode($myArray);
+    }
+
+    $result->close();
+    $mysqli->close();
 }
