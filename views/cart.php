@@ -26,7 +26,7 @@
             <section class="checkout-section">
                 <label>Total Price: </label>
                 <label class="total-price"></label>
-                <button class="checkout-button">Go to checkout</button>
+                <button class="checkout-button" onclick="getRandomPicks()">Go to checkout</button>
             </section>
         </section>
     </body>
@@ -35,4 +35,5 @@
     <link href="/styles/cart.css" rel="stylesheet">
     <link href="/styles/global.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script type="application/javascript" src="/scripts/index.js"></script>
 </html>

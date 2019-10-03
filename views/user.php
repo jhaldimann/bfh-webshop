@@ -10,17 +10,11 @@
         <meta charset="UTF-8">
         <title>GameFameClothing</title>
     </head>
-    <body>
+    <body onload="loadUserInfo()">
         <section class="user-info">
-            <?php
-                $result = getUser($_SESSION['id']);
-                if ($row = mysqli_fetch_assoc($result)) {
-                    echo "<h1>".$row['prename']." ".$row['name']."</h1>";
-                    echo "<p>Email: ".$row['email']."</p>";
-                }
-            ?>
         </section>
     </body>
     <link rel="stylesheet" href="../styles/user.css">
+    <script type="application/javascript" src="../scripts/user.js"></script>
 </html>
 
