@@ -9,24 +9,9 @@
         <meta charset="UTF-8">
         <title>Products</title>
     </head>
-    <body>
-        <?php echo "<h1>".ucfirst($_GET['type'])."</h1>"; ?>
+    <body onload="getProducts()">
         <section class="products">
-            <?php
-            $result = getProducts($_GET['type']);
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<a class='product-link' href='./product.php?id=".$row['id']."'>"
-                        ."<div class='product'>"
-                            ."<img src=".$row['image']." alt="."'".$row['description']."'".">"
-                            ."<h3>".$row['brand']." ".$row['category']."</h3>"
-                            ."<p>Price: <label>".$row['price']." CHF</label></p>"
-                            ."<p>Size: <label>".$row['size']."</label></p>"
-                            ."<p>Quantity: <label>".$row['quantity']."</label></p>"
-                        ."</div>".
-                    "</a>";
-            } ?>
         </section>
-
     </body>
     <script type="application/javascript" src="/scripts/product.js"></script>
     <link rel="stylesheet" href="../styles/header.css">
