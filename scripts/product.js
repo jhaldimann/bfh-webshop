@@ -1,4 +1,4 @@
-const quantityField = document.querySelector('.quantity-field');
+
 
 let getProductDetail = () => {
   let rootElement = document.querySelector('.product');
@@ -23,10 +23,13 @@ let getProductDetail = () => {
             `<button class='quantity-count quantity-count-plus' onclick='countQuantity(1)'>+</button>` +
           `</div>` +
           `</br>` +
-          `<button class='add-to-cart' onclick='addToCart(${data[0]})'>` +
+          `<button class='add-to-cart'>` +
           `<img class='add-to-cart-img' src='/images/shoppingcart.png' alt='add to cart'>`+
           `<label class='add-to-cart-label'>Add to cart</label>`+
         `</section>`;
+
+      let button = rootElement.querySelector('.add-to-cart');
+      button.onclick = addToCart(data[0]);
     });
 };
 
@@ -36,6 +39,8 @@ let getUrlParam = (identifier) => {
 };
 
 let addToCart = (item) => {
+    console.log(item);
+    const quantityField = document.querySelector('.quantity-field');
     let cart = localStorage.getItem('cart');
 
     let quantity = quantityField.value;
@@ -59,6 +64,7 @@ let addToCart = (item) => {
 };
 
 let countQuantity = (value) => {
+    const quantityField = document.querySelector('.quantity-field');
     let newQuantity = Number(quantityField.value) + Number(value);
 
     if(newQuantity <= Number(quantityField.max) && newQuantity >= Number(quantityField.min)) {
