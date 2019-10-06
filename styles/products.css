@@ -52,6 +52,19 @@ h1 {
 	background-color: green;
 }
 
+.alert {
+	background-color: rgba(0, 230, 0, 0.49);
+	width: 100%;
+	height: 20px;
+}
+
+.alert-warning {
+	background-color: rgba(255, 0, 0, 0.44);
+	width: 100%;
+	height: 20px;
+}
+
+
 @media only screen and (max-width: 1000px) {
 	.products {
 		grid-template-columns: 50% 50%;
@@ -63,6 +76,7 @@ h1 {
 	.products {
 		grid-template-columns: 100%;
 		left: 50%;
+		
 	}
 }
 
