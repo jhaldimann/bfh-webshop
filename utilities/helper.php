@@ -16,8 +16,10 @@ if(array_key_exists('register', $_POST)) {
     getSaleProducts();
 } else if(array_key_exists('getUser', $_POST)) {
     getUser($_SESSION['id']);
-} else {
-
+} else if(array_key_exists('getProduct', $_POST)) {
+    getProduct($_POST['getProduct']);
+} else if(array_key_exists('getProducts', $_POST)) {
+    getProducts($_POST['getProducts']);
 }
 
 function connect () {
@@ -28,28 +30,36 @@ function connect () {
 
 function getProducts($cat) {
     $mysqli = connect();
-    $categorie =  $mysqli->real_escape_string($cat);
+    $category = $mysqli->real_escape_string($cat);
 
-    if($categorie === "") {
-        $query =   $sql = "SELECT * FROM products";
-        return $mysqli->query($query);
+    $myArray = array();
+    if ($result = $mysqli->query("SELECT * FROM products WHERE category ='".$category."'")) {
 
-    } else {
-        $query = $sql = "SELECT * FROM products WHERE category = '".$categorie."'"."OR gender ='".$categorie."'";
-        return $mysqli->query($query);
+        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $myArray[] = $row;
+        }
+        echo json_encode($myArray);
     }
+
+    $result->close();
+    $mysqli->close();
 }
 
 function getProduct($id) {
     $mysqli = connect();
     $identifier = $mysqli->real_escape_string($id);
 
-    if($identifier === "") {
-        return;
-    } else {
-        $query = $sql = "SELECT * FROM products WHERE id = '".$identifier."'";
-        return $mysqli->query($query);
+    $myArray = array();
+    if ($result = $mysqli->query("SELECT * FROM products WHERE id = '".$identifier."'")) {
+
+        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $myArray[] = $row;
+        }
+        echo json_encode($myArray);
     }
+
+    $result->close();
+    $mysqli->close();
 }
 
 function register() {

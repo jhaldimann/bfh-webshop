@@ -9,8 +9,7 @@
         <meta charset="UTF-8">
         <title>Products</title>
     </head>
-    <body>
-        <?php echo "<h1>".ucfirst($_GET['type'])."</h1>"; ?>
+    <body onload="getProducts()">
         <section class="products">
             <?php
             $result = getProducts($_GET['type']);
@@ -26,7 +25,6 @@
                     "</a>";
             } ?>
         </section>
-
     </body>
     <script type="application/javascript" src="/scripts/product.js"></script>
     <link rel="stylesheet" href="../styles/header.css">
