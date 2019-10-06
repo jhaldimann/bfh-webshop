@@ -18,7 +18,7 @@
                 echo "<a class='product-link' href='./product.php?id=".$row['id']."'>"
                         ."<div class='product'>"
                             ."<img src=".$row['image']." alt="."'".$row['description']."'".">"
-                            ."<h3>".$row['brand']." ".$row['category']."</h3>"
+                            ."<h3 class='hover-underline'>".$row['brand']." ".$row['category']."</h3>"
                             ."<p>Price: <label>".$row['price']." CHF</label></p>"
                             ."<p>Size: <label>".$row['size']."</label></p>"
                             ."<p>Quantity: <label>".$row['quantity']."</label></p>"

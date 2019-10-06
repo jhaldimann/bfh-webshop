@@ -9,6 +9,68 @@ html {
 	scroll-behavior: smooth;
 }
 
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: rgba(0,0,0,.5);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot:hover {
+	background-color: rgba(0,0,0,.8);
+}
+
+.slideshow-container {
+	position: relative;
+	top: 150px;
+	text-align: center;
+}
+
+.nav-dots {
+	text-align: center;
+	position: relative;
+	top: 155px;
+}
+
+.next-previous-arrow {
+	fill: white;
+	position: relative;
+	top: 8px;
+}
+
+.arrow-dot {
+	position: relative;
+	bottom: 180px;
+  height: 40px;
+  width: 40px;
+  margin: 0 2px;
+  background-color: rgba(0,0,0,.3);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.arrow-dot:hover  {
+	cursor: pointer;
+	background-color: rgba(0,0,0,.6);
+}
+
+.arrow-dot:active {
+	background-color: rgba(0,0,0,.4);
+}
+
+.next-arrow-dot {
+	right: 60px;
+}
+
+.previous-arrow-dot {
+	left: 60px;
+}
+
 .section {
 	box-shadow: 4px 4px 4px grey;
 	width: 30%;
@@ -35,7 +97,7 @@ html {
 	position: relative;
 	margin: 20px auto;
 	text-align: center;
-	top: 100px;
+	top: 200px;
 	z-index: 0;
 }
 
