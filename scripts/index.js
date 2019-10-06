@@ -34,7 +34,6 @@ let getSaleProducts = () => {
     .then((resp) => resp.json())
     .then(function(products) {
       products.forEach((product, index) => {
-        console.log(product);
           // create product div
           let productEl = document.createElement('div');
           productEl.className = 'product';
@@ -52,30 +51,29 @@ let getSaleProducts = () => {
 };
 
 
-// Temp
-var slideIndex = 1;
-showSlides(slideIndex);
+// Slideshow
+let images = new Map();
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+let getProductImages = () => {
+  let imagesPerSlide = 5;
+  let nrOfSlides = 3;
+  let formData = new FormData;
+  formData.append('getProductImages','getProductImages');
+  formData.append('nrOfImages', imagesPerSlide * nrOfSlides);
+  fetch('/utilities/helper.php', {method: 'POST', body: formData})
+    .then((resp) => resp.json())
+    .then(function(imgs) {
+      let i = 0;
+      imgs.forEach((image, index) => {
+        if(index % 5 === 0) {
+          images.set(`slide${++i}`, []);
+        }
+        images.get(`slide${i}`).push(image);
+      });
+      console.log(images);
+    });
+};
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
+let createSlideshow = () => {
 
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
+};

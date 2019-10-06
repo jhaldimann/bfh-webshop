@@ -14,6 +14,8 @@ if(array_key_exists('register', $_POST)) {
     pickRandomItem();
 } else if(array_key_exists('getSaleProducts', $_POST)) {
     getSaleProducts();
+} else if(array_key_exists('getProductImages', $_POST)) {
+    getProductImages($_POST['nrOfImages']);
 } else if(array_key_exists('getUser', $_POST)) {
     getUser($_SESSION['id']);
 } else if(array_key_exists('getProduct', $_POST)) {
@@ -164,6 +166,20 @@ function getSaleProducts() {
 
         while($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $myArray[] = $row;
+        }
+        echo json_encode($myArray);
+    }
+
+    $result->close();
+    $mysqli->close();
+}
+
+function getProductImages($nrOfImages) {
+    $mysqli = connect();
+    $myArray = array();
+    if ($result = $mysqli->query("SELECT * FROM products LIMIT $nrOfImages")) {
+        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $myArray[] = $row['image'];
         }
         echo json_encode($myArray);
     }

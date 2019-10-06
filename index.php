@@ -7,11 +7,13 @@
   <meta charset="UTF-8">
   <title>GameFameClothing</title>
 </head>
-<body onload="getSaleProducts()">
+<body onload="getSaleProducts(); getProductImages();">
   <section class="slideshow">
     <div class="slideshow-container">
       <span class="arrow-dot previous-arrow-dot"><svg class="next-previous-arrow previous-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span>
-      <img class="slideshow-image" src="https://www.w3schools.com/howto/img_snow_wide.jpg" alt="slideshow image">
+      <div class="slideshow-images">
+
+      </div>
       <span class="arrow-dot next-arrow-dot"><svg class="next-previous-arrow next-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span>
     </div>
     <div class="nav-dots">
