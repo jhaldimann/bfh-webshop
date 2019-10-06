@@ -1,4 +1,3 @@
-<?php include($_SERVER['DOCUMENT_ROOT'].'/utilities/helper.php'); ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/views/login.php'); ?>
 <header class='header'>
     <img class='burger' src='/images/burger.png' alt='burger' onclick="showSidebar()">

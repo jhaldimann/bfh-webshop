@@ -23,8 +23,10 @@ let getProductDetail = () => {
           `</br>` +
           `<button class='add-to-cart'>` +
           `<img class='add-to-cart-img' src='/images/shoppingcart.png' alt='add to cart'>`+
-          `<label class='add-to-cart-label'>Add to cart</label>`+
-        `</section>`;
+          `<label class='add-to-cart-label'>Add to cart</label></button>` +
+        `<div class="alert-warning"> Is already in cart</div>` +
+        `<div class="alert">Added to cart</div>`+
+        `</section>` ;
 
       let button = rootElement.querySelector('.add-to-cart');
       button.onclick = addToCart(data[0]);
@@ -53,6 +55,7 @@ let addToCart = (item) => {
       cart = JSON.parse(cart);
       if(cart.find(x => x.id === item.id) === undefined) {
         cart.push(item);
+
       } else {
         console.log('Item already in cart!');
       }
