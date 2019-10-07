@@ -24,6 +24,14 @@ html {
 	background-color: rgba(0,0,0,.8);
 }
 
+.active {
+	background-color: rgba(0,0,200,.5);
+}
+
+.active:hover {
+	background-color: rgba(0,0,200,.8);
+}
+
 .slideshow-container {
 	position: relative;
 	top: 150px;
@@ -39,7 +47,7 @@ html {
 
 .slideshow-image {
 	max-height: 150px;
-	margin: 0 20px;
+	margin: 0 10px;
 }
 
 .nav-dots {
