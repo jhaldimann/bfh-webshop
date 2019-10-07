@@ -46,8 +46,22 @@ html {
 }
 
 .slideshow-image {
-	max-height: 150px;
-	margin: 0 10px;
+	position: relative;
+	top: 10%;
+	max-height: 80%;
+	max-width: 15%;
+	margin: auto 10px;
+}
+
+.slideshow-category {
+		position: absolute;
+    left: 48%;
+    top: -20px;
+    font-family: 'Lobster', cursive;
+		font-size: 20px;
+    text-decoration: none;
+		color: black;
+    z-index: 1;
 }
 
 .nav-dots {
@@ -65,7 +79,7 @@ html {
 
 .arrow-dot {
 	position: relative;
-	bottom: 75px;
+	bottom: 50px;
   height: 40px;
   width: 40px;
   margin: 0 2px;

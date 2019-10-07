@@ -107,6 +107,7 @@ let createSlideshow = () => {
 
 let showSlide = (n) => {
     const slideshowLink = document.querySelector('.slideshow-link');
+    const slideshowCategory = document.querySelector('.slideshow-category');
     const dots = document.querySelectorAll('.dot');
     dots.forEach((dot) => {
       if(dot.classList.contains('active')) {
@@ -116,6 +117,7 @@ let showSlide = (n) => {
 
     currentSlide = n;
     slideshowLink.href = `/views/products.php?type=${categories[currentSlide]}`;
+    slideshowCategory.innerHTML = `${categories[currentSlide]}`;
     const key = categories[currentSlide];
     slideShowImages.innerHTML = '';
     slideshow.get(key).forEach((img) => {
