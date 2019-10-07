@@ -14,8 +14,8 @@ if(array_key_exists('register', $_POST)) {
     pickRandomItem();
 } else if(array_key_exists('getSaleProducts', $_POST)) {
     getSaleProducts();
-} else if(array_key_exists('getProductImages', $_POST)) {
-    getProductImages($_POST['nrOfImages']);
+} else if(array_key_exists('getProductImagesByCategory', $_POST)) {
+    getProductImagesByCategory($_POST['nrOfImages']);
 } else if(array_key_exists('getUser', $_POST)) {
     getUser($_SESSION['id']);
 } else if(array_key_exists('getProduct', $_POST)) {
@@ -174,15 +174,28 @@ function getSaleProducts() {
     $mysqli->close();
 }
 
-function getProductImages($nrOfImages) {
+function getProductImagesByCategory($nrOfImages) {
     $mysqli = connect();
-    $myArray = array();
-    if ($result = $mysqli->query("SELECT * FROM products LIMIT $nrOfImages")) {
-        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
-            $myArray[] = $row['image'];
-        }
-        echo json_encode($myArray);
+    $myCategories = [];
+    if($resCat = $mysqli->query("SELECT DISTINCT category FROM products")) {
+      while($category = $resCat->fetch_array(MYSQLI_ASSOC)) {
+        $myCategories[] = $category;
+      }
     }
+
+    $images = [];
+
+    for($i = 0; $i < sizeof($myCategories); $i++){
+        if($result = $mysqli->query("SELECT image FROM products WHERE category = '" . $myCategories[$i]['category'] . "' LIMIT $nrOfImages")) {
+          //echo json_encode("2");
+          $images[$myCategories[$i]['category']] = [];
+          while($image = $result->fetch_array(MYSQLI_ASSOC)) {
+            $images[$myCategories[$i]['category']][] = $image;
+          }
+        }
+    }
+
+    echo json_encode($images);
 
     $result->close();
     $mysqli->close();

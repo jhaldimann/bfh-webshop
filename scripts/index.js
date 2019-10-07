@@ -53,27 +53,69 @@ let getSaleProducts = () => {
 
 // Slideshow
 let images = new Map();
+let slideshow = new Map();
+let currentSlide = 1;
+let maxSlides;
+const slideShowImages = document.querySelector('.slideshow-images');
 
-let getProductImages = () => {
+let getProductImagesByCategory = () => {
   let imagesPerSlide = 5;
-  let nrOfSlides = 3;
   let formData = new FormData;
-  formData.append('getProductImages','getProductImages');
-  formData.append('nrOfImages', imagesPerSlide * nrOfSlides);
+  formData.append('getProductImagesByCategory','getProductImagesByCategory');
+  formData.append('nrOfImages', imagesPerSlide);
   fetch('/utilities/helper.php', {method: 'POST', body: formData})
     .then((resp) => resp.json())
-    .then(function(imgs) {
-      let i = 0;
-      imgs.forEach((image, index) => {
-        if(index % 5 === 0) {
-          images.set(`slide${++i}`, []);
-        }
-        images.get(`slide${i}`).push(image);
-      });
-      console.log(images);
-    });
+    .then((res) => {
+      console.log(res);
+      let i = 1;
+      for(let category in res) {
+        let key = `slide${i++}`;
+        images.set(key, []);
+        res[category].forEach((image) => {
+          images.get(key).push(image);
+        });
+      }
+    }).then(() => {
+      createSlideshow();
+      showSlide(currentSlide);
+  });
 };
 
 let createSlideshow = () => {
+    if(images.size > 0) {
+        console.log(images);
+        images.forEach((element, key) => {
+            let myArray = [];
+            element.forEach((image) => {
+                let img = document.createElement('img');
+                img.src = image.image;
+                img.alt = 'slideshow image';
+                img.className = 'slideshow-image';
+                myArray.push(img);
+            });
+            slideshow.set(key, myArray);
+        });
+        maxSlides = slideshow.size;
+    }
+};
 
+let showSlide = (n) => {
+    currentSlide = n;
+    let key = `slide${n}`;
+    slideShowImages.innerHTML = '';
+    slideshow.get(key).forEach((img) => {
+       slideShowImages.append(img);
+    });
+    console.log(slideShowImages.innerHTML);
+};
+
+let changeSlide = (v) => {
+  if(currentSlide + v > maxSlides) {
+    currentSlide = 1;
+  } else if(currentSlide + v < 1) {
+    currentSlide = maxSlides;
+  } else {
+    currentSlide += v;
+  }
+  showSlide(currentSlide);
 };

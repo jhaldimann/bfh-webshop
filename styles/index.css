@@ -31,6 +31,17 @@ html {
 	text-align: center;
 }
 
+.slideshow-images {
+	width: 80%;
+	height: 150px;
+	display: inline-block;
+}
+
+.slideshow-image {
+	max-height: 150px;
+	margin: 0 20px;
+}
+
 .nav-dots {
 	text-align: center;
 	position: relative;
@@ -46,7 +57,7 @@ html {
 
 .arrow-dot {
 	position: relative;
-	bottom: 180px;
+	bottom: 75px;
   height: 40px;
   width: 40px;
   margin: 0 2px;
