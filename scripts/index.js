@@ -51,6 +51,8 @@ let getSaleProducts = () => {
 };
 
 
+// Temp
+var slideIndex = 1;
 // Slideshow
 let images = new Map();
 let slideshow = new Map();

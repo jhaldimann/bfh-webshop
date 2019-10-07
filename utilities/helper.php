@@ -1,9 +1,5 @@
 <?php
 
-if(session_id() == '' || !isset($_SESSION)) {
-    session_start();
-}
-
 if(array_key_exists('register', $_POST)) {
     register();
 } else if(array_key_exists('login', $_POST)) {
@@ -65,6 +61,9 @@ function getProduct($id) {
 }
 
 function register() {
+    if(session_id() == '' || !isset($_SESSION)) {
+        session_start();
+    }
     $mysqli = connect();
     $prename = $mysqli->real_escape_string($_POST["prename"]);
     $name = $mysqli->real_escape_string($_POST["name"]);
@@ -102,6 +101,9 @@ function login() {
     $password = $mysqli->real_escape_string($_POST["password"]);
 
     if(checkUser($email,$password)) {
+        if(session_id() == '' || !isset($_SESSION)) {
+            session_start();
+        }
         $query = "SELECT * FROM user WHERE email = '".$email."'";
         $data = $mysqli->query($query);
         $row = mysqli_fetch_assoc($data);
@@ -110,6 +112,9 @@ function login() {
         $_SESSION['prename'] = $row['prename'];
         $_SESSION['id'] = $row['id'];
         $_SESSION['email'] = $email;
+        echo json_encode(true);
+    } else {
+        echo json_encode(false);
     }
 }
 
