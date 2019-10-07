@@ -1,5 +1,3 @@
-
-
 let getProductDetail = () => {
   let rootElement = document.querySelector('.product');
   let formData = new FormData;

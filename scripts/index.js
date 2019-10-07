@@ -34,8 +34,6 @@ let getSaleProducts = () => {
     .then((resp) => resp.json())
     .then(function(products) {
       products.forEach((product, index) => {
-        console.log(product);
-          // create product div
           let productEl = document.createElement('div');
           productEl.className = 'product';
           productEl.id =`sale${index+1}`;
@@ -54,7 +52,6 @@ let getSaleProducts = () => {
 
 // Temp
 var slideIndex = 1;
-showSlides(slideIndex);
 
 function plusSlides(n) {
   showSlides(slideIndex += n);
