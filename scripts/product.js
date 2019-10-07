@@ -6,30 +6,27 @@ let getProductDetail = () => {
     .then((resp) => resp.json())
     .then(function(data) {
       rootElement.innerHTML =
-        `<img class='product-image' src="${data[0]['image']}" alt="${data[0]['description']}"/>`+
+        `<img class='product-image' src="${data['image']}" alt="${data['description']}"/>`+
         `<section class="information">`+
-          `<h2 class="description-title">${data[0]['brand'] + data[0]['description']}</h2>`+
-          `<label class='product-brand'><b>Brand: </b> ${data[0]['brand']} </label>` +
-          `<label class='product-description'><b>Description: </b> ${data[0]['description']} </label>` +
+          `<h2 class="description-title">${data['brand'] + data['description']}</h2>`+
+          `<label class='product-brand'><b>Brand: </b> ${data['brand']} </label>` +
+          `<label class='product-description'><b>Description: </b> ${data['description']} </label>` +
           `<label class='size-selector-label'>Size: </label>` +
           `<select class="size-selector">` +
-            `<option value="${data[0]['size']}">${data[0]['size']}</option>` +
+            `<option value="${data['size']}">${data['size']}</option>` +
           `</select>` +
           `<div class='quantity-selection'>`+
             `<button class='quantity-count quantity-count-minus' onclick='countQuantity(-1)'>-</button>`+
-            `<input class='quantity-field' type='number' name='quantity' min='1' max='${data[0]['quantity']}' value='1'>`+
+            `<input class='quantity-field' type='number' name='quantity' min='1' max='${data['quantity']}' value='1'>`+
             `<button class='quantity-count quantity-count-plus' onclick='countQuantity(1)'>+</button>` +
           `</div>` +
           `</br>` +
-          `<button class='add-to-cart'>` +
+          `<button class='add-to-cart' onclick='addToCart(${JSON.stringify(data)})'>` +
           `<img class='add-to-cart-img' src='/images/shoppingcart.png' alt='add to cart'>`+
           `<label class='add-to-cart-label'>Add to cart</label></button>` +
         `<div class="alert-warning"> Is already in cart</div>` +
         `<div class="alert">Added to cart</div>`+
-        `</section>` ;
-
-      let button = rootElement.querySelector('.add-to-cart');
-      button.onclick = addToCart(data[0]);
+        `</section>`;
     });
 };
 
@@ -44,6 +41,7 @@ let addToCart = (item) => {
     let cart = localStorage.getItem('cart');
 
     let quantity = quantityField.value;
+    console.log(quantity);
 
     if(cart === null) {
       cart = [];
@@ -55,7 +53,6 @@ let addToCart = (item) => {
       cart = JSON.parse(cart);
       if(cart.find(x => x.id === item.id) === undefined) {
         cart.push(item);
-
       } else {
         console.log('Item already in cart!');
       }
@@ -83,7 +80,7 @@ let getProducts = () => {
       for(let product in products) {
         if (products.hasOwnProperty(product)) {
           rootElement.innerHTML +=
-            `<a class='product-link' href='/product.php?id=${products[product]['id']}' >`+
+            `<a class='product-link' href='/views/product.php?id=${products[product]['id']}' >`+
             `<div class='product'>`+
             `<img src='${products[product]['image']}' alt='${products[product]['description']}'>`+
             `<h3>${products[product]['brand']} ${products[product]['category']}</h3>`+

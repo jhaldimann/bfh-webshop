@@ -15,7 +15,7 @@ function populateCart() {
         `<img class="item-image" src="${item.image}" alt="product">` +
         `<label class="item-name">${item.brand} ${item.description}</label>` +
         `<label class="item-price">${item.price} CHF</label>` +
-        `<label class="item-total-price">${item.price} CHF</label>` +
+        `<label class="item-total-price">${calculateTotalPriceForItem(item)} CHF</label>` +
         `<div class="quantity-selection">` +
           `<button class="quantity-count quantity-count-minus" onclick="countQuantity(-1, ${index})">-</button>` +
           `<input class="quantity-field" type="number" name="quantity" min="1" max="${item.quantity}" value="${item.selectedQuantity}">` +
@@ -66,6 +66,10 @@ function calculateTotalPrice() {
   return priceTotal;
 }
 
+function calculateTotalPriceForItem(item) {
+  return Number(item.price) * Number(item.selectedQuantity);
+}
+
 function updateQuantities() {
   let cart = localStorage.getItem('cart');
   let quantities = document.querySelectorAll('.quantity-field');
@@ -94,8 +98,13 @@ function countQuantity(value, id) {
 }
 
 function updateTotalPrice() {
+  let totalPrices = document.querySelectorAll('.item-total-price');
+  let cart = localStorage.getItem('cart');
+  cart = JSON.parse(cart);
+
+  totalPrices.forEach((item, index) => {
+    item.innerHTML = `${calculateTotalPriceForItem(cart[index])} CHF`;
+  });
+
   totalPriceLabel.innerHTML = `${calculateTotalPrice()} CHF`
 }
-
-
-populateCart();

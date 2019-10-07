@@ -10,7 +10,7 @@
         <meta charset="UTF-8">
         <title>GameFameClothing</title>
     </head>
-    <body>
+    <body onload="populateCart()">
 
         <section id="special-offers">
             <div id="special-offers-title">

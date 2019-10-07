@@ -46,14 +46,12 @@ function getProducts($cat) {
 function getProduct($id) {
     $mysqli = connect();
     $identifier = $mysqli->real_escape_string($id);
-
-    $myArray = array();
+    
     if ($result = $mysqli->query("SELECT * FROM products WHERE id = '".$identifier."'")) {
 
-        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
-            $myArray[] = $row;
+        if($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            echo json_encode($row);
         }
-        echo json_encode($myArray);
     }
 
     $result->close();
