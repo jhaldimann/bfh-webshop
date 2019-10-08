@@ -21,7 +21,7 @@ let getProductDetail = () => {
             `<button class='quantity-count quantity-count-plus' onclick='countQuantity(1)'>+</button>` +
           `</div>` +
           `</br>` +
-          `<button class='add-to-cart' onclick='addToCart(${JSON.stringify(data)})'>` +
+          `<button class='add-to-cart' onclick='addToCart(${JSON.stringify(data)}); openDropDownWithTimeout("cart-dropdown")'>` +
           `<img class='add-to-cart-img' src='/images/shoppingcart.png' alt='add to cart'>`+
           `<label class='add-to-cart-label'>Add to cart</label></button>` +
         `<div class="alert-warning"> Is already in cart</div>` +

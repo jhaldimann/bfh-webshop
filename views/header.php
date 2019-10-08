@@ -8,13 +8,18 @@
         <img class='home-logo' src='/images/home.png' alt='home'>
     </a>
     <h2>GameFameClothing</h2>
-    <div class="dropdown-button">
-        <img class='user-logo' onclick="toggleDropDown()" src='/images/user.png' alt='user'>
+    <div id="cart-dropdown" class="cart-dropdown">
+        <div class="cart"></div>
+        <button class="user-button cart-button" onclick="changePage('/views/cart.php')">Shopping cart</button>
+        <button class="user-button go-checkout-button">Go to checkout</button>
+    </div>
+    <div class="user-dropdown-button">
+        <img class='user-logo' onclick="toggleDropDown('user-dropdown')" src='/images/user.png' alt='user'>
         <div id="user-dropdown" class="user-dropdown">
             <?php
                 if(!isset($_SESSION['logged_in'])) {
-                    echo"<button class=\"user-login-button\" onclick=\"toggleLoginPopup(); toggleDropDown()\">Login</button>";
-                    echo"<a class=\"register-label\" href=\"/views/register.php\"><button class=\"user-login-button\">Register</button></a>";
+                    echo "<button class=\"user-button\" onclick=\"toggleLoginPopup(); toggleDropDown('user-dropdown')\">Login</button>";
+                    echo "<button class=\"user-button user-register-button\" onclick=\"changePage('/views/register.php')\">Register</button>";
                 } else {
                     echo "<p class='user-details'> Hello ".$_SESSION['prename']." ".$_SESSION['name']."</p>";
                 }
