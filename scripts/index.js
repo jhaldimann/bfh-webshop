@@ -58,6 +58,7 @@ let images = new Map();
 let slideshow = new Map();
 let categories = [];
 let currentSlide = 1;
+let timeout;
 const slideShowImages = document.querySelector('.slideshow-images');
 
 let getProductImagesByCategory = () => {
@@ -105,6 +106,10 @@ let createSlideshow = () => {
 };
 
 let showSlide = (n) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      changeSlide(1);
+    }, 3000);
     const slideshowLink = document.querySelector('.slideshow-link');
     const slideshowCategory = document.querySelector('.slideshow-category');
     const dots = document.querySelectorAll('.dot');

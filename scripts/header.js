@@ -1,11 +1,25 @@
-function toggleDropDown() {
-    let dropdown = document.getElementById('user-dropdown');
+function toggleDropDown(name) {
+    let dropdown = document.querySelector(`#${name}`);
     let className = 'dropdown-show';
     if (dropdown.className.indexOf(className) === -1) {
         dropdown.className += ` ${className}`;
     } else {
         dropdown.className = dropdown.className.replace(` ${className}`, '');
     }
+}
+
+function openDropDownWithTimeout(name) {
+  let dropdown = document.querySelector(`#${name}`);
+  let className = 'dropdown-show';
+  if (dropdown.className.indexOf(className) === -1) {
+      dropdown.className += ` ${className}`;
+      setTimeout(() => closeDropDown(name), 6000);
+  }
+}
+
+function closeDropDown(name) {
+  let dropdown = document.querySelector(`#${name}`);
+  dropdown.className = dropdown.className.replace('dropdown-show', '');
 }
 
 function showSidebar() {
@@ -23,4 +37,8 @@ let logout = () => {
               window.location.reload();
           }
       });
+};
+
+let changePage = (url) => {
+  document.location.href = url;
 };
