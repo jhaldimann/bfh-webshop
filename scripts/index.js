@@ -56,8 +56,8 @@ var slideIndex = 1;
 // Slideshow
 let images = new Map();
 let slideshow = new Map();
+let categories = [];
 let currentSlide = 1;
-let maxSlides;
 const slideShowImages = document.querySelector('.slideshow-images');
 
 let getProductImagesByCategory = () => {
@@ -70,10 +70,10 @@ let getProductImagesByCategory = () => {
     .then((res) => {
       let i = 1;
       for(let category in res) {
-        let key = `slide${i++}`;
-        images.set(key, []);
+        categories.push(category);
+        images.set(category, []);
         res[category].forEach((image) => {
-          images.get(key).push(image);
+          images.get(category).push(image);
         });
       }
     }).then(() => {
@@ -84,8 +84,13 @@ let getProductImagesByCategory = () => {
 
 let createSlideshow = () => {
     if(images.size > 0) {
+    const navDots = document.querySelector('.nav-dots');
+        console.log(images);
+        let i = 0;
         images.forEach((element, key) => {
             let myArray = [];
+            navDots.innerHTML += `<span class='dot' onclick='changeSlideTo(${i++})'>`;
+
             element.forEach((image) => {
                 let img = document.createElement('img');
                 img.src = image.image;
@@ -100,21 +105,41 @@ let createSlideshow = () => {
 };
 
 let showSlide = (n) => {
+    const slideshowLink = document.querySelector('.slideshow-link');
+    const slideshowCategory = document.querySelector('.slideshow-category');
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot) => {
+      if(dot.classList.contains('active')) {
+        dot.classList.remove('active');
+      }
+    });
+
     currentSlide = n;
-    let key = `slide${n}`;
+    slideshowLink.href = `/views/products.php?type=${categories[currentSlide]}`;
+    slideshowCategory.innerHTML = `${categories[currentSlide]}`;
+    const key = categories[currentSlide];
     slideShowImages.innerHTML = '';
     slideshow.get(key).forEach((img) => {
        slideShowImages.append(img);
     });
+    dots[currentSlide].classList.add('active');
 };
 
 let changeSlide = (v) => {
-  if(currentSlide + v > maxSlides) {
-    currentSlide = 1;
-  } else if(currentSlide + v < 1) {
-    currentSlide = maxSlides;
+  if(currentSlide + v > categories.length - 1) {
+    currentSlide = 0;
+  } else if(currentSlide + v < 0) {
+    currentSlide = categories.length - 1;
   } else {
     currentSlide += v;
   }
   showSlide(currentSlide);
+};
+
+let changeSlideTo = (v) => {
+  if(v < categories.length && v >= 0) {
+     showSlide(v);
+  } else {
+    console.log(`Invalid slide index: ${v}, available indecies: 0-${categories.length - 1}`);
+  }
 };
