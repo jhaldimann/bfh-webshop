@@ -60,16 +60,16 @@ function getProduct($id) {
 
 function register() {
     $mysqli = connect();
-    $prename = $mysqli->real_escape_string($_POST["prename"]);
+    $firstname = $mysqli->real_escape_string($_POST["firstname"]);
     $name = $mysqli->real_escape_string($_POST["name"]);
     $email = $mysqli->real_escape_string($_POST["email"]);
     $password = $mysqli->real_escape_string($_POST["password"]);
     $passwordConfirm = $mysqli->real_escape_string($_POST["password-confirm"]);
     if($password === $passwordConfirm) {
-        if($prename !== "" && $name !== "" && $email !== "" && $password !== "") {
+        if($firstname !== "" && $name !== "" && $email !== "" && $password !== "") {
             if(!checkUser($email,$password)) {
                 session_start();
-                $query = "INSERT INTO user (prename,name,email,password) values "."('$prename','$name','$email','".md5( $password )."')";
+                $query = "INSERT INTO user (prename,name,email,password) values "."('$firstname','$name','$email','".md5( $password )."')";
                 $mysqli->query($query);
                 $sql = "SELECT * FROM user WHERE email = '".$email."'";
                 $data = $mysqli->query($sql);
@@ -79,15 +79,15 @@ function register() {
                 $_SESSION['prename'] = $row['prename'];
                 $_SESSION['id'] = $row['id'];
                 $_SESSION['email'] = $email;
-                header("Location: /index.php");
+                echo json_encode(array('status' => 200, 'text' => 'success'));
             } else {
-                echo"<div class='message-box failed'><p>User already exists</p></div>";
+                echo json_encode(array('status' => 400, 'text' => 'user-already-exists'));
             }
         } else {
-            echo"<div class='message-box failed'><p>Registration failed</p></div>";
+            echo json_encode(array('status' => 400, 'text' => 'failed'));
         }
     } else {
-        echo"<div class='message-box failed'><p>Passwords are not equal</p></div>";
+        echo json_encode(array('status' => 400, 'text' => 'password-not-equal'));
     }
 }
 
@@ -113,8 +113,15 @@ function login($e, $p) {
 }
 
 function logout() {
-    session_destroy();
-    echo json_encode(true);
+    $_SESSION = array();
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', time() - 42000, $params["path"],
+            $params["domain"], $params["secure"], $params["httponly"]
+        );
+    }
+    echo json_encode(array('status' => 200, 'text' => 'success'));
+
 }
 
 function checkUser($email, $passwd) {

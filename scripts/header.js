@@ -19,6 +19,8 @@ let logout = () => {
     fetch('/utilities/helper.php',{method: 'POST',body: formData})
       .then((resp) => resp.json())
       .then(function(data) {
-          console.log(data);
+          if(data.status === 200) {
+              window.location.reload();
+          }
       });
-}
+};
