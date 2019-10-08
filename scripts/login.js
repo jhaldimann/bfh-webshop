@@ -5,11 +5,12 @@ var login = () => {
   let formData = new FormData();
   formData.append('login','login');
   formData.append('email', email.value);
-  formData.append('password',password.value);
+  formData.append('password', password.value);
 
   fetch('/utilities/helper.php',{method: 'POST', body: formData})
     .then((resp) => resp.json())
     .then(function(data) {
+      console.log(data);
       if(!data) {
         warningAlert.style.display = 'block';
       } else {

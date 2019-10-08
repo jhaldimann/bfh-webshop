@@ -3,7 +3,7 @@
 if(array_key_exists('register', $_POST)) {
     register();
 } else if(array_key_exists('login', $_POST)) {
-    login();
+    login($_POST['email'], $_POST['password']);
 } else if(array_key_exists('logout', $_POST)) {
     logout();
 } else if(array_key_exists('getRandomPicks', $_POST)) {
@@ -46,7 +46,7 @@ function getProducts($cat) {
 function getProduct($id) {
     $mysqli = connect();
     $identifier = $mysqli->real_escape_string($id);
-    
+
     if ($result = $mysqli->query("SELECT * FROM products WHERE id = '".$identifier."'")) {
 
         if($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -68,6 +68,7 @@ function register() {
     if($password === $passwordConfirm) {
         if($prename !== "" && $name !== "" && $email !== "" && $password !== "") {
             if(!checkUser($email,$password)) {
+                session_start();
                 $query = "INSERT INTO user (prename,name,email,password) values "."('$prename','$name','$email','".md5( $password )."')";
                 $mysqli->query($query);
                 $sql = "SELECT * FROM user WHERE email = '".$email."'";
@@ -90,12 +91,13 @@ function register() {
     }
 }
 
-function login() {
+function login($e, $p) {
     $mysqli = connect();
-    $email = $mysqli->real_escape_string($_POST["email"]);
-    $password = $mysqli->real_escape_string($_POST["password"]);
+    $email = $mysqli->real_escape_string($e);
+    $password = $mysqli->real_escape_string($p);
 
     if(checkUser($email,$password)) {
+        session_start();
         $query = "SELECT * FROM user WHERE email = '".$email."'";
         $data = $mysqli->query($query);
         $row = mysqli_fetch_assoc($data);

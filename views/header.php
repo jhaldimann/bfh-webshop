@@ -1,7 +1,5 @@
 <?php
-    if(session_id() == '' || !isset($_SESSION)) {
-        session_start();
-    }
+    session_start();
     include($_SERVER['DOCUMENT_ROOT'].'/views/login.php');
 ?>
 <header class='header'>
@@ -29,7 +27,8 @@
                     echo"<div class=\"navs\">";
                 }
             ?>
-                <?php if(isset($_SESSION['logged_in'])) {
+                <?php
+                  if(isset($_SESSION['logged_in'])) {
                     echo"<hr class=\"horizontal-line-logged-in\">";
                     echo "<a class=\"nav-label\" href=\"/views/user.php\">My Profile</a>";
                     echo "<a class=\"nav-label\" href=\"#\">My Orders</a>";
