@@ -11,7 +11,7 @@
     </head>
     <body>
         <section class="register-form">
-            <form method="post">
+            <div>
                 <label>
                     <p class="title">Firstname</p>
                     <input type="text" name="prename" required>
@@ -32,11 +32,12 @@
                     <p class="title">Password confirm</p>
                     <input type="password" name="password-confirm" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                 </label>
-                <input type="submit" name="register" class="button" value="Send" />
-            </form>
+                <button onclick="register()" class="button">Login</button>
+            </div>
         </section>
         <?php include './footer.php'; ?>
     </body>
     <link rel="stylesheet" href="../styles/register.css">
+    <script type="application/javascript" src="/scripts/register.js"></script>
 </html>
 

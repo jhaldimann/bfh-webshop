@@ -1,4 +1,9 @@
-<?php include($_SERVER['DOCUMENT_ROOT'].'/views/login.php'); ?>
+<?php
+    if(session_id() == '' || !isset($_SESSION)) {
+        session_start();
+    }
+    include($_SERVER['DOCUMENT_ROOT'].'/views/login.php');
+?>
 <header class='header'>
     <img class='burger' src='/images/burger.png' alt='burger' onclick="showSidebar()">
     <a href='/'>
@@ -26,12 +31,10 @@
             ?>
                 <?php if(isset($_SESSION['logged_in'])) {
                     echo"<hr class=\"horizontal-line-logged-in\">";
-                    echo"<form method=\"post\">";
                     echo "<a class=\"nav-label\" href=\"/views/user.php\">My Profile</a>";
                     echo "<a class=\"nav-label\" href=\"#\">My Orders</a>";
                     echo "<a class=\"nav-label\" href=\"#\">Help & Contact</a>";
-                    echo "<input type=\"submit\" name=\"logout\" class=\"user-logout-button\" value=\"Logout\" />";
-                    echo"</form>";
+                    echo "<input type=\"submit\" onclick='logout()' class=\"user-logout-button\"/>";
                 }?>
 
             </div>

@@ -68,7 +68,6 @@ let getProductImagesByCategory = () => {
   fetch('/utilities/helper.php', {method: 'POST', body: formData})
     .then((resp) => resp.json())
     .then((res) => {
-      console.log(res);
       let i = 1;
       for(let category in res) {
         let key = `slide${i++}`;
@@ -85,7 +84,6 @@ let getProductImagesByCategory = () => {
 
 let createSlideshow = () => {
     if(images.size > 0) {
-        console.log(images);
         images.forEach((element, key) => {
             let myArray = [];
             element.forEach((image) => {
@@ -108,7 +106,6 @@ let showSlide = (n) => {
     slideshow.get(key).forEach((img) => {
        slideShowImages.append(img);
     });
-    console.log(slideShowImages.innerHTML);
 };
 
 let changeSlide = (v) => {

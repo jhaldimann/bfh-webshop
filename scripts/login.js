@@ -1,4 +1,4 @@
-let login = () => {
+var login = () => {
   let email = document.querySelector('.email');
   let password = document.querySelector('.password');
   let warningAlert = document.querySelector('.alert-warning');
@@ -14,16 +14,17 @@ let login = () => {
         warningAlert.style.display = 'block';
       } else {
         toggleLoginPopup();
+        window.location.reload();
       }
     });
 };
 
 function toggleLoginPopup() {
-  let login = document.getElementById('login');
+  let el = document.getElementById('login');
   let className = 'login-show';
-  if (login.className.indexOf(className) === -1) {
-    login.className += ` ${className}`;
+  if (el.className.indexOf(className) === -1) {
+    el.className += ` ${className}`;
   } else {
-    login.className = login.className.replace(` ${className}`, '');
+    el.className = el.className.replace(` ${className}`, '');
   }
 }

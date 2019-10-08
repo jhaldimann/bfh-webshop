@@ -42,7 +42,6 @@ function removeItem(id) {
 
   let item = cart.find(x => Number(x.id) === Number(id));
   if(item !== undefined) {
-    console.log(`Item removed from cart: ${item}`);
     cart.splice(cart.indexOf(item), 1);
     localStorage.setItem('cart', JSON.stringify(cart));
     populateCart();

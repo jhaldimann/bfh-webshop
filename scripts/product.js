@@ -39,7 +39,6 @@ let getUrlParam = (identifier) => {
 };
 
 let addToCart = (item) => {
-    console.log(item);
     const quantityField = document.querySelector('.quantity-field');
     let cart = localStorage.getItem('cart');
 

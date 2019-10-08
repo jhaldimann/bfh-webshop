@@ -12,3 +12,13 @@ function showSidebar() {
     let el = document.querySelector('.navigation-mobile');
     el.className = "navigation-mobile show";
 }
+
+let logout = () => {
+    let formData = new FormData;
+    formData.append('logout','logout');
+    fetch('/utilities/helper.php',{method: 'POST',body: formData})
+      .then((resp) => resp.json())
+      .then(function(data) {
+          console.log(data);
+      });
+}
