@@ -35,16 +35,17 @@ let getSaleProducts = () => {
     .then(function(products) {
       products.forEach((product, index) => {
           // create product div
-          let productEl = document.createElement('div');
-          productEl.className = 'product';
-          productEl.id =`sale${index+1}`;
+          let productEl = document.createElement('a');
+          productEl.href = `/views/product.php?id=${product.id}`;
           productEl.innerHTML =
+            `<div id="sale${index+1}" class="product">` +
             `<img src="${product.image}" alt="${product.description}" />`+
             `<h3>${product.brand} ${product.category}</h3>`+
             `<p class='percent'>Sale: <label>${product.percent}%</label></p>` +
             `<p>Price: <label>${ (product.price / 100 * (100 - product.percent)) } CHF</label></p>` +
             `<p>Size: <label>${product.size}</label></p>` +
-            `<p>Quantity: <label>${product.quantity}</label></p>`;
+            `<p>Quantity: <label>${product.quantity}</label></p>` +
+            `</div>`;
           rootElement.appendChild(productEl);
       });
     });
