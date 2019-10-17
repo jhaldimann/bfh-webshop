@@ -263,8 +263,8 @@ function t($key) {
     }
 }
 
-// Set langauage and page ID as global variables.
-$pageId = get_param('id', 0);
+// Set language and page ID as global variables.
+$pageId = get_param('site', 0);
 $language = get_param('lang', 'de');
 $messages = array();
 $fn = $_SERVER['DOCUMENT_ROOT'] ."/language/messages_$language.txt";

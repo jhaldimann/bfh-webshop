@@ -1,5 +1,5 @@
 let getProductDetail = () => {
-  let rootElement = document.querySelector('.product');
+  let rootElement = document.querySelector('.product-details');
   let formData = new FormData;
   formData.append('getProduct',getUrlParam('id'));
   fetch('/utilities/helper.php',{method: 'POST', body: formData})
@@ -80,7 +80,7 @@ let getProducts = () => {
       for(let product in products) {
         if (products.hasOwnProperty(product)) {
           rootElement.innerHTML +=
-            `<a class='product-link' href='/views/product.php?id=${products[product]['id']}' >`+
+            `<a class='product-link' href='?site=product&id=${products[product]['id']}' >`+
             `<div class='product'>`+
             `<img src='${products[product]['image']}' alt='${products[product]['description']}'>`+
             `<h3>${products[product]['brand']} ${products[product]['category']}</h3>`+

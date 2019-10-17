@@ -10,7 +10,7 @@ let getRandomPicks = () => {
             // create product div
             let productEl = document.createElement('a');
             productEl.className = 'product-link';
-            productEl.href = `./views/product.php?id=${products[product]['id']}`;
+            productEl.href = `?site=product&id=${products[product]['id']}`;
             productEl.innerHTML =
               `<div class="product">`+
               `<img src="${products[product]['image']}" alt="${products[product]['description']}" />`+
@@ -36,7 +36,7 @@ let getSaleProducts = () => {
       products.forEach((product, index) => {
           // create product div
           let productEl = document.createElement('a');
-          productEl.href = `/views/product.php?id=${product.id}`;
+          productEl.href = `?site=product&id=${product.id}`;
           productEl.innerHTML =
             `<div id="sale${index+1}" class="product">` +
             `<img src="${product.image}" alt="${product.description}" />`+
@@ -123,7 +123,7 @@ let showSlide = (n) => {
     });
 
     currentSlide = n;
-    slideshowLink.href = `/views/products.php?type=${categories[currentSlide]}`;
+    slideshowLink.href = `?site=products&type=${categories[currentSlide]}`;
     slideshowCategory.innerHTML = `${categories[currentSlide]}`;
     const key = categories[currentSlide];
     slideShowImages.innerHTML = '';

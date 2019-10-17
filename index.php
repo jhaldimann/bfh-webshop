@@ -36,7 +36,7 @@ session_start();
             //render_content($pageId);
     ?>
   <?php
-  if(get_param('id',0) === 0) {?>
+  if(get_param('site',0) === 0) {?>
   <section class="slideshow">
       <script type="text/javascript">
         getSaleProducts();
