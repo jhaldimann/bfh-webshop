@@ -16,9 +16,9 @@ let getProductDetail = () => {
             `<option value="${data['size']}">${data['size']}</option>` +
           `</select>` +
           `<div class='quantity-selection'>`+
-            `<button class='quantity-count quantity-count-minus' onclick='countQuantity(-1)'>-</button>`+
+            `<button class='quantity-count quantity-count-minus' onclick='updateQuantity(-1)'>-</button>`+
             `<input class='quantity-field' type='number' name='quantity' min='1' max='${data['quantity']}' value='1'>`+
-            `<button class='quantity-count quantity-count-plus' onclick='countQuantity(1)'>+</button>` +
+            `<button class='quantity-count quantity-count-plus' onclick='updateQuantity(1)'>+</button>` +
           `</div>` +
           `</br>` +
           `<button class='add-to-cart' onclick='addToCart(${JSON.stringify(data)}); openDropDownWithTimeout("cart-dropdown")'>` +
@@ -60,7 +60,7 @@ let addToCart = (item) => {
     localStorage.setItem('cart', JSON.stringify(cart));
 };
 
-let countQuantity = (value) => {
+let updateQuantity = (value) => {
     const quantityField = document.querySelector('.quantity-field');
     let newQuantity = Number(quantityField.value) + Number(value);
 
@@ -73,9 +73,10 @@ let getProducts = () => {
   let rootElement = document.querySelector('.products');
   let formData = new FormData;
   formData.append('getProducts', getUrlParam('type'));
-  fetch('/utilities/helper.php',{method: 'POST', body: formData})
+  fetch('./utilities/helper.php',{method: 'POST', body: formData})
     .then((resp) => resp.json())
     .then(  function(products) {
+    	console.log("Hallo");
       for(let product in products) {
         if (products.hasOwnProperty(product)) {
           rootElement.innerHTML +=

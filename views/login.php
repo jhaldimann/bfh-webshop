@@ -15,7 +15,4 @@
             <div class="alert alert-warning"> Login not possible </div>
         </div>
     </div>
-    <link rel="stylesheet" href="/styles/global.css">
-    <link rel="stylesheet" href="/styles/login.css">
-    <script type="application/javascript" src="/scripts/login.js"></script>
 </section>

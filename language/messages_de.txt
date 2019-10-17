@@ -1,0 +1,15 @@
+cart=Einkaufswagen
+gotocheckout=Weiter zum Bezahlen
+myprofil=Mein Profil
+myorders=Meine Bestellung
+helpandcontact=Hilfe und Kontakt
+hello=Hallo
+login=Einloggen
+register=Registrieren
+password=Passwort
+loginnotpossible=Einloggen nicht möglich
+firstname=Vorname
+passwordconfirm=Passwort erneut eingeben
+caps=Hüte
+socks=Socken
+shoes=Schuhe

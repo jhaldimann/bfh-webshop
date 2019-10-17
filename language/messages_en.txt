@@ -1,0 +1,15 @@
+cart=Cart
+gotocheckout=Go to checkout
+myprofil=My Profil
+myorders=My Orders
+helpandcontact=Help and Contact
+hello=Hello
+login=Login
+register=Register
+password=Password
+loginnotpossible=Login not possible
+firstname=Firstname
+passwordconfirm=Confirm password
+caps=Caps
+socks=Socks
+shoes=Shoes

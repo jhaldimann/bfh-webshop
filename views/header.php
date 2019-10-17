@@ -1,7 +1,3 @@
-<?php
-    session_start();
-    include($_SERVER['DOCUMENT_ROOT'].'/views/login.php');
-?>
 <header class='header'>
     <img class='burger' src='/images/burger.png' alt='burger' onclick="showSidebar()">
     <a href='/'>
@@ -17,47 +13,41 @@
         <img class='user-logo' onclick="toggleDropDown('user-dropdown')" src='/images/user.png' alt='user'>
         <div id="user-dropdown" class="user-dropdown">
             <?php
-                if(!isset($_SESSION['logged_in'])) {
-                    echo "<button class=\"user-button\" onclick=\"toggleLoginPopup(); toggleDropDown('user-dropdown')\">Login</button>";
-                    echo "<button class=\"user-button user-register-button\" onclick=\"changePage('/views/register.php')\">Register</button>";
-                } else {
-                    echo "<p class='user-details'> Hello ".$_SESSION['prename']." ".$_SESSION['name']."</p>";
-                }
+            if (!isset($_SESSION['logged_in'])) {
+                echo "<button class=\"user-button\" onclick=\"toggleLoginPopup(); toggleDropDown('user-dropdown')\">Login</button>";
+                echo "<button class=\"user-button user-register-button\" onclick=\"changePage('/views/register.php')\">Register</button>";
+            } else {
+                echo "<p class='user-details'> Hello " . $_SESSION['prename'] . " " . $_SESSION['name'] . "</p>";
+            }
             ?>
 
             <?php
-                if (isset($_SESSION['logged_in'])) {
-                    echo"<div class=\"navs logged-in-user\">";
-                } else {
-                    echo"<div class=\"navs\">";
-                }
+            if (isset($_SESSION['logged_in'])) {
+                echo "<div class=\"navs logged-in-user\"></div>";
+            } else {
+                echo "<div class=\"navs\"></div>";
+            }
             ?>
-                <?php
-                  if(isset($_SESSION['logged_in'])) {
-                    echo"<hr class=\"horizontal-line-logged-in\">";
-                    echo "<a class=\"nav-label\" href=\"/views/user.php\">My Profile</a>";
-                    echo "<a class=\"nav-label\" href=\"#\">My Orders</a>";
-                    echo "<a class=\"nav-label\" href=\"#\">Help & Contact</a>";
-                    echo "<input type=\"submit\" onclick='logout()' class=\"user-logout-button\"/>";
-                }?>
-
-            </div>
+            <?php
+            if (isset($_SESSION['logged_in'])) {
+                echo "<hr class=\"horizontal-line-logged-in\">";
+                echo "<a class=\"nav-label\" href=\"/views/user.php\">My Profile</a>";
+                echo "<a class=\"nav-label\" href=\"#\">My Orders</a>";
+                echo "<a class=\"nav-label\" href=\"#\">Help & Contact</a>";
+                echo "<input type=\"submit\" onclick='logout()' class=\"user-logout-button\"/>";
+            } ?>
         </div>
     </div>
     <a href='/views/cart.php'>
         <img class='shopping-cart-logo' src='/images/shoppingcart.png' alt='shoppingcart'>
     </a>
-    <link rel='stylesheet' href='/styles/header.css'>
 
     <section class='search-section'>
         <section class='inner-search-section'>
             <label>
                 <input type='text' placeholder='What are you looking for?' alt='search-bar'>
-                <img class='search-icon' src='/images/search.png'>
+                <img class='search-icon' src='/images/search.png' alt="search"/>
             </label>
         </section>
     </section>
-    <script src="/scripts/header.js"> </script>
 </header>
-
-<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">

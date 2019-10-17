@@ -11,5 +11,4 @@
             <img class="social-media-icon" src="/images/instagram_icon.png" alt="twitter logo">
         </a>
     </section>
-    <link href='/styles/footer.css' rel='stylesheet'>
 </footer>

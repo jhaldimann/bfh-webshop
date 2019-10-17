@@ -27,7 +27,7 @@ let getRandomPicks = () => {
 };
 
 let getSaleProducts = () => {
-  let rootElement = document.querySelector('.sale');
+  
   let formData = new FormData;
   formData.append('getSaleProducts','getSaleProducts');
   fetch('/utilities/helper.php',{method: 'POST', body: formData})
@@ -45,6 +45,7 @@ let getSaleProducts = () => {
             `<p>Price: <label>${ (product.price / 100 * (100 - product.percent)) } CHF</label></p>` +
             `<p>Size: <label>${product.size}</label></p>` +
             `<p>Quantity: <label>${product.quantity}</label></p>`;
+					let rootElement = document.querySelector('.sale');
           rootElement.appendChild(productEl);
       });
     });
@@ -59,7 +60,7 @@ let slideshow = new Map();
 let categories = [];
 let currentSlide = 1;
 let timeout;
-const slideShowImages = document.querySelector('.slideshow-images');
+
 
 let getProductImagesByCategory = () => {
   let imagesPerSlide = 5;
@@ -106,6 +107,7 @@ let createSlideshow = () => {
 };
 
 let showSlide = (n) => {
+		const slideShowImages = document.querySelector('.slideshow-images');
     clearTimeout(timeout);
     timeout = setTimeout(() => {
       changeSlide(1);

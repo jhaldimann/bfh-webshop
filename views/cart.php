@@ -1,39 +1,17 @@
-<?php
-    include('./header.php');
-    include('./sidebar.php');
-    include('./login.php');
-    include('./footer.php');
-?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>GameFameClothing</title>
-    </head>
-    <body onload="populateCart()">
-
-        <section id="special-offers">
-            <div id="special-offers-title">
-                <img class="lightning" src="/images/lightning.png" alt="lightning">
-                <h2 >Special Offers</h2>
-                <img class="lightning" src="/images/lightning.png" alt="lightning">
-            </div>
-        </section>
-        <section class="cart">
-            <h2>Shopping Cart</h2>
-            <ol id="items-in-cart">
-            </ol>
-            <section class="checkout-section">
-                <label>Total Price: </label>
-                <label class="total-price"></label>
-                <button class="checkout-button" onclick="getRandomPicks()">Go to checkout</button>
-            </section>
-        </section>
-    </body>
-    <script type="application/javascript" src="/scripts/cart.js"></script>
-    <link rel="stylesheet" href="/styles/quantity-selection.css">
-    <link href="/styles/cart.css" rel="stylesheet">
-    <link href="/styles/global.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <script type="application/javascript" src="/scripts/index.js"></script>
-</html>
+<section id="special-offers" onload="populateCart()">
+    <div id="special-offers-title">
+        <img class="lightning" src="/images/lightning.png" alt="lightning">
+        <h2>Special Offers</h2>
+        <img class="lightning" src="/images/lightning.png" alt="lightning">
+    </div>
+</section>
+<section class="cart">
+    <h2>Shopping Cart</h2>
+    <ol id="items-in-cart">
+    </ol>
+    <section class="checkout-section">
+        <label>Total Price: </label>
+        <label class="total-price"></label>
+        <button class="checkout-button" onclick="getRandomPicks()">Go to checkout</button>
+    </section>
+</section>
