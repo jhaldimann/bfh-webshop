@@ -82,6 +82,7 @@ function countQuantity(value, id) {
 }
 
 function updateTotalPrice() {
+	const totalPriceLabel = document.querySelector('.total-price');
   let totalPrices = document.querySelectorAll('.item-total-price');
   let cart = localStorage.getItem('cart');
   cart = JSON.parse(cart);

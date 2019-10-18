@@ -88,7 +88,6 @@ let getProductImagesByCategory = () => {
 let createSlideshow = () => {
     if(images.size > 0) {
     const navDots = document.querySelector('.nav-dots');
-        console.log(images);
         let i = 0;
         images.forEach((element, key) => {
             let myArray = [];

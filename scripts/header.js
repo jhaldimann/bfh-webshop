@@ -42,3 +42,10 @@ let logout = () => {
 let changePage = (url) => {
   document.location.href = url;
 };
+
+let showSearchIcon = () => {
+	let el = document.querySelector('.search-text');
+	if(el.value.length >= 1) {
+		console.log('Hallo');
+	}
+};

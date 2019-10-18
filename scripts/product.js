@@ -40,7 +40,6 @@ let addToCart = (item) => {
     let cart = localStorage.getItem('cart');
 
     let quantity = quantityField.value;
-    console.log(quantity);
 
     if(cart === null) {
       cart = [];
@@ -76,7 +75,6 @@ let getProducts = () => {
   fetch('./utilities/helper.php',{method: 'POST', body: formData})
     .then((resp) => resp.json())
     .then(  function(products) {
-    	console.log("Hallo");
       for(let product in products) {
         if (products.hasOwnProperty(product)) {
           rootElement.innerHTML +=

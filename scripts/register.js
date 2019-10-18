@@ -16,7 +16,6 @@ let register = () => {
   fetch('/utilities/helper.php', {method: 'POST', body: formData})
     .then((r) => r.json())
     .then((data) => {
-      console.log(data.status);
       switch (data.status) {
         case 200:
           window.location.href = "/";

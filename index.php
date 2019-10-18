@@ -20,21 +20,17 @@ session_start();
     <script type="application/javascript" src="scripts/user.js"></script>
 </head>
 <body>
-        <?php include('./views/header.php'); ?>
-        <?php include('./views/login.php'); ?>
-        <?php
-            require_once('utilities/helper.php');
-        ?>
+    <?php require_once('utilities/helper.php'); ?>
+    <?php include('./views/header.php'); ?>
+    <?php include('./views/login.php'); ?>
     <?php
-            $fn = "./views/$pageId.php";
-            if (is_file($fn)) {
-                include($fn);
-                include('./views/sidebar.php');
-            }
-            //render_content($pageId);
+        $fn = "./views/$pageId.php";
+        if (is_file($fn)) {
+            include($fn);
+            include('./views/sidebar.php');
+        }
     ?>
-  <?php
-  if(get_param('site',0) === 0) {?>
+  <?php if(get_param('site',0) === 0) {?>
   <section class="slideshow">
       <script type="text/javascript">
         getSaleProducts();

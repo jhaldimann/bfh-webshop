@@ -13,3 +13,7 @@ passwordconfirm=Passwort erneut eingeben
 caps=Hüte
 socks=Socken
 shoes=Schuhe
+shirts=Shirts
+sweatshirts=Pullover
+lookingfor=Was suchst du?
+logout=Ausloggen

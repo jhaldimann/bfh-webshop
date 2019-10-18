@@ -10,7 +10,6 @@ var login = () => {
   fetch('/utilities/helper.php',{method: 'POST', body: formData})
     .then((resp) => resp.json())
     .then(function(data) {
-      console.log(data);
       if(!data) {
         warningAlert.style.display = 'block';
       } else {
