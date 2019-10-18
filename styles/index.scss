@@ -1,225 +1,202 @@
 * {
-	font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
+
 body {
-	margin: 0;
+  margin: 0;
 }
 
 html {
-	scroll-behavior: smooth;
-}
-
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: rgba(0,0,0,.5);
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.dot:hover {
-	background-color: rgba(0,0,0,.8);
+  scroll-behavior: smooth;
 }
 
 .active {
-	background-color: rgba(0,0,200,.5);
+  background-color: rgba(0, 0, 200, .5);
 }
 
 .active:hover {
-	background-color: rgba(0,0,200,.8);
+  background-color: rgba(0, 0, 200, .8);
 }
 
 .slideshow-container {
-	position: relative;
-	top: 150px;
-	user-select: none;
-	text-align: center;
+  position: relative;
+  top: 50px;
+  user-select: none;
+  text-align: center;
+
+  .slideshow-link {
+    .slideshow-category {
+      position: absolute;
+      left: 48%;
+      top: -20px;
+      font-family: 'Lobster', cursive;
+      font-size: 20px;
+      text-decoration: none;
+      color: black;
+      z-index: 1;
+    }
+
+    .slideshow-images {
+      width: 80%;
+      height: 150px;
+      display: inline-block;
+
+      .slideshow-image {
+        position: relative;
+        top: 10%;
+        max-height: 80%;
+        max-width: 15%;
+        margin: auto 10px;
+      }
+    }
+  }
+
+  .arrow-dot {
+    position: relative;
+    bottom: 50px;
+    height: 40px;
+    width: 40px;
+    margin: 0 2px;
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+
+  .arrow-dot:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .6);
+  }
+
+  .arrow-dot:active {
+    background-color: rgba(0, 0, 0, .4);
+  }
+
+  .next-arrow-dot {
+    right: 60px;
+  }
+
+  .previous-arrow-dot {
+    left: 60px;
+  }
+
+  .nav-dots {
+    text-align: center;
+    position: relative;
+    top: 155px;
+    user-select: none;
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: rgba(0, 0, 0, .5);
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .dot:hover {
+      background-color: rgba(0, 0, 0, .8);
+    }
+
+  }
 }
 
-.slideshow-images {
-	width: 80%;
-	height: 150px;
-	display: inline-block;
-}
-
-.slideshow-image {
-	position: relative;
-	top: 10%;
-	max-height: 80%;
-	max-width: 15%;
-	margin: auto 10px;
-}
-
-.slideshow-category {
-		position: absolute;
-    left: 48%;
-    top: -20px;
-    font-family: 'Lobster', cursive;
-		font-size: 20px;
-    text-decoration: none;
-		color: black;
-    z-index: 1;
-}
-
-.nav-dots {
-	text-align: center;
-	position: relative;
-	top: 155px;
-	user-select: none;
-}
 
 .next-previous-arrow {
-	fill: white;
-	position: relative;
-	top: 8px;
-}
-
-.arrow-dot {
-	position: relative;
-	bottom: 50px;
-  height: 40px;
-  width: 40px;
-  margin: 0 2px;
-  background-color: rgba(0,0,0,.3);
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-}
-
-.arrow-dot:hover  {
-	cursor: pointer;
-	background-color: rgba(0,0,0,.6);
-}
-
-.arrow-dot:active {
-	background-color: rgba(0,0,0,.4);
-}
-
-.next-arrow-dot {
-	right: 60px;
-}
-
-.previous-arrow-dot {
-	left: 60px;
+  fill: white;
+  position: relative;
+  top: 8px;
 }
 
 .section {
-	box-shadow: 4px 4px 4px grey;
-	width: 30%;
-	height: 130px;
-	display: inline-flex;
-	border-radius: 4px;
-	position: relative;
-	margin: 5px;
-	border: 2px solid black;
+  box-shadow: 4px 4px 4px grey;
+  width: 30%;
+  height: 130px;
+  display: inline-flex;
+  border-radius: 4px;
+  position: relative;
+  margin: 5px;
+  border: 2px solid black;
 }
 
 .section:hover {
-	transform:scale(1.01);
+  transform: scale(1.01);
 }
 
 .lightning {
-	height: 30px;
-	width: 30px;
-	transform: translateY(15%);
+  height: 30px;
+  width: 30px;
+  transform: translateY(15%);
 }
 
 .main-section {
-	width: 80%;
-	position: relative;
-	margin: 20px auto;
-	text-align: center;
-	top: 200px;
-	z-index: 0;
-}
+  width: 80%;
+  position: relative;
+  margin: 20px auto;
+  text-align: center;
+  top: 140px;
+  z-index: 0;
 
-.main-section > a {
-	text-decoration: none;
-	color: black;
-	cursor: pointer;
-}
+  a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
 
-.main-section > a:visited {
-	color: black;
-}
+  a:visited {
+    color: black;
+  }
 
-.section-title {
-	margin: 0;
-	color: black;
-	font-weight: bold;
-	font-size: 30px;
-	text-decoration: none;
-	top: 50%;
-	left: 50%;
-	position: absolute;
-	transform: translate(-50%, -50%);
-	z-index: 1;
-}
+  h3 {
+    font-size: 25px;
+    margin-bottom: 0;
+    text-decoration: underline;
+  }
 
-.gender-section {
-	padding-bottom: 50px;
-}
+  .bounce {
+    -moz-animation: bounce 2s infinite;
+    -webkit-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+  }
 
-.main-section > h3 {
-	font-size: 25px;
-	margin-bottom: 0;
-	text-decoration: underline;
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-15px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+  }
 }
 
 #sidebar {
-	display: none;
-}
-
-.random-picks {
-	margin: 0;
-	position: relative !important;
-	left: 50%;
-	transform: translateX(-50%);
-	display: grid;
-	grid-template-columns: 33% 33% 33%;
-	width: 80%;
-	z-index: 0;
+  display: none;
 }
 
 .product {
-	transition: none!important;
+  transition: none !important;
 }
 
 .product:hover {
-	transform: scale(1)!important;
+  transform: scale(1) !important;
 }
 
 .sale {
-	width: 100%;
-	margin-bottom: 100px;
-	display: contents;
+  width: 100%;
+  margin-bottom: 100px;
+  display: contents;
 }
 
 .percent {
-	color: red;
+  color: red;
 }
 
 .down-arrow {
-	margin-top: 5px;
-}
-
-.bounce {
-	-moz-animation: bounce 2s infinite;
-  -webkit-animation: bounce 2s infinite;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-	0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-15px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }
+  margin-top: 5px;
 }

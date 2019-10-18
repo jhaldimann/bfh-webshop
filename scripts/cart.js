@@ -1,7 +1,6 @@
-const itemsInCart = document.querySelector('#items-in-cart');
-const totalPriceLabel = document.querySelector('.total-price');
-
 function populateCart() {
+	const itemsInCart = document.querySelector('#items-in-cart');
+	const totalPriceLabel = document.querySelector('.total-price');
   let cart = localStorage.getItem('cart');
   itemsInCart.innerHTML = '';
   cart = JSON.parse(cart);

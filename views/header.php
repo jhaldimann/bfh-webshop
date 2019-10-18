@@ -6,7 +6,7 @@
     <h2>GameFameClothing</h2>
     <div id="cart-dropdown" class="cart-dropdown">
         <div class="cart"></div>
-        <button class="user-button cart-button" onclick="changePage('/views/cart.php')">Shopping cart</button>
+        <button class="user-button cart-button" onclick="changePage('?site=cart')">Shopping cart</button>
         <button class="user-button go-checkout-button">Go to checkout</button>
     </div>
     <div class="user-dropdown-button">
@@ -15,7 +15,7 @@
             <?php
             if (!isset($_SESSION['logged_in'])) {
                 echo "<button class=\"user-button\" onclick=\"toggleLoginPopup(); toggleDropDown('user-dropdown')\">Login</button>";
-                echo "<button class=\"user-button user-register-button\" onclick=\"changePage('/views/register.php')\">Register</button>";
+                echo "<button class=\"user-button user-register-button\" onclick=\"changePage('?site=register')\">Register</button>";
             } else {
                 echo "<p class='user-details'> Hello " . $_SESSION['prename'] . " " . $_SESSION['name'] . "</p>";
             }
@@ -38,7 +38,7 @@
             } ?>
         </div>
     </div>
-    <a href='/views/cart.php'>
+    <a href='?site=cart'>
         <img class='shopping-cart-logo' src='/images/shoppingcart.png' alt='shoppingcart'>
     </a>
 

@@ -30,8 +30,6 @@ session_start();
             if (is_file($fn)) {
                 include($fn);
                 include('./views/sidebar.php');
-            } else {
-                echo "Not yet implemented... Coming soon... sorry!";
             }
             //render_content($pageId);
     ?>
