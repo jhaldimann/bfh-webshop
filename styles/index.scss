@@ -1,3 +1,5 @@
+@import "colors";
+
 * {
   font-family: 'Roboto', sans-serif;
 }
@@ -11,7 +13,7 @@ html {
 }
 
 .active:hover {
-  background-color: rgba(0, 0, 200, .8);
+  background-color: $darkblue;
 }
 
 .slideshow-container {
@@ -28,7 +30,7 @@ html {
       font-family: 'Lobster', cursive;
       font-size: 20px;
       text-decoration: none;
-      color: black;
+      color: $black;
       z-index: 1;
     }
 
@@ -53,7 +55,7 @@ html {
     height: 40px;
     width: 40px;
     margin: 0 2px;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: $darkgrey;
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.3s ease;
@@ -61,11 +63,11 @@ html {
 
   .arrow-dot:hover {
     cursor: pointer;
-    background-color: rgba(0, 0, 0, .6);
+    background-color: $darkergrey;
   }
 
   .arrow-dot:active {
-    background-color: rgba(0, 0, 0, .4);
+    background-color: $darkgrey;
   }
 
   .next-arrow-dot {
@@ -84,7 +86,7 @@ html {
   user-select: none;
 
   .active {
-    background-color: rgba(0, 0, 200, .5) !important;
+    background-color: $darkblue !important;
   }
 
   .dot {
@@ -92,33 +94,33 @@ html {
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: $darkergrey;
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
   }
 
   .dot:hover {
-    background-color: rgba(0, 0, 0, 1);
+    background-color: $black;
   }
 }
 
 
 .next-previous-arrow {
-  fill: white;
+  fill: $white;
   position: relative;
   top: 8px;
 }
 
 .section {
-  box-shadow: 4px 4px 4px grey;
+  box-shadow: 4px 4px 4px $grey;
   width: 30%;
   height: 130px;
   display: inline-flex;
   border-radius: 4px;
   position: relative;
   margin: 5px;
-  border: 2px solid black;
+  border: 2px solid $black;
 }
 
 .section:hover {
@@ -141,12 +143,12 @@ html {
 
   a {
     text-decoration: none;
-    color: black;
+    color: $black;
     cursor: pointer;
   }
 
   a:visited {
-    color: black;
+    color: $black;
   }
 
   h3 {
@@ -193,7 +195,7 @@ html {
 }
 
 .percent {
-  color: red;
+  color: $red;
 }
 
 .down-arrow {

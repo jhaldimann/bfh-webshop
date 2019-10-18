@@ -1,3 +1,5 @@
+@import "colors";
+
 .product-details {
   margin: 0 auto;
 
@@ -6,8 +8,8 @@
     width: 300px;
     margin-left: 250px;
     float: left;
-    border: 1px solid gray;
-    background-color: white;
+    border: 1px solid $grey;
+    background-color: $white;
     transition: all .3s ease;
   }
 
@@ -63,9 +65,9 @@
       height: 50px;
       width: 200px;
       display: block;
-      background-color: white;
+      background-color: $white;
       border-radius: 20px;
-      border: 2px solid black;
+      border: 2px solid $black;
       transition: all .3s ease;
       cursor: pointer;
       user-select: none;
@@ -85,7 +87,7 @@
 
     .add-to-cart:hover {
       transform: scale(1.05);
-      background-color: rgba(240,240,240,1);
+      background-color: $lightgrey;
     }
   }
 }

@@ -1,3 +1,5 @@
+@import "colors";
+
 .products {
   display: grid;
   grid-template-columns: 33% 33% 33%;
@@ -20,17 +22,19 @@
 
 .product:hover {
   transform: scale(1.03);
-  border: 2px solid rgba(0,0,0,.5);
+  border: 2px solid $darkergrey;
 }
 
 .product-link {
   text-decoration: none;
-  color: black;
+  color: $black;
 }
 
-.product > img {
-  max-height: 150px;
-  margin-top: 20px;
+.product {
+  img {
+    max-height: 150px;
+    margin-top: 20px;
+  }
 }
 
 h1 {
@@ -41,15 +45,15 @@ h1 {
 
 .add-to-cart-button {
   border-radius: 10px;
-  background-color: blue;
-  border: 1px solid rgba(0,0,0,.5);
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+  background-color: $blue;
+  border: 1px solid $darkergrey;
+  box-shadow: 0 4px 8px 0 $darkgrey;
   transition: all .3 ease;
 }
 
 .add-to-cart-button:hover {
   cursor: pointer;
-  background-color: green;
+  background-color: $green;
 }
 
 
@@ -64,7 +68,6 @@ h1 {
   .products {
     grid-template-columns: 100%;
     left: 50%;
-
   }
 }
 
