@@ -2,6 +2,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	entry: [
+		'./styles/admin.scss',
 		'./styles/cart.scss',
 		'./styles/footer.scss',
 		'./styles/global.scss',

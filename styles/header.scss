@@ -9,6 +9,7 @@
   left: 0;
   z-index: 1;
   height: 120px;
+
   .home-logo {
     position: absolute;
     left: 10px;
@@ -171,14 +172,6 @@
     transform: translateY(40%);
   }
 
-  .special-offers > .title {
-    text-align: center;
-  }
-
-  .special-offers > .title > h2 {
-    transform: translateY(-15%);
-  }
-
   .search-icon {
     height: 20px;
     position: absolute;
@@ -194,36 +187,22 @@
     bottom: 30%;
   }
 
-  @media only screen and (max-width: 1000px) {
-    header > img {
-      display: none;
-    }
-
-    header > a > img {
-      display: none;
-    }
-
-    .burger {
-      display: flex;
-      width: 50px;
-      position: absolute;
-      left: 0;
-      cursor: pointer;
-    }
-
-    .special-offers > .title > h2 {
-      font-size: 15px;
-    }
-
-    .search-section {
-      display: none;
-    }
+  .burger {
+    display: flex;
+    width: 50px;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
   }
 
   @media only screen and (min-width: 1000px) {
     .burger {
       display: none;
     }
+  }
+
+  .search-section {
+    display: none;
   }
 
   .user-details {
@@ -305,7 +284,7 @@
     position: absolute;
     left: 0;
     background-color: $whitesmoke;
-    width: 100%;
+    width: 80%;
     bottom: 0;
     margin: 0 0 10px 20px;
 
@@ -343,5 +322,13 @@
   .hover-underline-animation:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  header {
+    img {
+      display: none;
+    }
   }
 }

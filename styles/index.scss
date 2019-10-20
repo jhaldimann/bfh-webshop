@@ -1,17 +1,5 @@
 @import "colors";
 
-* {
-  font-family: 'Roboto', sans-serif;
-}
-
-body {
-  margin: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 .active:hover {
   background-color: $darkblue;
 }
@@ -82,7 +70,7 @@ html {
 .nav-dots {
   text-align: center;
   position: relative;
-  top: 155px;
+  top: 100px;
   user-select: none;
 
   .active {
@@ -127,12 +115,6 @@ html {
   transform: scale(1.01);
 }
 
-.lightning {
-  height: 30px;
-  width: 30px;
-  transform: translateY(15%);
-}
-
 .main-section {
   width: 80%;
   position: relative;
@@ -140,6 +122,12 @@ html {
   text-align: center;
   top: 140px;
   z-index: 0;
+
+  .lightning {
+    height: 30px;
+    width: 30px;
+    transform: translateY(50%);
+  }
 
   a {
     text-decoration: none;
@@ -200,4 +188,14 @@ html {
 
 .down-arrow {
   margin-top: 5px;
+}
+
+.special-offers {
+  .title {
+    display: inline-flex;
+    text-align: center;
+    h2 {
+      transform: translateY(-15%);
+    }
+  }
 }
