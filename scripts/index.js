@@ -27,7 +27,6 @@ let getRandomPicks = () => {
 };
 
 let getSaleProducts = () => {
-  
   let formData = new FormData;
   formData.append('getSaleProducts','getSaleProducts');
   fetch('/utilities/helper.php',{method: 'POST', body: formData})

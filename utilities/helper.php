@@ -264,7 +264,7 @@ function t($key) {
 }
 
 // Set language and page ID as global variables.
-$pageId = get_param('site', 0);
+$pageId = get_param('site', 'home');
 $language = get_param('lang', 'de');
 $messages = array();
 $fn = $_SERVER['DOCUMENT_ROOT'] ."/language/messages_$language.txt";

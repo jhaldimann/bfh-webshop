@@ -3,7 +3,6 @@
     <a href='/'>
         <img class='home-logo' src='/images/home.png' alt='home'>
     </a>
-    <h2>GameFameClothing</h2>
     <div id="cart-dropdown" class="cart-dropdown">
         <div class="cart"></div>
         <button class="user-button cart-button" onclick="changePage('?site=cart')">Shopping cart</button>

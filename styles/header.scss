@@ -182,7 +182,8 @@
     position: absolute;
     background-color: $whitesmoke;
     margin: 20px 0 0 0;
-    right: 16%;
+    right: 20%;
+    top: 20px;
     z-index: 10;
     bottom: 30%;
   }
@@ -199,10 +200,6 @@
     .burger {
       display: none;
     }
-  }
-
-  .search-section {
-    display: none;
   }
 
   .user-details {
@@ -252,8 +249,12 @@
       font-size: 16px;
       transition: 0.4s;
       line-height: 20px;
-      width: 300px;
       font-weight: bold;
+      -webkit-transition: width .2s;
+    }
+
+    .search-text:hover {
+      width: 250px;
     }
 
     .search-button {
