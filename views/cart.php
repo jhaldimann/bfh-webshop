@@ -13,7 +13,7 @@
         <section class="checkout-section">
             <label><?php echo t("totalprice") ?>: </label>
             <label class="total-price"></label>
-            <button class="checkout-button" onclick="getRandomPicks()"><?php echo t("checkout")?></button>
+            <button class="checkout-button" onclick="redirect('checkout')"><?php echo t("checkout")?></button>
         </section>
     </section>
 </body>

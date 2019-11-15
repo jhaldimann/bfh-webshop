@@ -13,7 +13,9 @@ module.exports = {
 			'./styles/quantity-selection.scss',
 			'./styles/register.scss',
 			'./styles/sidebar.scss',
-			'./styles/user.scss'],
+			'./styles/user.scss' ,
+			'./styles/checkout.scss'
+		],
 		'admin': ['./styles/admin.scss']
 	},
 	module: {
