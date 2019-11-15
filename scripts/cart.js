@@ -94,6 +94,10 @@ function updateTotalPrice() {
   totalPriceLabel.innerHTML = `${calculateTotalPrice()} CHF`
 }
 
+function clearCart() {
+	
+}
+
 function redirect(pageName) {
 	window.location.href = `?site=${pageName}`;	
 }

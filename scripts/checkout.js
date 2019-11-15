@@ -30,7 +30,8 @@ let checkout = () => {
 	fetch('/utilities/helper.php', {method: 'POST', body: formData})
 		.then((r) => r.json())
 		.then(data => {
-			console.log(data);
+			console.log(data.hash);
+			redirect('confirm&hash=' + data.hash);
 		})
 };
 

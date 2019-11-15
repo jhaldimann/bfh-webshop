@@ -21,3 +21,5 @@ specialoffers=Special offers
 totalprice=Total price
 loginwrong=Login failed
 home=Home
+lastname=Lastname
+confirmedorder=Order confirmed

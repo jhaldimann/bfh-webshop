@@ -41,11 +41,11 @@ function checkout(){
     $ccdate = $mysqli->real_escape_string($_POST["ccdate"]);
     $ccnumber = $mysqli->real_escape_string($_POST["ccnumber"]);
     $ccccv = $mysqli->real_escape_string($_POST["ccccv"]);
-
-    $query = "INSERT INTO orders (name, prename, address, housenumber, zip, city, country) VALUES  "."('$name','$prename','$address','$housenr','$zip','$city','$country')";
+    $randomHash = rand();
+    $query = "INSERT INTO orders (name, prename, address, housenumber, zip, city, country, hash) VALUES  "."('$name','$prename','$address','$housenr','$zip','$city','$country','$randomHash')";
     $result = $mysqli->query($query);
     if($result) {
-        echo json_encode(array('status' => 200, 'text' => 'success'));
+        echo json_encode(array('status' => 200, 'text' => 'success', 'hash' =>$randomHash));
     } else {
         echo json_encode(array('status' => 400, 'text' => 'Failed'));
     }

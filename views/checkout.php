@@ -32,5 +32,8 @@
         <input type="text" id="cc-ccv" placeholder="CCV" minlength="3"/>
     </section>
 
-    <button class="checkout-button" onclick="checkout()">Checkout</button>
+    <section>
+        <button class="checkout-button" onclick="checkout()">Checkout</button>
+        <div class="confirm"></div>
+    </section>
 </section>

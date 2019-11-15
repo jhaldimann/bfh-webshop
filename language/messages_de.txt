@@ -22,3 +22,5 @@ specialoffers=Spezialangebote
 totalprice=Gesammtbetrag
 loginwrong=Login fehlgeschlagen
 home=Startseite
+lastname=Nachname
+confirmedorder=Bestellung bestätigt
