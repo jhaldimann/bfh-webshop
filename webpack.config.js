@@ -1,22 +1,21 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-	entry: [
-		'./styles/admin.scss',
-		'./styles/cart.scss',
-		'./styles/footer.scss',
-		'./styles/global.scss',
-		'./styles/header.scss',
-		'./styles/index.scss',
-		'./styles/login.scss',
-		'./styles/products.scss',
-		'./styles/product.scss',
-		'./styles/quantity-selection.scss',
-		'./styles/register.scss',
-		'./styles/sidebar.scss',
-		'./styles/user.scss',
-		
-	],
+	entry: {
+		'default': ['./styles/cart.scss',
+			'./styles/footer.scss',
+			'./styles/global.scss',
+			'./styles/header.scss',
+			'./styles/index.scss',
+			'./styles/login.scss',
+			'./styles/products.scss',
+			'./styles/product.scss',
+			'./styles/quantity-selection.scss',
+			'./styles/register.scss',
+			'./styles/sidebar.scss',
+			'./styles/user.scss'],
+		'admin': ['./styles/admin.scss']
+	},
 	module: {
 		rules: [
 			{
@@ -29,7 +28,7 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new ExtractTextPlugin('style.css')
+		new ExtractTextPlugin('[name].css')
 	],
 	stats: {
 		warnings: false,

@@ -1,6 +1,6 @@
 <section class="slideshow">
       <script type="text/javascript">
-    getSaleProducts();
+        getSaleProducts();
         getProductImagesByCategory();
       </script>
     <div class="slideshow-container">

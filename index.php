@@ -8,7 +8,7 @@ session_start();
   <title>GameFameClothing</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="dist/style.css">
+    <link rel="stylesheet" href="dist/default.css">
     <script type="application/javascript" src="scripts/index.js"></script>
     <script type="application/javascript" src="scripts/cart.js"></script>
     <script type="application/javascript" src="scripts/header.js"></script>
@@ -27,7 +27,9 @@ session_start();
         $fn = "./views/$pageId.php";
         if (is_file($fn)) {
             include($fn);
-            include('./components/sidebar.php');
+            if($pageId != "home") {
+                include('./components/sidebar.php');
+            }
         }
     ?>
     <nav class="navigation-mobile hidden">

@@ -241,17 +241,6 @@ function render_navigation($language, $pageId) {
         echo "<a class=\"$class\" href=\"$url\">".t($nav)."</a>";
     }
 }
-// Renders the language navigation.
-function render_languages($language, $pageId) {
-    $languages = array('de','fr', 'en');
-    $urlBase = $_SERVER['PHP_SELF'];
-    add_param($urlBase, 'id', $pageId);
-    foreach ($languages as $lang) {
-        $url = $urlBase;
-        $class = $language == $lang ? 'active' : 'inactive';
-        echo "<a class=\"$class\" href=\"".add_param($url,'lang', $lang)."\">".strtoupper($lang)."</a>";
-    }
-}
 
 // The translation function.
 function t($key) {

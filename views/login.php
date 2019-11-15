@@ -12,6 +12,5 @@
             <input class="login-button" type="button" onclick="login()" <?php echo "value='"; echo t("login"); echo "'" ?>>
             <div class="alert alert-warning"> <?php echo t("loginwrong") ?> </div>
         </section>
-
     </div>
 </section>
