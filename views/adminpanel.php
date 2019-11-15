@@ -1,3 +1,4 @@
+<?php require_once('../utilities/helper.php'); ?>
 <?php require_once('../utilities/admin.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -6,9 +7,12 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../dist/admin.css">
         <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+        <script type="application/javascript" src="../scripts/admin.js"></script>
     </head>
     <body>
-        <?php if (!isset($_SESSION['admin_logged_in'])) { ?>
+        <?php
+        session_start();
+        if (!isset($_SESSION['admin_logged_in'])) { ?>
             <section class="admin-login-form">
                 <h1 class="admin-login-title">Admin Panel Login</h1>
                 <div class="field">
@@ -22,17 +26,12 @@
         <?php } else {?>
 
         <section class="product-form">
-            <div>
+            <nav>
 
-            </div>
-            <div>
-
-            </div>
+            </nav>
+            <?php include('../components/admin/products.php') ?>
         </section>
 
         <?php }?>
     </body>
-    <script type="application/javascript" src="../scripts/admin.js"></script>
 </html>
-
-

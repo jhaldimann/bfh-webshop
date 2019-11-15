@@ -1,7 +1,7 @@
 let checkout = () => {
 	// Get information about the customer
-	let name = document.querySelector('#name');
-	let preName = document.querySelector('#prename');
+	let firstname = document.querySelector('#firstname');
+	let lastname = document.querySelector('#lastname');
 	let address = document.querySelector('#address');
 	let houseNr = document.querySelector('#housenr');
 	let zip = document.querySelector('#zip');
@@ -15,8 +15,8 @@ let checkout = () => {
 	// Fill the form data
 	let formData = new FormData;
 	formData.append('checkout','checkout');
-	formData.append('name', name.value);
-	formData.append('prename', preName.value);
+	formData.append('firstname', firstname.value);
+	formData.append('lastname', lastname.value);
 	formData.append('address', address.value);
 	formData.append('housenr', houseNr.value);
 	formData.append('zip', zip.value);
@@ -34,5 +34,3 @@ let checkout = () => {
 			redirect('confirm&hash=' + data.hash);
 		})
 };
-
-

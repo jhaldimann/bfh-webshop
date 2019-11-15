@@ -2,10 +2,10 @@
     <h2>Customer Information</h2>
     <section class="user-checkout-info">
         <label>
-            <input type="text" id="name" placeholder="Name"/>
+            <input type="text" id="firstname" placeholder="Firstname"/>
         </label>
         <label>
-            <input type="text" id="prename" placeholder="Prename"/>
+            <input type="text" id="lastname" placeholder="Lastname"/>
         </label>
         <label>
             <input type="text" id="address" placeholder="Address"/>

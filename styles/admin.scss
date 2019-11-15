@@ -78,3 +78,19 @@
     background-position: right;
   }
 }
+
+.product-form {
+  .op-buttons {
+    display: inline-block;
+
+    .op-button {
+      margin-left: 10px;
+    }
+  }
+
+  .admin-porducts {
+    th {
+      text-align: left;
+    }
+  }
+}
