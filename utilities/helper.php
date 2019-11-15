@@ -18,12 +18,37 @@ if(array_key_exists('register', $_POST)) {
     getProduct($_POST['getProduct']);
 } else if(array_key_exists('getProducts', $_POST)) {
     getProducts($_POST['getProducts']);
+} else  if(array_key_exists('checkout', $_POST)) {
+    checkout();
 }
 
 function connect () {
     $config = include ($_SERVER['DOCUMENT_ROOT'].'/config.php');
     $connection = mysqli_connect($config['host'], $config['username'], $config['password'], $config['database']);
     return $connection;
+}
+
+function checkout(){
+    $mysqli = connect();
+    $name = $mysqli->real_escape_string($_POST["name"]);
+    $prename = $mysqli->real_escape_string($_POST["prename"]);
+    $address = $mysqli->real_escape_string($_POST["address"]);
+    $housenr = $mysqli->real_escape_string($_POST["housenr"]);
+    $zip = $mysqli->real_escape_string($_POST["zip"]);
+    $city = $mysqli->real_escape_string($_POST["city"]);
+    $country = $mysqli->real_escape_string($_POST["country"]);
+    $ccowner = $mysqli->real_escape_string($_POST["ccowner"]);
+    $ccdate = $mysqli->real_escape_string($_POST["ccdate"]);
+    $ccnumber = $mysqli->real_escape_string($_POST["ccnumber"]);
+    $ccccv = $mysqli->real_escape_string($_POST["ccccv"]);
+
+    $query = "INSERT INTO orders (name, prename, address, housenumber, zip, city, country) VALUES  "."('$name','$prename','$address','$housenr','$zip','$city','$country')";
+    $result = $mysqli->query($query);
+    if($result) {
+        echo json_encode(array('status' => 200, 'text' => 'success'));
+    } else {
+        echo json_encode(array('status' => 400, 'text' => 'Failed'));
+    }
 }
 
 function getProducts($cat) {
@@ -265,3 +290,5 @@ foreach($file as $line) {
     list($key, $val) = explode('=', $line);
     $messages[$key] = $val;
 }
+
+

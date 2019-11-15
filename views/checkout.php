@@ -26,9 +26,11 @@
 
     <h2>Creditcard Information</h2>
     <section class="credit-card">
-        <input type="text" placeholder="Owner"/>
-        <input type="text" placeholder="Card Number" minlength="16"/>
-        <input type="text" placeholder="Date" pattern="/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/"/>
-        <input type="text" placeholder="CCV" minlength="3"/>
+        <input type="text" id="cc-owner" placeholder="Owner"/>
+        <input type="text" id="cc-number" placeholder="Card Number" minlength="16"/>
+        <input type="text" id="cc-date" placeholder="Date" pattern="/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/"/>
+        <input type="text" id="cc-ccv" placeholder="CCV" minlength="3"/>
     </section>
+
+    <button class="checkout-button" onclick="checkout()">Checkout</button>
 </section>

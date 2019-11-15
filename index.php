@@ -18,6 +18,7 @@ session_start();
     <script type="application/javascript" src="scripts/script.js"></script>
     <script type="application/javascript" src="scripts/sidebar.js"></script>
     <script type="application/javascript" src="scripts/user.js"></script>
+    <script type="application/javascript" src="scripts/checkout.js"></script>
 </head>
 <body>
     <?php require_once('utilities/helper.php'); ?>
