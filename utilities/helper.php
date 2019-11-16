@@ -30,8 +30,8 @@ function connect () {
 
 function checkout(){
     $mysqli = connect();
-    $name = $mysqli->real_escape_string($_POST["name"]);
-    $prename = $mysqli->real_escape_string($_POST["prename"]);
+    $firstname = $mysqli->real_escape_string($_POST["firstname"]);
+    $lastname = $mysqli->real_escape_string($_POST["lastname"]);
     $address = $mysqli->real_escape_string($_POST["address"]);
     $housenr = $mysqli->real_escape_string($_POST["housenr"]);
     $zip = $mysqli->real_escape_string($_POST["zip"]);
@@ -42,7 +42,7 @@ function checkout(){
     $ccnumber = $mysqli->real_escape_string($_POST["ccnumber"]);
     $ccccv = $mysqli->real_escape_string($_POST["ccccv"]);
     $randomHash = rand();
-    $query = "INSERT INTO orders (name, prename, address, housenumber, zip, city, country, hash) VALUES  "."('$name','$prename','$address','$housenr','$zip','$city','$country','$randomHash')";
+    $query = "INSERT INTO orders (name, prename, address, housenumber, zip, city, country, hash) VALUES  "."('$firstname','$lastname','$address','$housenr','$zip','$city','$country','$randomHash')";
     $result = $mysqli->query($query);
     if($result) {
         echo json_encode(array('status' => 200, 'text' => 'success', 'hash' =>$randomHash));
@@ -56,7 +56,12 @@ function getProducts($cat) {
     $category = $mysqli->real_escape_string($cat);
 
     $myArray = array();
-    if ($result = $mysqli->query("SELECT * FROM products WHERE category ='".$category."'")) {
+    if($cat == 'none') {
+      $query = "SELECT * FROM products";
+    } else {
+      $query = "SELECT * FROM products WHERE category ='".$category."'";
+    }
+    if ($result = $mysqli->query($query)) {
 
         while($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $myArray[] = $row;
@@ -290,5 +295,3 @@ foreach($file as $line) {
     list($key, $val) = explode('=', $line);
     $messages[$key] = $val;
 }
-
-
