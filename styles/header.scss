@@ -328,8 +328,16 @@
 
 @media only screen and (max-width: 1000px) {
   header {
+    .categories {
+      display: none !important;
+    }
     img {
       display: none;
     }
+    .burger {
+      height: 100px;
+      width: 100px !important;
+    }
   }
+
 }

@@ -24,3 +24,4 @@ loginwrong=Login fehlgeschlagen
 home=Startseite
 lastname=Nachname
 confirmedorder=Bestellung bestätigt
+continueshopping=Weiter Einkaufen
