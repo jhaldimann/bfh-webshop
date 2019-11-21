@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <?php require_once('../utilities/helper.php'); ?>
 <?php require_once('../utilities/admin.php'); ?>
 <!DOCTYPE html>
@@ -11,7 +14,6 @@
     </head>
     <body>
         <?php
-        session_start();
         if (!isset($_SESSION['admin_logged_in'])) { ?>
             <section class="admin-login-form">
                 <h1 class="admin-login-title">Admin Panel Login</h1>
@@ -26,9 +28,6 @@
         <?php } else {?>
 
         <section class="product-form">
-            <nav>
-
-            </nav>
             <?php include('../components/admin/products.php') ?>
         </section>
 

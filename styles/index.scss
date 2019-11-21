@@ -199,3 +199,23 @@
     }
   }
 }
+
+@media only screen and (max-width: 1000px) {
+  .slideshow-container {
+    display: none;
+  }
+  .nav-dots {
+    display: none;
+  }
+  .title {
+    .lightning {
+      height: 75px;
+      width: 75px;
+      transform: translateY(50%);
+    }
+    h2 {
+      font-size: 60px;
+    }
+  }
+
+}

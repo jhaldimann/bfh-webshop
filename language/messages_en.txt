@@ -33,3 +33,4 @@ category=Category
 gender=Gender
 description=Description
 image=image
+newProduct=New Product

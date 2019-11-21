@@ -1,4 +1,4 @@
 <body onload="getProductDetail()">
-    <section class="product-details">
-    </section>
+    <div class="product-details">
+    </div>
 </body>

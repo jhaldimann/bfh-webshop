@@ -1,6 +1,10 @@
 @import "colors";
 @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
 
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
 .admin-login-form {
   font-family: 'Nunito', sans-serif;
   width: 360px;
@@ -80,17 +84,76 @@
 }
 
 .product-form {
+  display: flex;
   .op-buttons {
     display: inline-block;
+    margin: 20px;
 
     .op-button {
-      margin-left: 10px;
+        border: none;
+        background-color: #0047bc;
+        font-size: 18px;
+        color: white;
+        border-radius: 7px;
+        height: 40px;
     }
   }
 
-  .admin-porducts {
-    th {
-      text-align: left;
-    }
+  table {
+    font-size: 14px;
+    border-collapse: collapse;
+    width: 300px;
   }
+
+  td, th {
+    padding: 10px;
+    text-align: left;
+    margin: 0;
+  }
+  
+  .selected {
+    background-color: $red;
+  }
+
+  tbody tr:nth-child(2n){
+    background-color: #eee;
+  }
+
+  th {
+    position: sticky;
+    top: 0;
+    background-color: $table-head;
+    color: white;
+  }
+
+  tr {
+    cursor: pointer;
+  }
+
+  tr:hover {
+    background-color: rgba(0,0,0,0.2);
+  }
+  tr:nth-child(2n):hover{
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.admin-porducts {
+
+  table {
+    height: 300px;
+    overflow-y: auto;
+  }
+}
+
+.edit-section {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: auto auto auto auto auto auto auto;
+  grid-gap: 10px;
+  height: 10px;
 }

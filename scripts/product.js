@@ -7,7 +7,7 @@ let getProductDetail = () => {
     .then(function(data) {
       rootElement.innerHTML =
         `<img class='product-image' src="${data['image']}" alt="${data['description']}"/>`+
-        `<section class="information">`+
+        `<div class="information">`+
           `<h2 class="description-title">${data['brand'] + data['description']}</h2>`+
           `<label class='product-brand'><b>Brand: </b> ${data['brand']} </label>` +
           `<label class='product-description'><b>Description: </b> ${data['description']} </label>` +
@@ -26,7 +26,7 @@ let getProductDetail = () => {
           `<label class='add-to-cart-label'>Add to cart</label></button>` +
         `<div class="alert-warning"> Is already in cart</div>` +
         `<div class="alert">Added to cart</div>`+
-        `</section>`;
+        `</div>`;
     });
 };
 
