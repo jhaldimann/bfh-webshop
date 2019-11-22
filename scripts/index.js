@@ -13,7 +13,7 @@ let getRandomPicks = () => {
             productEl.href = `?site=product&id=${products[product]['id']}`;
             productEl.innerHTML =
               `<div class="product">`+
-              `<img src="${products[product]['image']}" alt="${products[product]['description']}" />`+
+              `<img src="/images/uploads/${products[product]['image']}" alt="${products[product]['description']}" />`+
               `<h3>${products[product]['brand']} ${products[product]['category']}</h3>`+
               `${products[product]['sale'] ? `<p class='percent'>Sale: <label>${products[product]['percent']}%</label></p>` : '' }` +
               `<p>Price: <label>${ products[product]['price'] / 100 * (100 - products[product]['percent'])} CHF</label></p>` +
@@ -38,7 +38,7 @@ let getSaleProducts = () => {
           productEl.href = `?site=product&id=${product.id}`;
           productEl.innerHTML =
             `<div id="sale${index+1}" class="product">` +
-            `<img src="${product.image}" alt="${product.description}" />`+
+            `<img src="images/uploads/${product.image}" alt="${product.description}" />`+
             `<h3>${product.brand} ${product.category}</h3>`+
             `<p class='percent'>Sale: <label>${product.percent}%</label></p>` +
             `<p>Price: <label>${ (product.price / 100 * (100 - product.percent)) } CHF</label></p>` +
@@ -94,7 +94,7 @@ let createSlideshow = () => {
 
             element.forEach((image) => {
                 let img = document.createElement('img');
-                img.src = image.image;
+                img.src = 'images/uploads/' + image.image;
                 img.alt = 'slideshow image';
                 img.className = 'slideshow-image';
                 myArray.push(img);
