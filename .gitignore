@@ -4,3 +4,4 @@ config.php
 /node_modules/
 /dist
 package-lock.json
+/images/uploads/*

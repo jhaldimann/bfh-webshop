@@ -83,10 +83,16 @@ function insertProduct() {
     $quantity = $mysqli->real_escape_string($_POST["quantity"]);
     $sale = $mysqli->real_escape_string($_POST["sale"]);
     $image = $mysqli->real_escape_string($_POST["image"]);
-
+    storeImage();
     $sql = "INSERT INTO products (brand, category, gender, description, size, price, quantity, sale, image) 
-            VALUES ('".$brand."','".$category."','".$gender."','".$description."','".$size."','".$price."','".$quantity."','".$sale."','".$image."'".")";
+            VALUES ('".$brand."','".$category."','".$gender."','".$description."','".$size."','".$price."','".$quantity."','".$sale."','".$_FILES['userfile']['name']."'".")";
 
     $mysqli->query($sql);
     echo json_encode(array('status' => 200, 'text' => 'success'));
+}
+
+function storeImage () {
+    $uploaddir = $_SERVER['DOCUMENT_ROOT'].'/images/uploads/';
+    $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+    move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile);
 }

@@ -39,7 +39,7 @@
         <label><?php echo t('sale') ?></label>
         <input type="text" id="new-sale-input">
         <label><?php echo t('image') ?></label>
-        <input type="text" id="new-image-input">
+        <input type="file" id="new-image-input">
         <div class="op-buttons">
             <button class="op-button" onclick="addProduct()"><?php echo t("newProduct") ?></button>
         </div>

@@ -27,7 +27,7 @@ function loadProducts() {
 			for(let product in products) {
         if (products.hasOwnProperty(product)) {
           productTable.innerHTML +=
-						`<tr onclick="selectField(${products[product]['id']})" id="product${products[product]['id']}">` +
+						`<tr class="loaded-tr" onclick="selectField(${products[product]['id']})" id="product${products[product]['id']}">` +
 							`<td>${products[product]['id']}</td>` +
 							`<td>${products[product]['brand']}</td>` +
 							`<td>${products[product]['category']}</td>` +
@@ -80,7 +80,7 @@ function fillFormData(type) {
 	let price = document.querySelector(`#${names[6]}`).value;
 	let quantity = document.querySelector(`#${names[7]}`).value;
 	let sale = document.querySelector(`#${names[8]}`).value;
-	let image = document.querySelector(`#${names[9]}`).value;
+	let image = document.querySelector(`#${names[9]}`);
 
 	let formData = new FormData();
 	formData.append('id', id);
@@ -92,7 +92,7 @@ function fillFormData(type) {
 	formData.append('price', price);
 	formData.append('quantity', quantity);
 	formData.append('sale', sale);
-	formData.append('image', image);
+	formData.append('image', image.files[0]);
 	formData.append(type, type);
 	return formData;
 }
@@ -145,7 +145,7 @@ function reRenderTable() {
 	let table = document.querySelector('table');
 	table.className += "hide";
 	window.setTimeout(() => {
-		table.querySelectorAll('tr').forEach(element => {
+		table.querySelectorAll('.loaded-tr').forEach(element => {
 			element.remove();
 		});
 		loadProducts();
