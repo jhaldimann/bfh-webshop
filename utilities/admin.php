@@ -85,7 +85,7 @@ function insertProduct() {
     $image = $mysqli->real_escape_string($_POST["image"]);
     storeImage();
     $sql = "INSERT INTO products (brand, category, gender, description, size, price, quantity, sale, image) 
-            VALUES ('".$brand."','".$category."','".$gender."','".$description."','".$size."','".$price."','".$quantity."','".$sale."','".$_FILES['userfile']['name']."'".")";
+            VALUES ('".$brand."','".$category."','".$gender."','".$description."','".$size."','".$price."','".$quantity."','".$sale."','".$_FILES['image']['name']."'".")";
 
     $mysqli->query($sql);
     echo json_encode(array('status' => 200, 'text' => 'success'));
