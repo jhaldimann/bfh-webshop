@@ -150,10 +150,29 @@
   }
 }
 
-.edit-section {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  grid-template-rows: auto auto auto auto auto auto auto;
-  grid-gap: 10px;
-  height: 10px;
+.edit-or-create {
+  width: 50%;
+  .grid {
+    display: grid;
+    width: 50%;
+    margin-left: 10%;
+  }
+}
+
+.hide {
+  animation: fadeout 2s;
+}
+
+@keyframes fadeout {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.show {
+  animation: fadein 2s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }

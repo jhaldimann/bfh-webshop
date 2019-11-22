@@ -33,8 +33,11 @@ function loadProducts() {
 							`<td>${products[product]['category']}</td>` +
 							`<td>${products[product]['gender']}</td>` +
 							`<td>${products[product]['description']}</td>` +
+							`<td>${products[product]['size']}</td>` +
+							`<td>${products[product]['price']}</td>` +
+							`<td>${products[product]['quantity']}</td>` +
+							`<td>${products[product]['sale']}</td>` +
 							`<td>${products[product]['image']}</td>` +
-							`<td><button class="op-button" onclick="deleteProduct()">x</button></td>` +
 						`</tr>`;
         }
       }
@@ -42,31 +45,56 @@ function loadProducts() {
 }
 
 function addProduct() {
-	let title = document.querySelector('.edit-title');
-	title.innerHTML = 'Neues Produkt';
+	fetch('/utilities/admin.php', {method: 'POST', body: fillFormData('insert')})
+		.then((resp) => resp.json())
+		.then(function(data) {
+			reRenderTable();
+			clearInputs(document.querySelector('.new-section').querySelectorAll('input'));
+		});
 }
 
 function updateProduct() {
-	let id = document.querySelector('#id-input').value;
-	let brand = document.querySelector('#brand-input').value;
-	let category = document.querySelector('#category-input').value;
-	let gender = document.querySelector('#gender-input').value;
-	let description = document.querySelector('#description-input').value;
-	let image = document.querySelector('#image-input').value;
-	
+	let formData = fillFormData('update');
+	console.log(formData.get('id'));
+	fetch('/utilities/admin.php', {method: 'POST', body: fillFormData('update')})
+		.then((resp) => resp.json())
+		.then(function(data) {
+			reRenderTable();
+		});
+}
+
+function fillFormData(type) {
+	let names = ['id-input','brand-input','category-input','gender-input','description-input','size-input',
+		'price-input','quantity-input','sale-input','image-input'];
+	if(type === 'insert') {
+		names.forEach((element, index) => {
+			names[index] = 'new-' + element; 
+		})
+	}
+	let id = document.querySelector(`#${names[0]}`).value;
+	let brand = document.querySelector(`#${names[1]}`).value;
+	let category = document.querySelector(`#${names[2]}`).value;
+	let gender = document.querySelector(`#${names[3]}`).value;
+	let description = document.querySelector(`#${names[4]}`).value;
+	let size = document.querySelector(`#${names[5]}`).value;
+	let price = document.querySelector(`#${names[6]}`).value;
+	let quantity = document.querySelector(`#${names[7]}`).value;
+	let sale = document.querySelector(`#${names[8]}`).value;
+	let image = document.querySelector(`#${names[9]}`).value;
+
 	let formData = new FormData();
 	formData.append('id', id);
 	formData.append('brand', brand);
 	formData.append('category', category);
 	formData.append('gender', gender);
 	formData.append('description', description);
+	formData.append('size', size);
+	formData.append('price', price);
+	formData.append('quantity', quantity);
+	formData.append('sale', sale);
 	formData.append('image', image);
-	formData.append('update', 'update');
-	fetch('/utilities/admin.php', {method: 'POST', body: formData})
-		.then((resp) => resp.json())
-		.then(function(data) {
-			console.log(data);
-		});
+	formData.append(type, type);
+	return formData;
 }
 
 function deleteProduct(id) {
@@ -87,7 +115,7 @@ function selectField(id) {
 	displayFields();
 	let elements = document.querySelector('#product'+id).querySelectorAll('td');
 	elements.forEach((element, index) => {
-		if(index < elements.length -1) {
+		if(index < elements.length) {
 			inputFields.item(index).value = element.innerHTML;
 			content.push(inputFields.item(index).value);
 			inputFields.item(index).addEventListener("change", () => {
@@ -101,7 +129,7 @@ function selectField(id) {
 
 function displayFields() {
 	let div = document.querySelector('.edit-section');
-	div.className = "edit-section";
+	div.className = "edit-section grid";
 }
 
 function isDirty(content) {
@@ -110,5 +138,23 @@ function isDirty(content) {
 	
 	inputs.forEach((element, index) => {
 		dirty = !(element.value === content[index]); 
+	});
+}
+
+function reRenderTable() {
+	let table = document.querySelector('table');
+	table.className += "hide";
+	window.setTimeout(() => {
+		table.querySelectorAll('tr').forEach(element => {
+			element.remove();
+		});
+		loadProducts();
+		
+	}, 2000);
+}
+
+function clearInputs(list) {
+	list.forEach((element) => {
+		element.value = "";
 	});
 }

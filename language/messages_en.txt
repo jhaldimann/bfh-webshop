@@ -34,3 +34,7 @@ gender=Gender
 description=Description
 image=image
 newProduct=New Product
+price=Price
+size=Size
+sale=Sale
+quantity=Quantity

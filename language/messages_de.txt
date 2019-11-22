@@ -34,3 +34,7 @@ gender=Geschlecht
 description=Beschreibung
 image=Bild
 newProduct=Neues Produkt
+price=Preis
+size=Grösse
+sale=Rabatt
+quantity=Menge
