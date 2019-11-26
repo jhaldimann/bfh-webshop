@@ -31,9 +31,9 @@
         <label><?php echo t('description') ?></label>
         <input type="text" id="new-description-input">
         <label><?php echo t('size') ?></label>
-        <input type="text" id="new-price-input">
-        <label><?php echo t('price') ?></label>
         <input type="text" id="new-size-input">
+        <label><?php echo t('price') ?></label>
+        <input type="text" id="new-price-input">
         <label><?php echo t('quantity') ?></label>
         <input type="text" id="new-quantity-input">
         <label><?php echo t('sale') ?></label>

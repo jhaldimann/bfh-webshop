@@ -44,7 +44,7 @@
     <section class='search-section'>
         <section class='inner-search-section'>
             <div class="search-box">
-                <?php echo"<input class=\"search-text\" type=\"text\" onchange=\"showSearchIcon()\" placeholder='"; echo t("lookingfor"); echo"' alt='search-bar'>"; ?>
+                <?php echo"<input class=\"search-text\" type=\"text\" placeholder='"; echo t("lookingfor"); echo"' alt='search-bar'></input>"; ?>
                 <img class='search-icon' src='/images/search.png' alt="search" onclick="search()"/>
             </div>
         </section>

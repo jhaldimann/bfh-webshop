@@ -45,6 +45,7 @@ let changePage = (url) => {
 
 let search = () => {
 	let searchString = document.querySelector('.search-text').value;
+	console.log(searchString);
 	let formData = new FormData;
 	formData.append('search','search');
 	formData.append('searchstring',searchString);

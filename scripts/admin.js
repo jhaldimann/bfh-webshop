@@ -72,6 +72,7 @@ function fillFormData( type ) {
 			names[ index ] = 'new-' + element;
 		})
 	}
+
 	let id = document.querySelector(`#${names[ 0 ]}`).value;
 	let brand = document.querySelector(`#${names[ 1 ]}`).value;
 	let category = document.querySelector(`#${names[ 2 ]}`).value;
@@ -82,6 +83,9 @@ function fillFormData( type ) {
 	let quantity = document.querySelector(`#${names[ 7 ]}`).value;
 	let sale = document.querySelector(`#${names[ 8 ]}`).value;
 	let image = document.querySelector(`#${names[ 9 ]}`);
+	
+	
+	console.log(size, price);
 
 	let formData = new FormData();
 	formData.append('id', id);

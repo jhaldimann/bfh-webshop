@@ -18,8 +18,10 @@ if(array_key_exists('register', $_POST)) {
     getProduct($_POST['getProduct']);
 } else if(array_key_exists('getProducts', $_POST)) {
     getProducts($_POST['getProducts']);
-} else  if(array_key_exists('checkout', $_POST)) {
+} else if(array_key_exists('checkout', $_POST)) {
     checkout();
+} else if(array_key_exists('search', $_POST)) {
+    search();
 }
 
 function connect () {
@@ -236,6 +238,21 @@ function getProductImagesByCategory($nrOfImages) {
 
     $result->close();
     $mysqli->close();
+}
+
+function search() {
+    $mysqli = connect();
+    $searchString = $mysqli->real_escape_string($_POST["searchstring"]);
+     $query = "SELECT * FROM products WHERE 
+        MATCH(brand) AGAINST("."'+".$searchString."*' IN BOOLEAN MODE) OR 
+        MATCH(category) AGAINST("."'+".$searchString."*' IN BOOLEAN MODE)";
+
+     if ($result = $mysqli->query($query)) {
+        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $myArray[] = $row;
+        }
+        echo json_encode($myArray);
+    }
 }
 
 // Returns a certain GET parameter or $default if the parameter
