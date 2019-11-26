@@ -14,7 +14,7 @@ let checkout = () => {
 
 	// Fill the form data
 	let formData = new FormData;
-	formData.append('checkout','checkout');
+	formData.append('checkout', 'checkout');
 	formData.append('firstname', firstname.value);
 	formData.append('lastname', lastname.value);
 	formData.append('address', address.value);
@@ -28,7 +28,7 @@ let checkout = () => {
 	formData.append('ccccv', ccCcv.value);
 
 	fetch('/utilities/helper.php', {method: 'POST', body: formData})
-		.then((r) => r.json())
+		.then(( r ) => r.json())
 		.then(data => {
 			console.log(data.hash);
 			redirect('confirm&hash=' + data.hash);

@@ -43,9 +43,14 @@ let changePage = (url) => {
   document.location.href = url;
 };
 
-let showSearchIcon = () => {
-	let el = document.querySelector('.search-text');
-	if(el.value.length >= 1) {
-		console.log('Hallo');
-	}
+let search = () => {
+	let searchString = document.querySelector('.search-text').value;
+	let formData = new FormData;
+	formData.append('search','search');
+	formData.append('searchstring',searchString);
+	fetch('/utilities/helper.php',{method: 'POST', body: formData})
+		.then((resp) => resp.json())
+		.then(function(data) {
+			console.log(data);
+		})
 };

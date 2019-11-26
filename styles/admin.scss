@@ -85,17 +85,18 @@
 
 .product-form {
   display: flex;
+
   .op-buttons {
     display: inline-block;
     margin: 20px;
 
     .op-button {
-        border: none;
-        background-color: #0047bc;
-        font-size: 18px;
-        color: white;
-        border-radius: 7px;
-        height: 40px;
+      border: none;
+      background-color: #0047bc;
+      font-size: 18px;
+      color: white;
+      border-radius: 7px;
+      height: 40px;
     }
   }
 
@@ -110,12 +111,12 @@
     text-align: left;
     margin: 0;
   }
-  
+
   .selected {
     background-color: $red;
   }
 
-  tbody tr:nth-child(2n){
+  tbody tr:nth-child(2n) {
     background-color: #eee;
   }
 
@@ -131,10 +132,11 @@
   }
 
   tr:hover {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0, 0, 0, 0.2);
   }
-  tr:nth-child(2n):hover{
-    background-color: rgba(0,0,0,0.2);
+
+  tr:nth-child(2n):hover {
+    background-color: rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -152,6 +154,7 @@
 
 .edit-or-create {
   width: 50%;
+
   .grid {
     display: grid;
     width: 50%;
@@ -164,8 +167,12 @@
 }
 
 @keyframes fadeout {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .show {
@@ -173,6 +180,14 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 1; }
-  to   { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.image-preview {
+  width: 150px;
 }

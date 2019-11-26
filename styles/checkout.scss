@@ -1,4 +1,5 @@
 @import "colors";
+
 .checkout {
   border-radius: 10px;
   width: 50%;
@@ -7,15 +8,18 @@
   h2 {
     margin-left: 10px;
   }
+
   .user-checkout-info {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 5px;
     grid-auto-rows: minmax(50px, auto);
+
     input {
       width: 80%;
     }
   }
+
   .credit-card {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

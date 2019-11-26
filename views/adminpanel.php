@@ -13,24 +13,24 @@ session_start();
         <script type="application/javascript" src="../scripts/admin.js"></script>
     </head>
     <body>
-        <?php
-        if (!isset($_SESSION['admin_logged_in'])) { ?>
-            <section class="admin-login-form">
-                <h1 class="admin-login-title">Admin Panel Login</h1>
-                <div class="field">
-                    <input type="text" class="username" name="username" placeholder="Username">
-                </div>
-                <div class="field">
-                    <input type="password" class="password" name="password" placeholder="Password">
-                </div>
-                <input class="login-button" type="button" onclick="checkAdminLogin()" value="Login">
-          </section>
-        <?php } else {?>
+    <?php
+    if (!isset($_SESSION['admin_logged_in'])) { ?>
+        <section class="admin-login-form">
+            <h1 class="admin-login-title">Admin Panel Login</h1>
+            <div class="field">
+                <input type="text" class="username" name="username" placeholder="Username">
+            </div>
+            <div class="field">
+                <input type="password" class="password" name="password" placeholder="Password">
+            </div>
+            <input class="login-button" type="button" onclick="checkAdminLogin()" value="Login">
+        </section>
+    <?php } else { ?>
 
         <section class="product-form">
             <?php include('../components/admin/products.php') ?>
         </section>
 
-        <?php }?>
+    <?php } ?>
     </body>
 </html>

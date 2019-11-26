@@ -65,9 +65,12 @@
         <label><?php echo t('sale') ?></label>
         <input type="text" id="sale-input">
         <label><?php echo t('image') ?></label>
-        <input type="text" id="image-input">
+        <img src="" class="image-preview" alt="preview">
+        <input type="file" id="image-input">
         <button onclick="updateProduct()">Update</button>
+        <button class="delete-product">Delete Product</button>
     </div>
+
 </section>
 
 <script>
