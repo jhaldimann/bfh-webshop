@@ -305,7 +305,7 @@ function t($key) {
 $pageId = get_param('site', 'home');
 $language = get_param('lang', 'de');
 $messages = array();
-$fn = $_SERVER['DOCUMENT_ROOT'] ."/language/messages_$language.txt";
+$fn = $_SERVER['DOCUMENT_ROOT'] ."./language/messages_$language.txt";
 $file = file($fn);
 foreach($file as $line) {
     $keyval = explode('=', $line);
