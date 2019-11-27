@@ -71,6 +71,7 @@ let updateQuantity = ( value ) => {
 let getProducts = () => {
 	let rootElement = document.querySelector('.products');
 	let formData = new FormData;
+	formData.append('searchstring', getUrlParam('searchstring'));
 	formData.append('getProducts', getUrlParam('type'));
 	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())

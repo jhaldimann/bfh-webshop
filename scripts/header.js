@@ -55,3 +55,10 @@ let search = () => {
 			console.log(data);
 		})
 };
+
+function changeLink (event) {
+	let input = document.querySelector('.search-text');
+	let element = document.querySelector('.search-link');
+	
+	element.href = `?site=products&type=search&searchstring=${input.value}`;
+}

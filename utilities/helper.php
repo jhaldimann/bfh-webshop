@@ -17,7 +17,7 @@ if(array_key_exists('register', $_POST)) {
 } else if(array_key_exists('getProduct', $_POST)) {
     getProduct($_POST['getProduct']);
 } else if(array_key_exists('getProducts', $_POST)) {
-    getProducts($_POST['getProducts']);
+    getProducts($_POST['getProducts'], $_POST['searchstring']);
 } else if(array_key_exists('checkout', $_POST)) {
     checkout();
 } else if(array_key_exists('search', $_POST)) {
@@ -53,16 +53,20 @@ function checkout(){
     }
 }
 
-function getProducts($cat) {
+function getProducts($cat, $search = "") {
     $mysqli = connect();
     $category = $mysqli->real_escape_string($cat);
 
     $myArray = array();
+
     if($cat == 'none') {
-      $query = "SELECT * FROM products";
+        $query = "SELECT * FROM products";
+    } else if( $cat == 'search') {
+        $query = search($search);
     } else {
-      $query = "SELECT * FROM products WHERE category ='".$category."'";
+        $query = "SELECT * FROM products WHERE category ='".$category."'";
     }
+
     if ($result = $mysqli->query($query)) {
 
         while($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -240,19 +244,17 @@ function getProductImagesByCategory($nrOfImages) {
     $mysqli->close();
 }
 
-function search() {
+function search($searchparam = "") {
     $mysqli = connect();
-    $searchString = $mysqli->real_escape_string($_POST["searchstring"]);
-     $query = "SELECT * FROM products WHERE 
+    if($searchparam != "") {
+        $searchString = $searchparam;
+    } else {
+        $searchString = $mysqli->real_escape_string($_POST["searchstring"]);
+    }
+
+     return "SELECT * FROM products WHERE 
         MATCH(brand) AGAINST("."'+".$searchString."*' IN BOOLEAN MODE) OR 
         MATCH(category) AGAINST("."'+".$searchString."*' IN BOOLEAN MODE)";
-
-     if ($result = $mysqli->query($query)) {
-        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
-            $myArray[] = $row;
-        }
-        echo json_encode($myArray);
-    }
 }
 
 // Returns a certain GET parameter or $default if the parameter
