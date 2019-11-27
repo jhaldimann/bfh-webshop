@@ -76,19 +76,23 @@ let getProducts = () => {
 	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( products ) {
-			for (let product in products) {
-				if (products.hasOwnProperty(product)) {
-					rootElement.innerHTML +=
-						`<a class='product-link' href='?site=product&id=${products[ product ][ 'id' ]}' >` +
-						`<div class='product'>` +
-						`<img src='/images/uploads/${products[ product ][ 'image' ]}' alt='${products[ product ][ 'description' ]}'>` +
-						`<h3>${products[ product ][ 'brand' ]} ${products[ product ][ 'category' ]}</h3>` +
-						`<p>Price: <label>${products[ product ][ 'price' ]} CHF</label></p>` +
-						`<p>Size: <label>${products[ product ][ 'size' ]} </label></p>` +
-						`<p>Quantity: <label>${products[ product ][ 'quantity' ]} </label></p>` +
-						`</div>` +
-						`</a>`;
-				}
+			if(products.length >= 1) {
+				for (let product in products) {
+					if (products.hasOwnProperty(product)) {
+						rootElement.innerHTML +=
+							`<a class='product-link' href='?site=product&id=${products[ product ][ 'id' ]}' >` +
+							`<div class='product'>` +
+							`<img src='/images/uploads/${products[ product ][ 'image' ]}' alt='${products[ product ][ 'description' ]}'>` +
+							`<h3>${products[ product ][ 'brand' ]} ${products[ product ][ 'category' ]}</h3>` +
+							`<p>Price: <label>${products[ product ][ 'price' ]} CHF</label></p>` +
+							`<p>Size: <label>${products[ product ][ 'size' ]} </label></p>` +
+							`<p>Quantity: <label>${products[ product ][ 'quantity' ]} </label></p>` +
+							`</div>` +
+							`</a>`;
+					}
+				}	
+			} else {
+				changePage('?site=404');
 			}
 		});
 };

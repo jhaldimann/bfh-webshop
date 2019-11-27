@@ -22,13 +22,13 @@
 </section>
 <section class="special-offers main-section">
     <div id="title" class="title">
-        <img class="lightning" src="/images/lightning.png" alt="lightning">
+        <img class="lightning" src="./images/lightning.png" alt="lightning">
         <h2>Special Offers</h2>
-        <img class="lightning" src="/images/lightning.png" alt="lightning">
+        <img class="lightning" src="./images/lightning.png" alt="lightning">
     </div>
     <div class="down-arrow bounce">
         <a href="#sale1">
-            <img class="down-arrow-image" src="/images/down_arrow.png" alt="down arrow">
+            <img class="down-arrow-image" src="./images/down_arrow.png" alt="down arrow">
         </a>
     </div>
     <section id="sales" class="main-section sale">
