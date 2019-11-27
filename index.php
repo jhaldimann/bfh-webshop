@@ -21,7 +21,7 @@ session_start();
     <script type="application/javascript" src="scripts/checkout.js"></script>
 </head>
 <body>
-    <?php require_once('utilities/helper.php'); ?>
+    <?php require_once('./utilities/helper.php'); ?>
     <?php include('./components/header.php'); ?>
     <?php include('./views/login.php'); ?>
     <?php
