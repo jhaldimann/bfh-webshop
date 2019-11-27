@@ -8,7 +8,7 @@ function checkAdminLogin() {
 	formData.append('username', username.value);
 	formData.append('password', password.value);
 
-	fetch('./utilities/admin.php', {method: 'POST', body: formData})
+	fetch('/utilities/admin.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {
 			if (data.status === 200) {
@@ -22,7 +22,7 @@ function loadProducts() {
 
 	let formData = new FormData();
 	formData.append('getProducts', 'none');
-	fetch('./utilities/helper.php', {method: 'POST', body: formData})
+	fetch('/utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( products ) {
 			for (let product in products) {
