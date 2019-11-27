@@ -2,7 +2,7 @@ let getRandomPicks = () => {
 	let rootElement = document.querySelector('.random-picks');
 	let formData = new FormData;
 	formData.append('getRandomPicks', 'getRandomPicks');
-	fetch('/utilities/helper.php', {method: 'POST', body: formData})
+	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( products ) {
 			for (let product in products) {
@@ -29,7 +29,7 @@ let getRandomPicks = () => {
 let getSaleProducts = () => {
 	let formData = new FormData;
 	formData.append('getSaleProducts', 'getSaleProducts');
-	fetch('/utilities/helper.php', {method: 'POST', body: formData})
+	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( products ) {
 			products.forEach(( product, index ) => {
@@ -65,7 +65,7 @@ let getProductImagesByCategory = () => {
 	let formData = new FormData;
 	formData.append('getProductImagesByCategory', 'getProductImagesByCategory');
 	formData.append('nrOfImages', imagesPerSlide);
-	fetch('/utilities/helper.php', {method: 'POST', body: formData})
+	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(( res ) => {
 			let i = 1;

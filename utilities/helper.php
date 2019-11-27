@@ -1,5 +1,7 @@
 <?php
 
+$GLOBALS["path"] = "";
+
 if(array_key_exists('register', $_POST)) {
     register();
 } else if(array_key_exists('login', $_POST)) {
@@ -25,7 +27,7 @@ if(array_key_exists('register', $_POST)) {
 }
 
 function connect () {
-    $config = include ($_SERVER['DOCUMENT_ROOT'].'/config.php');
+    $config = include ($_SERVER['DOCUMENT_ROOT'].$GLOBALS["path"].'/config.php');
     $connection = mysqli_connect($config['host'], $config['username'], $config['password'], $config['database']);
     return $connection;
 }
@@ -305,7 +307,7 @@ function t($key) {
 $pageId = get_param('site', 'home');
 $language = get_param('lang', 'de');
 $messages = array();
-$fn = $_SERVER['DOCUMENT_ROOT'] ."./language/messages_$language.txt";
+$fn = $_SERVER['DOCUMENT_ROOT']. $GLOBALS["path"]."/language/messages_$language.txt";
 $file = file($fn);
 foreach($file as $line) {
     $keyval = explode('=', $line);
