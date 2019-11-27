@@ -1,5 +1,7 @@
 <?php
 
+$GLOBALS["path"] = "";
+
 if (array_key_exists('login', $_POST)) {
     adminLogin();
 } else if (array_key_exists('update', $_POST)) {
@@ -11,7 +13,7 @@ if (array_key_exists('login', $_POST)) {
 }
 
 function connectDB() {
-    $config = include($_SERVER['DOCUMENT_ROOT'] . '/config.php');
+    $config = include($_SERVER['DOCUMENT_ROOT'] . $GLOBALS["path"] . '/config.php');
     $connection = mysqli_connect($config['host'], $config['username'], $config['password'], $config['database']);
     return $connection;
 }
@@ -93,7 +95,7 @@ function insertProduct() {
 }
 
 function storeImage() {
-    $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/images/uploads/';
+    $uploaddir = $_SERVER['DOCUMENT_ROOT'] . $GLOBALS["path"] . '/images/uploads/';
     $uploadfile = $uploaddir . basename($_FILES['image']['name']);
     move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile);
 }

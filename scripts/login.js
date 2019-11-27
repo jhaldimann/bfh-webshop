@@ -7,7 +7,7 @@ var login = () => {
 	formData.append('email', email.value);
 	formData.append('password', password.value);
 
-	fetch('/utilities/helper.php', {method: 'POST', body: formData})
+	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {
 			if (!data) {

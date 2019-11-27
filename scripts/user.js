@@ -2,7 +2,7 @@ let loadUserInfo = () => {
 	let rootElement = document.querySelector('.user-info');
 	let formData = new FormData;
 	formData.append('getUser', 'getUser');
-	fetch('/utilities/helper.php', {method: 'POST', body: formData})
+	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( user ) {
 			rootElement.innerHTML =

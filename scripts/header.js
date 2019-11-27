@@ -30,7 +30,7 @@ function showSidebar() {
 let logout = () => {
     let formData = new FormData;
     formData.append('logout','logout');
-    fetch('/utilities/helper.php',{method: 'POST',body: formData})
+    fetch('./utilities/helper.php',{method: 'POST',body: formData})
       .then((resp) => resp.json())
       .then(function(data) {
           if(data.status === 200) {
@@ -49,7 +49,7 @@ let search = () => {
 	let formData = new FormData;
 	formData.append('search','search');
 	formData.append('searchstring',searchString);
-	fetch('/utilities/helper.php',{method: 'POST', body: formData})
+	fetch('./utilities/helper.php',{method: 'POST', body: formData})
 		.then((resp) => resp.json())
 		.then(function(data) {
 			console.log(data);

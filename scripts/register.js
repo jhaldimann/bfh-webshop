@@ -13,7 +13,7 @@ let register = () => {
 	formData.append('password', password.value);
 	formData.append('password-confirm', passwordConfirm.value);
 
-	fetch('/utilities/helper.php', {method: 'POST', body: formData})
+	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( r ) => r.json())
 		.then(( data ) => {
 			switch (data.status) {

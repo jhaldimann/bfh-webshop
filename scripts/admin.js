@@ -8,7 +8,7 @@ function checkAdminLogin() {
 	formData.append('username', username.value);
 	formData.append('password', password.value);
 
-	fetch('/utilities/admin.php', {method: 'POST', body: formData})
+	fetch('./utilities/admin.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {
 			if (data.status === 200) {
@@ -22,7 +22,7 @@ function loadProducts() {
 
 	let formData = new FormData();
 	formData.append('getProducts', 'none');
-	fetch('/utilities/helper.php', {method: 'POST', body: formData})
+	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( products ) {
 			for (let product in products) {
@@ -46,7 +46,7 @@ function loadProducts() {
 }
 
 function addProduct() {
-	fetch('/utilities/admin.php', {method: 'POST', body: fillFormData('insert')})
+	fetch('./utilities/admin.php', {method: 'POST', body: fillFormData('insert')})
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {
 			reRenderTable();
@@ -57,7 +57,7 @@ function addProduct() {
 function updateProduct() {
 	let formData = fillFormData('update');
 	console.log(formData.get('id'));
-	fetch('/utilities/admin.php', {method: 'POST', body: fillFormData('update')})
+	fetch('./utilities/admin.php', {method: 'POST', body: fillFormData('update')})
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {
 			reRenderTable();
@@ -83,9 +83,6 @@ function fillFormData( type ) {
 	let quantity = document.querySelector(`#${names[ 7 ]}`).value;
 	let sale = document.querySelector(`#${names[ 8 ]}`).value;
 	let image = document.querySelector(`#${names[ 9 ]}`);
-	
-	
-	console.log(size, price);
 
 	let formData = new FormData();
 	formData.append('id', id);
@@ -106,7 +103,7 @@ function deleteProduct( id ) {
 	let formData = new FormData();
 	formData.append('id', id);
 	formData.append('delete', 'delete');
-	fetch('/utilities/admin.php', {method: 'POST', body: formData})
+	fetch('./utilities/admin.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {
 			console.log(data);

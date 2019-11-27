@@ -2,7 +2,7 @@ let getProductDetail = () => {
 	let rootElement = document.querySelector('.product-details');
 	let formData = new FormData;
 	formData.append('getProduct', getUrlParam('id'));
-	fetch('/utilities/helper.php', {method: 'POST', body: formData})
+	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {
 			rootElement.innerHTML =

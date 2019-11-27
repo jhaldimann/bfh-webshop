@@ -27,7 +27,7 @@ let checkout = () => {
 	formData.append('ccdate', ccDate.value);
 	formData.append('ccccv', ccCcv.value);
 
-	fetch('/utilities/helper.php', {method: 'POST', body: formData})
+	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( r ) => r.json())
 		.then(data => {
 			console.log(data.hash);
