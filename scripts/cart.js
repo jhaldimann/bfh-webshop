@@ -17,7 +17,7 @@ function populateCart() {
 				`<input class="quantity-field" type="number" name="quantity" min="1" max="${item.quantity}" value="${item.selectedQuantity}">` +
 				`<button class="quantity-count quantity-count-plus" onclick="countQuantity(1, ${index})">+</button>` +
 				`</div>` +
-				`<img class="item-remove" src="/images/remove.png" alt="remove" onclick="removeItem(${item.id})">` +
+				`<img class="item-remove" src="./images/remove.png" alt="remove" onclick="removeItem(${item.id})">` +
 				`</li>`
 		});
 	} else {

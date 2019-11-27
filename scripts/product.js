@@ -6,7 +6,7 @@ let getProductDetail = () => {
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {
 			rootElement.innerHTML =
-				`<img class='product-image' src="/images/uploads/${data[ 'image' ]}" alt="${data[ 'description' ]}"/>` +
+				`<img class='product-image' src="./images/uploads/${data[ 'image' ]}" alt="${data[ 'description' ]}"/>` +
 				`<div class="information">` +
 				`<h2 class="description-title">${data[ 'brand' ] + data[ 'description' ]}</h2>` +
 				`<label class='product-brand'><b>Brand: </b> ${data[ 'brand' ]} </label>` +
@@ -22,7 +22,7 @@ let getProductDetail = () => {
 				`</div>` +
 				`</br>` +
 				`<button class='add-to-cart' onclick='addToCart(${JSON.stringify(data)}); openDropDownWithTimeout("cart-dropdown")'>` +
-				`<img class='add-to-cart-img' src='/images/shoppingcart.png' alt='add to cart'>` +
+				`<img class='add-to-cart-img' src='./images/shoppingcart.png' alt='add to cart'>` +
 				`<label class='add-to-cart-label'>Add to cart</label></button>` +
 				`<div class="alert-warning"> Is already in cart</div>` +
 				`<div class="alert">Added to cart</div>` +
@@ -82,7 +82,7 @@ let getProducts = () => {
 						rootElement.innerHTML +=
 							`<a class='product-link' href='?site=product&id=${products[ product ][ 'id' ]}' >` +
 							`<div class='product'>` +
-							`<img src='/images/uploads/${products[ product ][ 'image' ]}' alt='${products[ product ][ 'description' ]}'>` +
+							`<img src='./images/uploads/${products[ product ][ 'image' ]}' alt='${products[ product ][ 'description' ]}'>` +
 							`<h3>${products[ product ][ 'brand' ]} ${products[ product ][ 'category' ]}</h3>` +
 							`<p>Price: <label>${products[ product ][ 'price' ]} CHF</label></p>` +
 							`<p>Size: <label>${products[ product ][ 'size' ]} </label></p>` +

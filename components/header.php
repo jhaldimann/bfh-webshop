@@ -1,7 +1,7 @@
 <header class='header'>
-    <img class='burger' src='/images/burger.png' alt='burger' onclick="showSidebar()">
+    <img class='burger' src='./images/burger.png' alt='burger' onclick="showSidebar()">
     <a href='/'>
-        <img class='home-logo' src='/images/home.png' alt='home'>
+        <img class='home-logo' src='./images/home.png' alt='home'>
     </a>
     <div id="cart-dropdown" class="cart-dropdown">
         <div class="cart"></div>
@@ -9,7 +9,7 @@
         <button class="user-button go-checkout-button">Go to checkout</button>
     </div>
     <div class="user-dropdown-button">
-        <img class='user-logo' onclick="toggleDropDown('user-dropdown')" src='/images/user.png' alt='user'>
+        <img class='user-logo' onclick="toggleDropDown('user-dropdown')" src='./images/user.png' alt='user'>
         <div id="user-dropdown" class="user-dropdown">
             <?php
             if (!isset($_SESSION['logged_in'])) {
@@ -38,7 +38,7 @@
         </div>
     </div>
     <a href='?site=cart'>
-        <img class='shopping-cart-logo' src='/images/shoppingcart.png' alt='shoppingcart'>
+        <img class='shopping-cart-logo' src='./images/shoppingcart.png' alt='shoppingcart'>
     </a>
 
     <section class='search-section'>
@@ -46,7 +46,7 @@
             <div class="search-box">
                 <?php echo"<input class=\"search-text\" type=\"text\" onkeyup=\"changeLink(event)\" placeholder='"; echo t("lookingfor"); echo"' alt='search-bar'></input>"; ?>
                 <a class="search-link">
-                    <img class='search-icon' src='/images/search.png' alt="search"/>
+                    <img class='search-icon' src='./images/search.png' alt="search"/>
                 </a>
             </div>
         </section>
