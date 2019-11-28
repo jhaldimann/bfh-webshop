@@ -8,7 +8,7 @@ function populateCart() {
 		cart.forEach(( item, index ) => {
 			itemsInCart.innerHTML +=
 				`<li class="cart-item">` +
-				`<img class="item-image" src="${item.image}" alt="product">` +
+				`<img class="item-image" src="./images/uploads/${item.image}" alt="product">` +
 				`<label class="item-name">${item.brand} ${item.description}</label>` +
 				`<label class="item-price">${item.price} CHF</label>` +
 				`<label class="item-total-price">${calculateTotalPriceForItem(item)} CHF</label>` +
