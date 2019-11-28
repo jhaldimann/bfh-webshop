@@ -59,6 +59,9 @@ let search = () => {
 function changeLink (event) {
 	let input = document.querySelector('.search-text');
 	let element = document.querySelector('.search-link');
-	
-	element.href = `?site=products&type=search&searchstring=${input.value}`;
+	if(event.key === 'Enter') {
+		changePage(`?site=products&type=search&searchstring=${input.value}`);
+	} else {
+		element.href = `?site=products&type=search&searchstring=${input.value}`;	
+	}
 }
