@@ -16,7 +16,7 @@
                 echo "<button class=\"user-button\" onclick=\"toggleLoginPopup(); toggleDropDown('user-dropdown')\">"; echo t('login'); echo "</button>";
                 echo "<button class=\"user-button user-register-button\" onclick=\"changePage('?site=register')\">"; echo t('register'); echo "</button>";
             } else {
-                echo "<p class='user-details'>"; echo t("hello"); echo $_SESSION['prename'] . " " . $_SESSION['name'] . "</p>";
+                echo "<p class='user-details'>"; echo $_SESSION['prename'] . " " . $_SESSION['name'] . "</p>";
             }
             ?>
 
@@ -30,9 +30,9 @@
             <?php
             if (isset($_SESSION['logged_in'])) {
                 echo "<hr class=\"horizontal-line-logged-in\">";
-                echo "<a class=\"nav-label\" href=\"?site=user\">";echo t("myprofil");"</a>";
-                echo "<a class=\"nav-label\" href=\"#\">"; echo t("myorders");"</a>";
-                echo "<a class=\"nav-label\" href=\"#\">"; echo t("helpandcontact"); "</a>";
+                echo "<a class=\"nav-label\" href=\"?site=user\">";echo t("myprofil"); echo "</a>";
+                echo "<a class=\"nav-label\" href=\"#\">"; echo t("myorders"); echo "</a>";
+                echo "<a class=\"nav-label\" href=\"#\">"; echo t("helpandcontact"); echo "</a>";
                 echo "<input type=\"submit\" onclick='logout()' value=\" "; echo t("logout"); echo"\" class=\"user-logout-button\"/>";
             } ?>
         </div>
