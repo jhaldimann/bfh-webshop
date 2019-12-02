@@ -1,5 +1,4 @@
 let getProductDetail = () => {
-	changeLanguage('de');
 	let rootElement = document.querySelector('.product-details');
 	let formData = new FormData;
 	formData.append('getProduct', getUrlParam('id'));

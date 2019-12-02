@@ -4,8 +4,9 @@ let register = () => {
 	let email = document.querySelector('#email');
 	let password = document.querySelector('#password');
 	let passwordConfirm = document.querySelector('#password-confirm');
-	let warningAlert = document.querySelector('.alert-warning');
 	let formData = new FormData();
+	
+	
 	formData.append('register', 'register');
 	formData.append('firstname', firstname.value);
 	formData.append('name', name.value);
