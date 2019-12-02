@@ -20,8 +20,8 @@ function connectDB() {
 
 function adminLogin() {
     $mysqli = connectDB();
-    $username = $mysqli->real_escape_string($_POST["username"]);
-    $password = $mysqli->real_escape_string($_POST["password"]);
+    $username = htmlspecialchars($_POST["username"]);
+    $password = htmlspecialchars($_POST["password"]);
 
     // define the sql query to check the user
     $sql = "SELECT * FROM admin WHERE username = '" . $username . "' AND password = '" . md5($password) . "'";
@@ -40,16 +40,16 @@ function adminLogin() {
 
 function updateProduct() {
     $mysqli = connectDB();
-    $id = $mysqli->real_escape_string($_POST["id"]);
-    $brand = $mysqli->real_escape_string($_POST["brand"]);
-    $category = $mysqli->real_escape_string($_POST["category"]);
-    $gender = $mysqli->real_escape_string($_POST["gender"]);
-    $description = $mysqli->real_escape_string($_POST["description"]);
-    $size = $mysqli->real_escape_string($_POST["size"]);
-    $price = $mysqli->real_escape_string($_POST["price"]);
-    $quantity = $mysqli->real_escape_string($_POST["quantity"]);
-    $sale = $mysqli->real_escape_string($_POST["sale"]);
-    $image = $mysqli->real_escape_string($_POST["image"]);
+    $id = htmlspecialchars($_POST["id"]);
+    $brand = htmlspecialchars($_POST["brand"]);
+    $category = htmlspecialchars($_POST["category"]);
+    $gender = htmlspecialchars($_POST["gender"]);
+    $description = htmlspecialchars($_POST["description"]);
+    $size = htmlspecialchars($_POST["size"]);
+    $price = htmlspecialchars($_POST["price"]);
+    $quantity = htmlspecialchars($_POST["quantity"]);
+    $sale = htmlspecialchars($_POST["sale"]);
+    $image = htmlspecialchars($_POST["image"]);
 
     $sql = "UPDATE products SET
         brand ='" . $brand . "',
@@ -77,15 +77,14 @@ function deleteProduct($id) {
 
 function insertProduct() {
     $mysqli = connectDB();
-    $brand = $mysqli->real_escape_string($_POST["brand"]);
-    $category = $mysqli->real_escape_string($_POST["category"]);
-    $gender = $mysqli->real_escape_string($_POST["gender"]);
-    $description = $mysqli->real_escape_string($_POST["description"]);
-    $size = $mysqli->real_escape_string($_POST["size"]);
-    $price = $mysqli->real_escape_string($_POST["price"]);
-    $quantity = $mysqli->real_escape_string($_POST["quantity"]);
-    $sale = $mysqli->real_escape_string($_POST["sale"]);
-    $image = $mysqli->real_escape_string($_POST["image"]);
+    $brand = htmlspecialchars($_POST["brand"]);
+    $category = htmlspecialchars($_POST["category"]);
+    $gender = htmlspecialchars($_POST["gender"]);
+    $description = htmlspecialchars($_POST["description"]);
+    $size = htmlspecialchars($_POST["size"]);
+    $price = htmlspecialchars($_POST["price"]);
+    $quantity = htmlspecialchars($_POST["quantity"]);
+    $sale = htmlspecialchars($_POST["sale"]);
     storeImage();
     $sql = "INSERT INTO products (brand, category, gender, description, size, price, quantity, sale, image) 
             VALUES ('" . $brand . "','" . $category . "','" . $gender . "','" . $description . "','" . $size . "','" . $price . "','" . $quantity . "','" . $sale . "','" . $_FILES['image']['name'] . "'" . ")";

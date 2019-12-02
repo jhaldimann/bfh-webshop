@@ -34,17 +34,17 @@ function connect () {
 
 function checkout(){
     $mysqli = connect();
-    $firstname = $mysqli->real_escape_string($_POST["firstname"]);
-    $lastname = $mysqli->real_escape_string($_POST["lastname"]);
-    $address = $mysqli->real_escape_string($_POST["address"]);
-    $housenr = $mysqli->real_escape_string($_POST["housenr"]);
-    $zip = $mysqli->real_escape_string($_POST["zip"]);
-    $city = $mysqli->real_escape_string($_POST["city"]);
-    $country = $mysqli->real_escape_string($_POST["country"]);
-    $ccowner = $mysqli->real_escape_string($_POST["ccowner"]);
-    $ccdate = $mysqli->real_escape_string($_POST["ccdate"]);
-    $ccnumber = $mysqli->real_escape_string($_POST["ccnumber"]);
-    $ccccv = $mysqli->real_escape_string($_POST["ccccv"]);
+    $firstname = htmlspecialchars($_POST["firstname"]);
+    $lastname = htmlspecialchars($_POST["lastname"]);
+    $address = htmlspecialchars($_POST["address"]);
+    $housenr = htmlspecialchars($_POST["housenr"]);
+    $zip = htmlspecialchars($_POST["zip"]);
+    $city = htmlspecialchars($_POST["city"]);
+    $country = htmlspecialchars($_POST["country"]);
+    $ccowner = htmlspecialchars($_POST["ccowner"]);
+    $ccdate = htmlspecialchars($_POST["ccdate"]);
+    $ccnumber = htmlspecialchars($_POST["ccnumber"]);
+    $ccccv = htmlspecialchars($_POST["ccccv"]);
     $randomHash = rand();
     $query = "INSERT INTO orders (name, prename, address, housenumber, zip, city, country, hash) VALUES  "."('$firstname','$lastname','$address','$housenr','$zip','$city','$country','$randomHash')";
     $result = $mysqli->query($query);
@@ -57,7 +57,7 @@ function checkout(){
 
 function getProducts($cat, $search = "") {
     $mysqli = connect();
-    $category = $mysqli->real_escape_string($cat);
+    $category = htmlspecialchars($cat);
 
     $myArray = array();
 
@@ -84,7 +84,7 @@ function getProducts($cat, $search = "") {
 
 function getProduct($id) {
     $mysqli = connect();
-    $identifier = $mysqli->real_escape_string($id);
+    $identifier = htmlspecialchars($id);
 
     if ($result = $mysqli->query("SELECT * FROM products WHERE id = '".$identifier."'")) {
 
@@ -99,11 +99,11 @@ function getProduct($id) {
 
 function register() {
     $mysqli = connect();
-    $firstname = $mysqli->real_escape_string($_POST["firstname"]);
-    $name = $mysqli->real_escape_string($_POST["name"]);
-    $email = $mysqli->real_escape_string($_POST["email"]);
-    $password = $mysqli->real_escape_string($_POST["password"]);
-    $passwordConfirm = $mysqli->real_escape_string($_POST["password-confirm"]);
+    $firstname = htmlspecialchars($_POST["firstname"]);
+    $name = htmlspecialchars($_POST["name"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $password = htmlspecialchars($_POST["password"]);
+    $passwordConfirm = htmlspecialchars($_POST["password-confirm"]);
     if($password === $passwordConfirm) {
         if($firstname !== "" && $name !== "" && $email !== "" && $password !== "") {
             if(!checkUser($email,$password)) {
@@ -132,8 +132,8 @@ function register() {
 
 function login($e, $p) {
     $mysqli = connect();
-    $email = $mysqli->real_escape_string($e);
-    $password = $mysqli->real_escape_string($p);
+    $email = htmlspecialchars($e);
+    $password = htmlspecialchars($p);
 
     if(checkUser($email,$password)) {
         session_start();
@@ -248,7 +248,7 @@ function search($searchparam = "") {
     if($searchparam != "") {
         $searchString = $searchparam;
     } else {
-        $searchString = $mysqli->real_escape_string($_POST["searchstring"]);
+        $searchString = htmlspecialchars($_POST["searchstring"]);
     }
 
      return "SELECT * FROM products WHERE 
