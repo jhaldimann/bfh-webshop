@@ -24,8 +24,6 @@ let getProductDetail = () => {
 				`<button class='add-to-cart' onclick='addToCart(${JSON.stringify(data)}); openDropDownWithTimeout("cart-dropdown")'>` +
 				`<img class='add-to-cart-img' src='./images/shoppingcart.png' alt='add to cart'>` +
 				`<label class='add-to-cart-label'>Add to cart</label></button>` +
-				`<div class="alert-warning"> Is already in cart</div>` +
-				`<div class="alert">Added to cart</div>` +
 				`</div>`;
 		});
 };

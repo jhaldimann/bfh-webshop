@@ -19,6 +19,7 @@ session_start();
     <script type="application/javascript" src="scripts/sidebar.js"></script>
     <script type="application/javascript" src="scripts/user.js"></script>
     <script type="application/javascript" src="scripts/checkout.js"></script>
+    <link rel="icon" type="image/png" href="images/favicon.PNG" />
 </head>
 <body>
     <?php require_once('./utilities/helper.php'); ?>

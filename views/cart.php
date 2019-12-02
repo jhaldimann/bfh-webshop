@@ -1,11 +1,4 @@
 <body onload="populateCart();">
-    <section id="special-offers">
-        <div id="special-offers-title">
-            <img class="lightning" src="./images/lightning.png" alt="lightning">
-            <h2><?php echo t("specialoffers") ?></h2>
-            <img class="lightning" src="./images/lightning.png" alt="lightning">
-        </div>
-    </section>
     <section class="cart">
         <h2><?php echo t("cart") ?></h2>
         <ol id="items-in-cart">

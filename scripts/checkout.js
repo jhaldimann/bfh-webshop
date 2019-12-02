@@ -31,6 +31,12 @@ let checkout = () => {
 		.then(( r ) => r.json())
 		.then(data => {
 			console.log(data.hash);
+			emptyCart();
 			redirect('confirm&hash=' + data.hash);
+			
 		})
+};
+
+let emptyCart = () => {
+	localStorage.clear();
 };

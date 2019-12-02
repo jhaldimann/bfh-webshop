@@ -179,15 +179,14 @@ function checkUser($email, $passwd) {
 function getUser($id) {
     $mysqli = connect();
     $myArray = array();
+    var_dump($_SESSION['id']);
+    die();
     if ($result = $mysqli->query("SELECT name, prename, email FROM user WHERE id =".$id)) {
         while($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $myArray[] = $row;
         }
         echo json_encode($myArray);
     }
-
-    $result->close();
-    $mysqli->close();
 }
 
 function pickRandomItem() {
