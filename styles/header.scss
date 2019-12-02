@@ -10,6 +10,21 @@
   z-index: 1;
   height: 50px;
 
+  .lang {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      font-weight: 900;
+    }
+  }
+
   .home-logo {
     position: absolute;
     left: 10px;
@@ -181,7 +196,7 @@
   .search-section {
     position: absolute;
     background-color: whitesmoke;
-    right: 25%;
+    right: 30%;
     z-index: 10;
     transform: translateY(-50%);
     top: 50%;

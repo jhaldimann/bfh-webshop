@@ -147,3 +147,4 @@ let changeSlideTo = ( v ) => {
 		console.log(`Invalid slide index: ${v}, available indecies: 0-${categories.length - 1}`);
 	}
 };
+

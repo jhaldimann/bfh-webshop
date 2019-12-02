@@ -9,6 +9,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="dist/default.css">
+    <script type="application/javascript" src="scripts/global.js"></script>
     <script type="application/javascript" src="scripts/index.js"></script>
     <script type="application/javascript" src="scripts/cart.js"></script>
     <script type="application/javascript" src="scripts/header.js"></script>

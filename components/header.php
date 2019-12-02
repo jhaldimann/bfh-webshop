@@ -37,6 +37,10 @@
             } ?>
         </div>
     </div>
+    <div class="lang">
+        <button onclick="changeLanguage('de')">DE</button>
+        <button onclick="changeLanguage('en')">EN</button>
+    </div>
     <a href='?site=cart'>
         <img class='shopping-cart-logo' src='./images/shoppingcart.png' alt='shoppingcart'>
     </a>

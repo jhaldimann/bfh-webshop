@@ -1,4 +1,5 @@
 let getProductDetail = () => {
+	changeLanguage('de');
 	let rootElement = document.querySelector('.product-details');
 	let formData = new FormData;
 	formData.append('getProduct', getUrlParam('id'));
@@ -26,11 +27,6 @@ let getProductDetail = () => {
 				`<label class='add-to-cart-label'>Add to cart</label></button>` +
 				`</div>`;
 		});
-};
-
-let getUrlParam = ( identifier ) => {
-	let url = window.location.href;
-	return new URL(url).searchParams.get(identifier);
 };
 
 let addToCart = ( item ) => {
