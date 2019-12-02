@@ -15,7 +15,7 @@ if(array_key_exists('register', $_POST)) {
 } else if(array_key_exists('getProductImagesByCategory', $_POST)) {
     getProductImagesByCategory($_POST['nrOfImages']);
 } else if(array_key_exists('getUser', $_POST)) {
-    getUser($_SESSION['id']);
+    getUser($_POST['id']);
 } else if(array_key_exists('getProduct', $_POST)) {
     getProduct($_POST['getProduct']);
 } else if(array_key_exists('getProducts', $_POST)) {
@@ -179,8 +179,6 @@ function checkUser($email, $passwd) {
 function getUser($id) {
     $mysqli = connect();
     $myArray = array();
-    var_dump($_SESSION['id']);
-    die();
     if ($result = $mysqli->query("SELECT name, prename, email FROM user WHERE id =".$id)) {
         while($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $myArray[] = $row;
@@ -258,8 +256,7 @@ function search($searchparam = "") {
         MATCH(category) AGAINST("."'+".$searchString."*' IN BOOLEAN MODE)";
 }
 
-// Returns a certain GET parameter or $default if the parameter
-// does not exist.
+// Returns a certain GET parameter
 function get_param($name, $default) {
     if (isset($_GET[$name]))
         return urldecode($_GET[$name]);

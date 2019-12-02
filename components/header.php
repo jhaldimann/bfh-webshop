@@ -30,9 +30,9 @@
             <?php
             if (isset($_SESSION['logged_in'])) {
                 echo "<hr class=\"horizontal-line-logged-in\">";
-                echo "<a class=\"nav-label\" href=\"?site=user\">";echo t("myprofil"); echo "</a>";
+                echo "<a class=\"nav-label\" href=\"?site=user&user=". $_SESSION['id'] ."\">";echo t("myprofil"); echo "</a>";
                 echo "<a class=\"nav-label\" href=\"#\">"; echo t("myorders"); echo "</a>";
-                echo "<a class=\"nav-label\" href=\"#\">"; echo t("helpandcontact"); echo "</a>";
+                echo "<a class=\"nav-label\" href=\"?site=help\">"; echo t("helpandcontact"); echo "</a>";
                 echo "<input type=\"submit\" onclick='logout()' value=\" "; echo t("logout"); echo"\" class=\"user-logout-button\"/>";
             } ?>
         </div>
