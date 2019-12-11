@@ -1,5 +1,5 @@
 let checkout = () => {
-	// Get information about the customer
+	// Get information of the customer
 	let firstname = document.querySelector('#firstname');
 	let lastname = document.querySelector('#lastname');
 	let address = document.querySelector('#address');
@@ -27,6 +27,7 @@ let checkout = () => {
 	formData.append('ccdate', ccDate.value);
 	formData.append('ccccv', ccCcv.value);
 
+	// Send backend request
 	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( r ) => r.json())
 		.then(data => {
@@ -37,6 +38,7 @@ let checkout = () => {
 		})
 };
 
+// Clean the cart (remove all data from localstorage)
 let emptyCart = () => {
 	localStorage.clear();
 };

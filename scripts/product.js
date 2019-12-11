@@ -1,3 +1,4 @@
+// Load the product details of a single product
 let getProductDetail = () => {
 	let rootElement = document.querySelector('.product-details');
 	let formData = new FormData;
@@ -5,6 +6,7 @@ let getProductDetail = () => {
 	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {
+			// Create the html elements with the data inside
 			rootElement.innerHTML =
 				`<img class='product-image' src="./images/uploads/${data[ 'image' ]}" alt="${data[ 'description' ]}"/>` +
 				`<div class="information">` +
@@ -28,6 +30,7 @@ let getProductDetail = () => {
 		});
 };
 
+// Add an item to the cart
 let addToCart = ( item ) => {
 	const quantityField = document.querySelector('.quantity-field');
 	let cart = localStorage.getItem('cart');
@@ -61,15 +64,20 @@ let updateQuantity = ( value ) => {
 	}
 };
 
+// Get all products that match the search string or the category 
 let getProducts = () => {
 	let rootElement = document.querySelector('.products');
 	let formData = new FormData;
+	// Add the searchstring and the type of the product to the form data 
 	formData.append('searchstring', getUrlParam('searchstring'));
 	formData.append('getProducts', getUrlParam('type'));
+	// Send request to the backend
 	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( products ) {
+			// If there is no product to display redirect them to the 404 page
 			if(products.length >= 1) {
+				// Loop over all products and create html elements
 				for (let product in products) {
 					if (products.hasOwnProperty(product)) {
 						rootElement.innerHTML +=
@@ -85,6 +93,7 @@ let getProducts = () => {
 					}
 				}	
 			} else {
+				// Redirect to 404 page
 				changePage('?site=404');
 			}
 		});

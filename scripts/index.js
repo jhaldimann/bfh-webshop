@@ -1,3 +1,13 @@
+// Temp
+var slideIndex = 1;
+// Slideshow
+let images = new Map();
+let slideshow = new Map();
+let categories = [];
+let currentSlide = 1;
+let timeout;
+
+// Get random products from the products table
 let getRandomPicks = () => {
 	let rootElement = document.querySelector('.random-picks');
 	let formData = new FormData;
@@ -7,7 +17,7 @@ let getRandomPicks = () => {
 		.then(function ( products ) {
 			for (let product in products) {
 				if (products.hasOwnProperty(product)) {
-					// create product div
+					// Create product div
 					let productEl = document.createElement('a');
 					productEl.className = 'product-link';
 					productEl.href = `?site=product&id=${products[ product ][ 'id' ]}`;
@@ -20,20 +30,24 @@ let getRandomPicks = () => {
 						`<p>Size: <label>${products[ product ][ 'size' ]}</label></p>` +
 						`<p>Quantity: <label>${products[ product ][ 'quantity' ]}</label></p>` +
 						`</div>`;
+					// Append the data to the main div
 					rootElement.appendChild(productEl);
 				}
 			}
 		});
 };
 
+// Get products from the products where product has a discount
 let getSaleProducts = () => {
 	let formData = new FormData;
 	formData.append('getSaleProducts', 'getSaleProducts');
+	// Send request to the backend
 	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( products ) {
+			// Loop over all products
 			products.forEach(( product, index ) => {
-				// create product div
+				// Create product div
 				let productEl = document.createElement('a');
 				productEl.href = `?site=product&id=${product.id}`;
 				productEl.innerHTML =
@@ -46,19 +60,11 @@ let getSaleProducts = () => {
 					`<p>Quantity: <label>${product.quantity}</label></p>` +
 					`</div>`;
 				let rootElement = document.querySelector('.sale');
+				// Append the div to the main div
 				rootElement.appendChild(productEl);
 			});
 		});
 };
-
-// Temp
-var slideIndex = 1;
-// Slideshow
-let images = new Map();
-let slideshow = new Map();
-let categories = [];
-let currentSlide = 1;
-let timeout;
 
 let getProductImagesByCategory = () => {
 	let imagesPerSlide = 5;
@@ -82,6 +88,7 @@ let getProductImagesByCategory = () => {
 	});
 };
 
+// Create a slideshow for the main page 
 let createSlideshow = () => {
 	if (images.size > 0) {
 		const navDots = document.querySelector('.nav-dots');
@@ -129,6 +136,7 @@ let showSlide = ( n ) => {
 	dots[ currentSlide ].classList.add('active');
 };
 
+// Change the slide to a specific position
 let changeSlide = ( v ) => {
 	if (currentSlide + v > categories.length - 1) {
 		currentSlide = 0;

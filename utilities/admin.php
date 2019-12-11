@@ -12,22 +12,32 @@ if (array_key_exists('login', $_POST)) {
     insertProduct();
 }
 
+/**
+ * Connect to the database with the data from the config file
+ *
+ * @return false|mysqli
+ */
 function connectDB() {
     $config = include($_SERVER['DOCUMENT_ROOT'] . $GLOBALS["path"] . '/config.php');
     $connection = mysqli_connect($config['host'], $config['username'], $config['password'], $config['database']);
     return $connection;
 }
 
+/**
+ * Check the login of the admin
+ *
+ */
 function adminLogin() {
     $mysqli = connectDB();
     $username = htmlspecialchars($_POST["username"]);
     $password = htmlspecialchars($_POST["password"]);
 
-    // define the sql query to check the user
+    // Define the sql query to check the user
     $sql = "SELECT * FROM admin WHERE username = '" . $username . "' AND password = '" . md5($password) . "'";
 
     $result = $mysqli->query($sql);
     if ($result == true && $result->num_rows == 1) {
+        // Start the session and set the admin_logged_in
         session_start();
         if (!isset($_SESSION['admin_logged_in'])) {
             $_SESSION['admin_logged_in'] = true;
@@ -38,8 +48,14 @@ function adminLogin() {
     }
 }
 
+/**
+ * Update a single product with the frontend data
+ */
 function updateProduct() {
+    // Connect to the database
     $mysqli = connectDB();
+    // Get all the data from the post request and
+    // use htmlspecialchars to escape special characters
     $id = htmlspecialchars($_POST["id"]);
     $brand = htmlspecialchars($_POST["brand"]);
     $category = htmlspecialchars($_POST["category"]);
@@ -51,6 +67,7 @@ function updateProduct() {
     $sale = htmlspecialchars($_POST["sale"]);
     $image = htmlspecialchars($_POST["image"]);
 
+    // Define the update query
     $sql = "UPDATE products SET
         brand ='" . $brand . "',
         category ='" . $category . "',
@@ -63,11 +80,17 @@ function updateProduct() {
         image ='" . $_FILES['image']['name'] . "'
         WHERE id=" . $id;
 
+    // Execute the query and store the new image
     $mysqli->query($sql);
     storeImage();
     echo json_encode(array('status' => 200, 'text' => 'success'));
 }
 
+/**
+ * Remove a single product from the database by id
+ *
+ * @param $id
+ */
 function deleteProduct($id) {
     $mysqli = connectDB();
     $sql = "DELETE FROM products WHERE id ='" . $id . "'";
@@ -75,8 +98,13 @@ function deleteProduct($id) {
     echo json_encode(array('status' => 200, 'text' => 'success'));
 }
 
+/**
+ * Add a new product to the database
+ */
 function insertProduct() {
+    // Connect to the database
     $mysqli = connectDB();
+    // Get data from POST and escape special chars
     $brand = htmlspecialchars($_POST["brand"]);
     $category = htmlspecialchars($_POST["category"]);
     $gender = htmlspecialchars($_POST["gender"]);
@@ -85,6 +113,7 @@ function insertProduct() {
     $price = htmlspecialchars($_POST["price"]);
     $quantity = htmlspecialchars($_POST["quantity"]);
     $sale = htmlspecialchars($_POST["sale"]);
+    // Save the image in the upload folder
     storeImage();
     $sql = "INSERT INTO products (brand, category, gender, description, size, price, quantity, sale, image) 
             VALUES ('" . $brand . "','" . $category . "','" . $gender . "','" . $description . "','" . $size . "','" . $price . "','" . $quantity . "','" . $sale . "','" . $_FILES['image']['name'] . "'" . ")";

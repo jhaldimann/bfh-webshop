@@ -1,13 +1,17 @@
 let dirty = false;
 
+// Send a request with the username and password to the backend
 function checkAdminLogin() {
+	// Get the input fields
 	let username = document.querySelector('.username');
 	let password = document.querySelector('.password');
+	// Create and fill the form data
 	let formData = new FormData();
 	formData.append('login', 'login');
 	formData.append('username', username.value);
 	formData.append('password', password.value);
 
+	// Send a request to the backend
 	fetch('../utilities/admin.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {
@@ -17,16 +21,19 @@ function checkAdminLogin() {
 		});
 };
 
+// Create a table for the admin backend
 function loadProducts() {
 	const productTable = document.querySelector('#products');
-
+	// Fill form data
 	let formData = new FormData();
 	formData.append('getProducts', 'none');
+	// Send request to the backend
 	fetch('../utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( products ) {
 			for (let product in products) {
 				if (products.hasOwnProperty(product)) {
+					// Create table rows with the result data
 					productTable.innerHTML +=
 						`<tr class="loaded-tr" onclick="selectField(${products[ product ][ 'id' ]})" id="product${products[ product ][ 'id' ]}">` +
 						`<td>${products[ product ][ 'id' ]}</td>` +
@@ -45,15 +52,19 @@ function loadProducts() {
 		});
 }
 
+// Add new product
 function addProduct() {
+	// Send request to the backend 
 	fetch('../utilities/admin.php', {method: 'POST', body: fillFormData('insert')})
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {
+			// Render the new data inside and clear all inputs
 			reRenderTable();
 			clearInputs(document.querySelector('.new-section').querySelectorAll('input'));
 		});
 }
 
+// Update a single product
 function updateProduct() {
 	let formData = fillFormData('update');
 	console.log(formData.get('id'));
@@ -64,7 +75,9 @@ function updateProduct() {
 		});
 }
 
+// Auto fill the form data
 function fillFormData( type ) {
+	// Define the names of the input fields
 	let names = ['id-input', 'brand-input', 'category-input', 'gender-input', 'description-input', 'size-input',
 		'price-input', 'quantity-input', 'sale-input', 'image-input'];
 	if (type === 'insert') {
@@ -73,6 +86,7 @@ function fillFormData( type ) {
 		})
 	}
 
+	// Get the values of the input fields
 	let id = document.querySelector(`#${names[ 0 ]}`).value;
 	let brand = document.querySelector(`#${names[ 1 ]}`).value;
 	let category = document.querySelector(`#${names[ 2 ]}`).value;
@@ -84,6 +98,7 @@ function fillFormData( type ) {
 	let sale = document.querySelector(`#${names[ 8 ]}`).value;
 	let image = document.querySelector(`#${names[ 9 ]}`);
 
+	// Append the data to the formData
 	let formData = new FormData();
 	formData.append('id', id);
 	formData.append('brand', brand);
@@ -99,10 +114,13 @@ function fillFormData( type ) {
 	return formData;
 }
 
+// Delete a single product by id
 function deleteProduct( id ) {
+	// Fill form data
 	let formData = new FormData();
 	formData.append('id', id);
 	formData.append('delete', 'delete');
+	// Send request to backend
 	fetch('../utilities/admin.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {
@@ -110,11 +128,13 @@ function deleteProduct( id ) {
 		});
 }
 
+// Select a field in the table
 function selectField( id ) {
 	let content = [];
 	let inputFields = document.querySelector('.edit-section').querySelectorAll("input");
-
+	
 	displayFields();
+	
 	let elements = document.querySelector('#product' + id).querySelectorAll('td');
 	elements.forEach(( element, index ) => {
 		if (index < elements.length - 1) {
@@ -142,6 +162,7 @@ function displayFields() {
 	div.className = "edit-section grid";
 }
 
+// Check if form is dirty
 function isDirty( content ) {
 	let edit = document.querySelector('.edit-section');
 	let inputs = edit.querySelectorAll('input');
@@ -151,18 +172,22 @@ function isDirty( content ) {
 	});
 }
 
+// Rerender the existing table
 function reRenderTable() {
+	// Hide the table
 	let table = document.querySelector('table');
 	table.className += "hide";
+	// Make a timeout to remove all products and reload them
 	window.setTimeout(() => {
 		table.querySelectorAll('.loaded-tr').forEach(element => {
 			element.remove();
 		});
 		loadProducts();
-
+	// 2000ms = 2s timeout
 	}, 2000);
 }
 
+// Clear all input fields
 function clearInputs( list ) {
 	list.forEach(( element ) => {
 		element.value = "";
