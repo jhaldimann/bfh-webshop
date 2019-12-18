@@ -132,9 +132,9 @@ function deleteProduct( id ) {
 function selectField( id ) {
 	let content = [];
 	let inputFields = document.querySelector('.edit-section').querySelectorAll("input");
-	
+
 	displayFields();
-	
+
 	let elements = document.querySelector('#product' + id).querySelectorAll('td');
 	elements.forEach(( element, index ) => {
 		if (index < elements.length - 1) {
@@ -183,7 +183,7 @@ function reRenderTable() {
 			element.remove();
 		});
 		loadProducts();
-	// 2000ms = 2s timeout
+		// 2000ms = 2s timeout
 	}, 2000);
 }
 

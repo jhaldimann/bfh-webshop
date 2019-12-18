@@ -122,6 +122,9 @@ function insertProduct() {
     echo json_encode(array('status' => 200, 'text' => 'success'));
 }
 
+/**
+ * Store the uploaded image in a folder in this project
+ */
 function storeImage() {
     $uploaddir = $_SERVER['DOCUMENT_ROOT'] . $GLOBALS["path"] . '/images/uploads/';
     $uploadfile = $uploaddir . basename($_FILES['image']['name']);

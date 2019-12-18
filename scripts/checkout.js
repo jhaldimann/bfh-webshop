@@ -34,7 +34,7 @@ let checkout = () => {
 			console.log(data.hash);
 			emptyCart();
 			redirect('confirm&hash=' + data.hash);
-			
+
 		})
 };
 

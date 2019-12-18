@@ -10,8 +10,9 @@ let getProductDetail = () => {
 			rootElement.innerHTML =
 				`<img class='product-image' src="./images/uploads/${data[ 'image' ]}" alt="${data[ 'description' ]}"/>` +
 				`<div class="information">` +
-				`<h2 class="description-title">${data[ 'brand' ] + data[ 'description' ]}</h2>` +
+				`<h2 class="description-title">${data[ 'brand' ] + " " + data[ 'description' ]}</h2>` +
 				`<label class='product-brand'><b>Brand: </b> ${data[ 'brand' ]} </label>` +
+				`<p>Price: <label>${(data[ 'price' ] / 100 * (100 - data[ 'percent' ]))} CHF</label></p>` +
 				`<label class='product-description'><b>Description: </b> ${data[ 'description' ]} </label>` +
 				`<label class='size-selector-label'>Size: </label>` +
 				`<select class="size-selector">` +
@@ -27,6 +28,8 @@ let getProductDetail = () => {
 				`<img class='add-to-cart-img' src='./images/shoppingcart.png' alt='add to cart'>` +
 				`<label class='add-to-cart-label'>Add to cart</label></button>` +
 				`</div>`;
+		}).catch(() => {
+			redirect('404');
 		});
 };
 

@@ -38,3 +38,6 @@ price=Price
 size=Size
 sale=Sale
 quantity=Quantity
+help=Help
+faq=Frequently Asked Questions
+404=Nothing Here!!

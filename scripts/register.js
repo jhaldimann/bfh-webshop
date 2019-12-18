@@ -6,7 +6,7 @@ let register = () => {
 	let password = document.querySelector('#password');
 	let passwordConfirm = document.querySelector('#password-confirm');
 	let formData = new FormData();
-	
+
 	// Append data to the form data
 	formData.append('register', 'register');
 	formData.append('firstname', firstname.value);

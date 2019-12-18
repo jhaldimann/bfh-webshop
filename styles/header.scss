@@ -15,11 +15,13 @@
     right: 10%;
     top: 50%;
     transform: translateY(-50%);
+
     button {
       background: none;
       border: none;
       cursor: pointer;
     }
+
     button:hover {
       font-weight: 900;
     }
@@ -312,6 +314,7 @@
 @media only screen and (max-width: 1000px) {
   header {
     height: 100px !important;
+
     .categories {
       display: none !important;
     }
@@ -328,13 +331,10 @@
     .search-box {
       width: 300px !important;
       height: 30px !important;
+
       input {
         font-size: 25px !important;
       }
-    }
-
-    .search-section {
-
     }
   }
 }
