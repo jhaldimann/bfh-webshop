@@ -41,3 +41,4 @@ quantity=Quantity
 help=Help
 faq=Frequently Asked Questions
 404=Nothing Here!!
+youmayalsolike=You May Also Like

@@ -27,7 +27,10 @@ let getProductDetail = () => {
 				`<button class='add-to-cart' onclick='addToCart(${JSON.stringify(data)}); openDropDownWithTimeout("cart-dropdown")'>` +
 				`<img class='add-to-cart-img' src='./images/shoppingcart.png' alt='add to cart'>` +
 				`<label class='add-to-cart-label'>Add to cart</label></button>` +
-				`</div>`;
+				`</div>` +
+				`<h2 class="you-may-also-like"> You may also like</h2>` +
+				`<div class="same-prod"></div>`;
+			productsFromSameBrand(data[ 'brand' ], data[ 'id' ]);
 		}).catch(() => {
 			redirect('404');
 		});
@@ -99,5 +102,31 @@ let getProducts = () => {
 				// Redirect to 404 page
 				changePage('?site=404');
 			}
+		});
+};
+
+let productsFromSameBrand = (name, id) => {
+	let rootElement = document.querySelector('.same-prod');
+	console.log(rootElement);
+	let formData = new FormData;
+	formData.append('searchstring', name);
+	formData.append('getProducts', 'search');
+	fetch('./utilities/helper.php', {method: 'POST', body: formData})
+		.then(( resp ) => resp.json())
+		.then(function ( products ) {
+			products.forEach((e, index) => {
+				if(e.id !== id) {
+					if(index < 4) {
+						rootElement.innerHTML +=
+							`<a class='product-link' href='?site=product&id=${e[ 'id' ]}' >` +
+							`<div class='product'>` +
+							`<img src='./images/uploads/${e[ 'image' ]}' alt='${e[ 'description' ]}'>` +
+							`<h3>${e[ 'brand' ]} ${e[ 'category' ]}</h3>` +
+							`<p>Price: <label>${e[ 'price' ]} CHF</label></p>` +
+							`</div>` +
+							`</a>`;
+					}	
+				}
+			})
 		});
 };

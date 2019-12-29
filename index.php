@@ -41,6 +41,7 @@ session_start();
                 <a href='?site=products&type=sweatshirts'><?php echo t("sweatshirts") ?></a>
                 <a href='?site=products&type=socks'><?php echo t("socks") ?></a>
                 <a href='?site=products&type=shoes'><?php echo t("shoes") ?></a>
+                <a href='?site=cart'><?php echo t("cart") ?></a>
             </ul>
         </div>
     </nav>

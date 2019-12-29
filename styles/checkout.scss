@@ -6,7 +6,19 @@
   margin: 0 auto 100px auto;
 
   h2 {
-    margin-left: 10px;
+    margin-left: 20px;
+  }
+
+  .checkout-button {
+    width: 30%;
+    height: 50px;
+    background: linear-gradient(120deg, #3498db, #8e44ad, #3498db);
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
   }
 
   .user-checkout-info {

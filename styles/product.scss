@@ -14,6 +14,22 @@
     padding: 20px;
   }
 
+  .same-prod {
+    position: absolute;
+    display: inline-grid;
+    grid-template-columns: 33% 33% 33%;
+    top: 60%;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .you-may-also-like {
+    position: absolute;
+    left: 10%;
+    top: 55%;
+  }
+
   .product-image:hover {
     cursor: zoom-in;
     transform: scale(1.3);

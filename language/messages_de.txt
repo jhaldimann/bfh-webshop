@@ -41,3 +41,4 @@ quantity=Menge
 help=Hilfe
 faq=Häufig gestellte Fragen
 404=Seite nicht gefunden!!
+youmayalsolike=Das könnte ihnen auch gefallen

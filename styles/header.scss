@@ -10,20 +10,40 @@
   z-index: 1;
   height: 50px;
 
-  .lang {
+  .right-section {
+    width: 300px;
     position: absolute;
-    right: 10%;
+    right: 0;
     top: 50%;
-    transform: translateY(-50%);
 
-    button {
-      background: none;
-      border: none;
+    .lang {
+      position: absolute;
+      right: 36%;
+      top: 50%;
+      transform: translateY(-50%);
+
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        font-weight: 900;
+      }
+    }
+
+    .search-icon {
+      height: 20px;
+      position: absolute;
       cursor: pointer;
     }
 
-    button:hover {
-      font-weight: 900;
+    .search-section {
+      position: absolute;
+      background-color: whitesmoke;
+      z-index: 10;
+      left: 0;
     }
   }
 
@@ -45,7 +65,9 @@
 
   .user-logo {
     position: absolute;
-    right: 10px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .user-logo:hover {
@@ -56,11 +78,11 @@
   .user-dropdown {
     display: none;
     position: absolute;
-    background: $white;
+    background: #fff;
     padding: 15px 35px 65px 15px;
-    border: 1px solid $grey;
-    margin-top: 60px;
-    right: 0;
+    border: 1px solid #dddddd;
+    margin-top: 26px;
+    right: -8px;
     width: 150px;
     height: 150px;
     z-index: 1;
@@ -174,9 +196,10 @@
 
   .shopping-cart-logo {
     position: absolute;
-    right: 60px;
+    right: 15%;
     margin-right: 10px;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .shopping-cart-logo:hover {
@@ -187,21 +210,6 @@
     margin: 0;
     display: inline-block;
     transform: translateY(40%);
-  }
-
-  .search-icon {
-    height: 20px;
-    position: absolute;
-    cursor: pointer;
-  }
-
-  .search-section {
-    position: absolute;
-    background-color: whitesmoke;
-    right: 30%;
-    z-index: 10;
-    transform: translateY(-50%);
-    top: 50%;
   }
 
   .burger {

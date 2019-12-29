@@ -97,17 +97,32 @@
   .checkout-button {
     position: absolute;
     right: 0;
-    height: 30px;
-    width: 150px;
-    border: none;
-    color: $white;
+    width: 30%;
+    height: 50px;
+    background: linear-gradient(120deg, #3498db, #8e44ad, #3498db);
+    color: #fff;
     cursor: pointer;
-    font-weight: bold;
-    background-color: $blue;
-    transition: all .2s ease;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
   }
 
   .checkout-button:hover {
     background-color: $green;
+  }
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .cart {
+    width: 90%;
+    left: 50%;
+    height: 500px;
+    top: 150px;
+    position: absolute;
+    display: block;
+    margin: 0 !important;
+    transform: translateX(-50%);
   }
 }
