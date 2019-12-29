@@ -4,30 +4,31 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>GameFameClothing</title>
+    <meta charset="UTF-8">
+    <title>GameFameClothing</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="dist/style.css">
+    <link rel="stylesheet" href="dist/default.css">
+    <script type="application/javascript" src="scripts/global.js"></script>
     <script type="application/javascript" src="scripts/index.js"></script>
     <script type="application/javascript" src="scripts/cart.js"></script>
     <script type="application/javascript" src="scripts/header.js"></script>
     <script type="application/javascript" src="scripts/login.js"></script>
     <script type="application/javascript" src="scripts/product.js"></script>
     <script type="application/javascript" src="scripts/register.js"></script>
-    <script type="application/javascript" src="scripts/script.js"></script>
     <script type="application/javascript" src="scripts/sidebar.js"></script>
     <script type="application/javascript" src="scripts/user.js"></script>
+    <script type="application/javascript" src="scripts/checkout.js"></script>
+    <link rel="icon" type="image/png" href="images/favicon.PNG" />
 </head>
 <body>
-    <?php require_once('utilities/helper.php'); ?>
+    <?php require_once('./utilities/helper.php'); ?>
     <?php include('./components/header.php'); ?>
     <?php include('./views/login.php'); ?>
     <?php
         $fn = "./views/$pageId.php";
         if (is_file($fn)) {
             include($fn);
-            include('./components/sidebar.php');
         }
     ?>
     <nav class="navigation-mobile hidden">
@@ -40,6 +41,7 @@ session_start();
                 <a href='?site=products&type=sweatshirts'><?php echo t("sweatshirts") ?></a>
                 <a href='?site=products&type=socks'><?php echo t("socks") ?></a>
                 <a href='?site=products&type=shoes'><?php echo t("shoes") ?></a>
+                <a href='?site=cart'><?php echo t("cart") ?></a>
             </ul>
         </div>
     </nav>

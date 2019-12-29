@@ -12,17 +12,22 @@
     display: grid;
 
     input {
-      label {
-        input {
-          width: 100%;
-          padding: 12px 20px;
-          margin: 8px 0;
-          box-sizing: border-box;
-          border: 2px solid $black;
-          border-radius: 4px;
-        }
-      }
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid $black;
+      border-radius: 4px;
     }
+  }
+
+  .button {
+    width: 150px;
+    font-size: 20px;
+    height: 50px;
+    border: 2px solid $black;
+    border-radius: 10px;
+    cursor: pointer;
   }
 
   .title {
@@ -30,14 +35,7 @@
     text-align: left;
   }
 
-  .button {
-    width: 100px;
-    font-size: 20px;
-    height: 50px;
-    border: 2px solid $black;
-    border-radius: 10px;
-    cursor: pointer;
-  }
+
   .button:hover {
     background-color: $lightgrey;
     transform: scale(1.1);

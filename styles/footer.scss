@@ -14,7 +14,8 @@
   .company-copyright {
     display: inline-block;
     position: absolute;
-    left: 40%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .social-media-section {

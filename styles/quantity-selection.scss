@@ -40,3 +40,18 @@ input[type=number]::-webkit-outer-spin-button {
   width: 40px;
   text-align: center;
 }
+
+@media only screen and (max-width: 1000px) {
+  .quantity-selection {
+    height: 70px;
+  }
+  .quantity-field {
+    width: 75px;
+    font-size: 35px;
+  }
+  .quantity-count {
+    font-size: 35px;
+    height: 75px;
+    width: 75px;
+  }
+}

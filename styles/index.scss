@@ -23,8 +23,8 @@
     }
 
     .slideshow-images {
-      width: 80%;
-      height: 150px;
+      width: 90%;
+      height: 250px;
       display: inline-block;
 
       .slideshow-image {
@@ -177,9 +177,11 @@
 }
 
 .sale {
+  display: inline-grid;
+  grid-template-columns: 33% 33% 33%;
   width: 100%;
   margin-bottom: 100px;
-  display: contents;
+  top: 0;
 }
 
 .percent {
@@ -194,8 +196,42 @@
   .title {
     display: inline-flex;
     text-align: center;
+
     h2 {
       transform: translateY(-15%);
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .slideshow-container {
+    display: none;
+  }
+  .nav-dots {
+    display: none;
+  }
+  .title {
+    .lightning {
+      height: 75px;
+      width: 75px;
+      transform: translateY(50%);
+    }
+
+    h2 {
+      font-size: 60px;
+    }
+  }
+  .main-section {
+    margin-bottom: 100px;
+  }
+  .sale {
+    display: contents;
+    .product {
+      height: 500px;
+      font-size: 23px;
+      img {
+        max-height: 200px;
+      }
     }
   }
 }

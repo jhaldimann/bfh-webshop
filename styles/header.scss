@@ -8,7 +8,44 @@
   top: 0;
   left: 0;
   z-index: 1;
-  height: 120px;
+  height: 50px;
+
+  .right-section {
+    width: 300px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+
+    .lang {
+      position: absolute;
+      right: 36%;
+      top: 50%;
+      transform: translateY(-50%);
+
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        font-weight: 900;
+      }
+    }
+
+    .search-icon {
+      height: 20px;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    .search-section {
+      position: absolute;
+      background-color: whitesmoke;
+      z-index: 10;
+      left: 0;
+    }
+  }
 
   .home-logo {
     position: absolute;
@@ -28,7 +65,9 @@
 
   .user-logo {
     position: absolute;
-    right: 10px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .user-logo:hover {
@@ -39,11 +78,11 @@
   .user-dropdown {
     display: none;
     position: absolute;
-    background: $white;
+    background: #fff;
     padding: 15px 35px 65px 15px;
-    border: 1px solid $grey;
-    margin-top: 60px;
-    right: 0;
+    border: 1px solid #dddddd;
+    margin-top: 26px;
+    right: -8px;
     width: 150px;
     height: 150px;
     z-index: 1;
@@ -145,7 +184,7 @@
   }
 
   .nav-label {
-    margin-bottom: 10px;
+    padding-bottom: 10px;
     display: block;
     color: $black;
     text-decoration: none;
@@ -157,9 +196,10 @@
 
   .shopping-cart-logo {
     position: absolute;
-    right: 60px;
+    right: 15%;
     margin-right: 10px;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .shopping-cart-logo:hover {
@@ -170,22 +210,6 @@
     margin: 0;
     display: inline-block;
     transform: translateY(40%);
-  }
-
-  .search-icon {
-    height: 20px;
-    position: absolute;
-    cursor: pointer;
-  }
-
-  .search-section {
-    position: absolute;
-    background-color: $whitesmoke;
-    margin: 20px 0 0 0;
-    right: 20%;
-    top: 20px;
-    z-index: 10;
-    bottom: 30%;
   }
 
   .burger {
@@ -200,13 +224,6 @@
     .burger {
       display: none;
     }
-  }
-
-  .user-details {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
   }
 
   .logged-in-user {
@@ -233,11 +250,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: $white;
-    height: 20px;
+    background: #fff;
+    height: 21px;
     border-radius: 40px;
     padding: 10px;
-    border: 2px solid $black;
+    border: 2px solid black;
+    width: 200px;
 
     .search-text {
       border: none;
@@ -250,11 +268,6 @@
       transition: 0.4s;
       line-height: 20px;
       font-weight: bold;
-      -webkit-transition: width .2s;
-    }
-
-    .search-text:hover {
-      width: 250px;
     }
 
     .search-button {
@@ -266,7 +279,6 @@
       display: flex;
       justify-content: left;
       align-items: center;
-      transition: 1s;
       color: $white;
       cursor: pointer;
       position: absolute;
@@ -280,14 +292,12 @@
     }
   }
 
-  .categories{
+  .categories {
     display: inline-flex;
     position: absolute;
-    left: 0;
-    background-color: $whitesmoke;
-    width: 80%;
-    bottom: 0;
-    margin: 0 0 10px 20px;
+    left: 100px;
+    background-color: whitesmoke;
+    transform: translateY(50%);
 
     a {
       text-decoration: none;
@@ -307,29 +317,32 @@
     position: relative;
     color: $black;
   }
-
-  .hover-underline-animation::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: $black;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-  .hover-underline-animation:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
 }
 
 @media only screen and (max-width: 1000px) {
   header {
+    height: 100px !important;
+
+    .categories {
+      display: none !important;
+    }
+
     img {
       display: none;
+    }
+
+    .burger {
+      height: 100px;
+      width: 100px !important;
+    }
+
+    .search-box {
+      width: 300px !important;
+      height: 30px !important;
+
+      input {
+        font-size: 25px !important;
+      }
     }
   }
 }
