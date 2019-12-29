@@ -5,7 +5,7 @@
   grid-template-columns: 33% 33% 33%;
   margin-top: 70px;
   width: 70%;
-  left: 60%;
+  left: 50%;
   position: absolute;
   transform: translateX(-50%);
   margin-bottom: 70px;
@@ -61,6 +61,12 @@ h1 {
   .products {
     grid-template-columns: 50% 50%;
     left: 50%;
+    width: 95%;
+    font-size: 23px;
+
+    .product {
+      padding: 20px;
+    }
   }
 }
 
@@ -68,11 +74,5 @@ h1 {
   .products {
     grid-template-columns: 100%;
     left: 50%;
-  }
-}
-
-@media only screen and (min-width: 1000px) {
-  .products {
-    grid-template-columns: 33% 33% 33%;
   }
 }

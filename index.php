@@ -29,9 +29,6 @@ session_start();
         $fn = "./views/$pageId.php";
         if (is_file($fn)) {
             include($fn);
-            if($pageId != "home") {
-                include('./components/sidebar.php');
-            }
         }
     ?>
     <nav class="navigation-mobile hidden">

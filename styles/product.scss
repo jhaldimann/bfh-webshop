@@ -4,13 +4,14 @@
   margin: 0 auto;
 
   .product-image {
-    margin-top: 80px;
+    margin-top: 150px;
     width: 300px;
-    margin-left: 250px;
+    margin-left: 150px;
     float: left;
     border: 1px solid $grey;
     background-color: $white;
     transition: all .3s ease;
+    padding: 20px;
   }
 
   .product-image:hover {
@@ -87,14 +88,38 @@
 @media only screen and (max-width: 1000px) {
   .product-details {
     .product-image {
-      width: 80%;
+      width: 70%;
       left: 50%;
       position: absolute;
       transform: translateX(-50%);
       margin: 0;
+      top: 10%;
+      display: block;
     }
-
+    .product-image:hover {
+      transform: none !important;
+      transition: none;
+    }
   }
   .information {
+    position: absolute;
+    left: 50% !important;
+    top: 45% !important;
+    width: 70%;
+    z-index: 0;
+    transform: translateX(-50%) scale(1) !important;
+    font-size: 30px;
+
+    .size-selector {
+      height: 50px !important;
+      width: 100px !important;
+      font-size: 23px !important;
+    }
+
+    .add-to-cart {
+      height: 100px !important;
+      width: 400px !important;
+      font-size: 30px;
+    }
   }
 }

@@ -2,7 +2,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	entry: {
-		'default': ['./styles/cart.scss',
+		'default': [
+			'./styles/cart.scss',
 			'./styles/footer.scss',
 			'./styles/global.scss',
 			'./styles/header.scss',

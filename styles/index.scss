@@ -23,8 +23,8 @@
     }
 
     .slideshow-images {
-      width: 80%;
-      height: 150px;
+      width: 90%;
+      height: 250px;
       display: inline-block;
 
       .slideshow-image {
@@ -177,9 +177,11 @@
 }
 
 .sale {
+  display: inline-grid;
+  grid-template-columns: 33% 33% 33%;
   width: 100%;
   margin-bottom: 100px;
-  display: contents;
+  top: 0;
 }
 
 .percent {
@@ -219,5 +221,17 @@
       font-size: 60px;
     }
   }
-
+  .main-section {
+    margin-bottom: 100px;
+  }
+  .sale {
+    display: contents;
+    .product {
+      height: 500px;
+      font-size: 23px;
+      img {
+        max-height: 200px;
+      }
+    }
+  }
 }
