@@ -19,6 +19,7 @@ session_start();
     <script type="application/javascript" src="scripts/sidebar.js"></script>
     <script type="application/javascript" src="scripts/user.js"></script>
     <script type="application/javascript" src="scripts/checkout.js"></script>
+    <script type="application/javascript" src="scripts/orders.js"></script>
     <link rel="icon" type="image/png" href="images/favicon.PNG" />
 </head>
 <body>
@@ -42,6 +43,10 @@ session_start();
                 <a href='?site=products&type=socks'><?php echo t("socks") ?></a>
                 <a href='?site=products&type=shoes'><?php echo t("shoes") ?></a>
                 <a href='?site=cart'><?php echo t("cart") ?></a>
+                <div class="language-change">
+                    <button onclick="changeLanguage('de')">DE</button>
+                    <button onclick="changeLanguage('en')">EN</button>
+                </div>
             </ul>
         </div>
     </nav>

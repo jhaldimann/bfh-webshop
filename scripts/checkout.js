@@ -1,5 +1,6 @@
 let checkout = () => {
 	// Get information of the customer
+	let id = document.querySelector('#id');
 	let firstname = document.querySelector('#firstname');
 	let lastname = document.querySelector('#lastname');
 	let address = document.querySelector('#address');
@@ -14,6 +15,8 @@ let checkout = () => {
 
 	// Fill the form data
 	let formData = new FormData;
+	console.log(id);
+	formData.append('id',id.value);
 	formData.append('checkout', 'checkout');
 	formData.append('firstname', firstname.value);
 	formData.append('lastname', lastname.value);
@@ -31,7 +34,6 @@ let checkout = () => {
 	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( r ) => r.json())
 		.then(data => {
-			console.log(data.hash);
 			emptyCart();
 			redirect('confirm&hash=' + data.hash);
 

@@ -16,7 +16,8 @@ module.exports = {
 			'./styles/sidebar.scss',
 			'./styles/user.scss' ,
 			'./styles/checkout.scss',
-			'./styles/confirm.scss'
+			'./styles/confirm.scss',
+			'./styles/orders.scss'
 		],
 		'admin': ['./styles/admin.scss']
 	},
