@@ -12,6 +12,8 @@ if (array_key_exists('login', $_POST)) {
     insertProduct();
 } else if(array_key_exists('getUsers', $_POST)) {
     getUsers();
+} else if(array_key_exists('getOrders', $_POST)) {
+    getUserOrders();
 }
 
 /**
@@ -137,6 +139,25 @@ function getUsers() {
     $mysqli = connectDB();
 
     $query = "SELECT * FROM user";
+
+    $myArray = array();
+    if ($result = $mysqli->query($query)) {
+
+        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $myArray[] = $row;
+        }
+
+        echo json_encode($myArray);
+    }
+
+    $result->close();
+    $mysqli->close();
+}
+
+function getUserOrders() {
+    $mysqli = connectDB();
+
+    $query = "SELECT * FROM orders";
 
     $myArray = array();
     if ($result = $mysqli->query($query)) {

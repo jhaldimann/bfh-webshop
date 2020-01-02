@@ -47,4 +47,7 @@ lastname=Nachname
 housenumber=Hausnummer
 address=Adresse
 hash=Bestellnummer
+country=Land
+zip=PLZ
+prename=Vorname
 

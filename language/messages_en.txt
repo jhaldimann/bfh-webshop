@@ -47,3 +47,5 @@ lastname=Lastname
 housenumber=Housenumber
 address=Address
 hash=Ordernumber
+country=Country
+zip=ZIP
