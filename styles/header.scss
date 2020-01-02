@@ -320,6 +320,9 @@
 }
 
 @media only screen and (max-width: 1000px) {
+  .lang {
+    display: none !important;
+  }
   header {
     height: 100px !important;
 

@@ -67,7 +67,6 @@ function addProduct() {
 // Update a single product
 function updateProduct() {
 	let formData = fillFormData('update');
-	console.log(formData.get('id'));
 	fetch('../utilities/admin.php', {method: 'POST', body: fillFormData('update')})
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {

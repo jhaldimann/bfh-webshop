@@ -10,7 +10,10 @@ session_start();
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../dist/admin.css">
         <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-        <script type="application/javascript" src="../scripts/admin.js"></script>
+        <script type="application/javascript" src="../scripts/admin/admin.js"></script>
+        <script type="application/javascript" src="../scripts/admin/admin-products.js"></script>
+        <script type="application/javascript" src="../scripts/admin/admin-users.js"></script>
+        <script type="application/javascript" src="../scripts/admin/admin-orders.js"></script>
     </head>
     <body>
     <?php
@@ -28,8 +31,21 @@ session_start();
             </form>
         </section>
     <?php } else { ?>
+        <div class="navigation">
+            <button onclick="selectPage('products')">Products</button>
+            <button onclick="selectPage('orders')">Orders</button>
+            <button onclick="selectPage('users')">Users</button>
+        </div>
         <section class="product-form">
-            <?php include('../components/admin/products.php') ?>
+            <div class="admin-products-page hidden">
+                <?php include('../components/admin/products.php') ?>
+            </div>
+            <div class="admin-orders-page hidden">
+                <?php include('../components/admin/orders.php') ?>
+            </div>
+            <div class="admin-users-page hidden">
+                <?php include('../components/admin/users.php') ?>
+            </div>
         </section>
     <?php } ?>
     </body>

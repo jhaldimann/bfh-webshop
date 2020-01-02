@@ -2,6 +2,7 @@
     <h2>Customer Information</h2>
     <form onsubmit="checkout(); return false;">
         <section class="user-checkout-info">
+            <?php echo '<input class="hidden" id="id" value="' . print_r($_SESSION['id'], TRUE) . '"/>' ?>
             <label>
                 <input type="text" id="firstname" placeholder="Firstname" required/>
             </label>

@@ -114,6 +114,7 @@ let productsFromSameBrand = (name, id) => {
 	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( products ) {
+			console.log(products);
 			products.forEach((e, index) => {
 				if(e.id !== id) {
 					if(index < 4) {
@@ -126,6 +127,12 @@ let productsFromSameBrand = (name, id) => {
 							`</div>` +
 							`</a>`;
 					}	
+				} else {
+					if(products.length === 1) {
+						console.log(1);
+						document.querySelector('.you-may-also-like').remove();
+						rootElement.remove();
+					}
 				}
 			})
 		});

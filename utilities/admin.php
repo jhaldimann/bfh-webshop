@@ -10,6 +10,14 @@ if (array_key_exists('login', $_POST)) {
     deleteProduct($_POST["id"]);
 } else if (array_key_exists('insert', $_POST)) {
     insertProduct();
+} else if(array_key_exists('getUsers', $_POST)) {
+    getUsers();
+} else if(array_key_exists('getOrders', $_POST)) {
+    getUserOrders();
+} else if(array_key_exists('updateUser', $_POST)) {
+    updateUser();
+} else if(array_key_exists('updateOrder', $_POST)) {
+    updateOrder();
 }
 
 /**
@@ -129,4 +137,91 @@ function storeImage() {
     $uploaddir = $_SERVER['DOCUMENT_ROOT'] . $GLOBALS["path"] . '/images/uploads/';
     $uploadfile = $uploaddir . basename($_FILES['image']['name']);
     move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile);
+}
+
+function getUsers() {
+    $mysqli = connectDB();
+
+    $query = "SELECT * FROM user";
+
+    $myArray = array();
+    if ($result = $mysqli->query($query)) {
+
+        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $myArray[] = $row;
+        }
+
+        echo json_encode($myArray);
+    }
+
+    $result->close();
+    $mysqli->close();
+}
+
+function getUserOrders() {
+    $mysqli = connectDB();
+
+    $query = "SELECT * FROM orders";
+
+    $myArray = array();
+    if ($result = $mysqli->query($query)) {
+
+        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $myArray[] = $row;
+        }
+
+        echo json_encode($myArray);
+    }
+
+    $result->close();
+    $mysqli->close();
+}
+
+function updateUser() {
+    // Connect to the database
+    $mysqli = connectDB();
+    // Get all the data from the post request and
+    // use htmlspecialchars to escape special characters
+    $id = htmlspecialchars($_POST["id"]);
+    $prename = htmlspecialchars($_POST["prename"]);
+    $name = htmlspecialchars($_POST["name"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $password = htmlspecialchars($_POST["password"]);
+
+    // Define the update query
+    $sql = "UPDATE user SET
+        prename ='" . $prename . "',
+        name ='" . $name . "',
+        email ='" . $email . "',
+        password='" . $password . "'
+        WHERE id=" . $id;
+    // Execute the query and store the new image
+    $mysqli->query($sql);
+    echo json_encode(array('status' => 200, 'text' => 'success'));
+}
+
+function updateOrder() {
+    $mysqli = connectDB();
+
+    $id = htmlspecialchars($_POST["id"]);
+    $name = htmlspecialchars($_POST["name"]);
+    $prename = htmlspecialchars($_POST["prename"]);
+    $address = htmlspecialchars($_POST["address"]);
+    $housenumber = htmlspecialchars($_POST["housenumber"]);
+    $zip = htmlspecialchars($_POST["zip"]);
+    $city = htmlspecialchars($_POST["city"]);
+    $country = htmlspecialchars($_POST["country"]);
+
+    $sql = "UPDATE orders SET
+        name ='" . $name . "',
+        prename ='" . $prename . "',
+        address ='" . $address . "',
+        housenumber='" . $housenumber . "',
+        zip='" . $zip . "',
+        city='" . $city . "',
+        country='" . $country . "'
+        WHERE id=" . $id;
+
+    $mysqli->query($sql);
+    echo json_encode(array('status' => 200, 'text' => 'success'));
 }

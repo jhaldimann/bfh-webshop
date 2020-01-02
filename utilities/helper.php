@@ -24,6 +24,8 @@ if(array_key_exists('register', $_POST)) {
     checkout();
 } else if(array_key_exists('search', $_POST)) {
     search();
+} else if(array_key_exists('order', $_POST)) {
+    getOrders($_POST['id']);
 }
 
 /**
@@ -43,6 +45,7 @@ function checkout(){
     // Connect to the database
     $mysqli = connect();
     // Get all the important information of the user
+    $id = htmlspecialchars($_POST["id"]);
     $firstname = htmlspecialchars($_POST["firstname"]);
     $lastname = htmlspecialchars($_POST["lastname"]);
     $address = htmlspecialchars($_POST["address"]);
@@ -57,7 +60,8 @@ function checkout(){
     // Generate a random hash to know later the order
     $randomHash = rand();
     // Make the query and run it
-    $query = "INSERT INTO orders (name, prename, address, housenumber, zip, city, country, hash) VALUES  "."('$firstname','$lastname','$address','$housenr','$zip','$city','$country','$randomHash')";
+    $query = "INSERT INTO orders (name, prename, address, housenumber, zip, city, country, hash, uid) VALUES  "."('$lastname','$firstname','$address','$housenr','$zip','$city','$country','$randomHash','$id')";
+
     $result = $mysqli->query($query);
     if($result) {
         echo json_encode(array('status' => 200, 'text' => 'success', 'hash' =>$randomHash));
@@ -323,6 +327,19 @@ function search($searchparam = "") {
      return "SELECT * FROM products WHERE 
         MATCH(brand) AGAINST("."'+".$searchString."*' IN BOOLEAN MODE) OR 
         MATCH(category) AGAINST("."'+".$searchString."*' IN BOOLEAN MODE)";
+}
+
+function getOrders($id) {
+    // Database connection
+    $mysqli = connect();
+    $myArray = array();
+
+    if ($result = $mysqli->query("SELECT * FROM orders WHERE uid =" . $id)) {
+        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $myArray[] = $row;
+        }
+        echo json_encode($myArray);
+    }
 }
 
 /**
