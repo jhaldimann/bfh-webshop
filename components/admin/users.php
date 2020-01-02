@@ -1,5 +1,5 @@
 <div class="admin-users">
-    <table>
+    <table class="users-table">
         <thead>
         <tr>
             <th>Id</th>

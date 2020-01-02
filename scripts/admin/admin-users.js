@@ -48,6 +48,20 @@ let updateUser = () => {
 	fetch('../utilities/admin.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {
-			console.log(data);
+			reRenderUserTable()
 		});
 };
+
+function reRenderUserTable() {
+	// Hide the table
+	let table = document.querySelector('.users-table');
+	table.className += " hide";
+	// Make a timeout to remove all products and reload them
+	window.setTimeout(() => {
+		table.querySelectorAll('.loaded-tr').forEach(element => {
+			element.remove();
+		});
+		loadUsers();
+		// 2000ms = 2s timeout
+	}, 2000);
+}
