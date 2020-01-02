@@ -31,7 +31,7 @@ session_start();
             </form>
         </section>
     <?php } else { ?>
-        <div>
+        <div class="navigation">
             <button onclick="selectPage('products')">Products</button>
             <button onclick="selectPage('orders')">Orders</button>
             <button onclick="selectPage('users')">Users</button>

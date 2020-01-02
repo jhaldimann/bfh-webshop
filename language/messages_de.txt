@@ -50,4 +50,6 @@ hash=Bestellnummer
 country=Land
 zip=PLZ
 prename=Vorname
+city=Stadt
+
 

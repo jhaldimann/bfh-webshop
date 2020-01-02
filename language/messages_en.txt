@@ -49,3 +49,4 @@ address=Address
 hash=Ordernumber
 country=Country
 zip=ZIP
+city=City

@@ -16,6 +16,8 @@ if (array_key_exists('login', $_POST)) {
     getUserOrders();
 } else if(array_key_exists('updateUser', $_POST)) {
     updateUser();
+} else if(array_key_exists('updateOrder', $_POST)) {
+    updateOrder();
 }
 
 /**
@@ -195,6 +197,31 @@ function updateUser() {
         WHERE id=" . $id;
     // Execute the query and store the new image
     $mysqli->query($sql);
-    storeImage();
+    echo json_encode(array('status' => 200, 'text' => 'success'));
+}
+
+function updateOrder() {
+    $mysqli = connectDB();
+
+    $id = htmlspecialchars($_POST["id"]);
+    $name = htmlspecialchars($_POST["name"]);
+    $prename = htmlspecialchars($_POST["prename"]);
+    $address = htmlspecialchars($_POST["address"]);
+    $housenumber = htmlspecialchars($_POST["housenumber"]);
+    $zip = htmlspecialchars($_POST["zip"]);
+    $city = htmlspecialchars($_POST["city"]);
+    $country = htmlspecialchars($_POST["country"]);
+
+    $sql = "UPDATE orders SET
+        name ='" . $name . "',
+        prename ='" . $prename . "',
+        address ='" . $address . "',
+        housenumber='" . $housenumber . "',
+        zip='" . $zip . "',
+        city='" . $city . "',
+        country='" . $country . "'
+        WHERE id=" . $id;
+
+    $mysqli->query($sql);
     echo json_encode(array('status' => 200, 'text' => 'success'));
 }
