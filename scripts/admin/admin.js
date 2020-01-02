@@ -1,3 +1,4 @@
+// Change the content of the admin page
 let selectPage = (page) => {
 	let orders = document.querySelector('.admin-orders-page');
 	let users = document.querySelector('.admin-users-page');

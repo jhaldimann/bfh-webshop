@@ -14,6 +14,8 @@ if (array_key_exists('login', $_POST)) {
     getUsers();
 } else if(array_key_exists('getOrders', $_POST)) {
     getUserOrders();
+} else if(array_key_exists('updateUser', $_POST)) {
+    updateUser();
 }
 
 /**
@@ -171,4 +173,28 @@ function getUserOrders() {
 
     $result->close();
     $mysqli->close();
+}
+
+function updateUser() {
+    // Connect to the database
+    $mysqli = connectDB();
+    // Get all the data from the post request and
+    // use htmlspecialchars to escape special characters
+    $id = htmlspecialchars($_POST["id"]);
+    $prename = htmlspecialchars($_POST["prename"]);
+    $name = htmlspecialchars($_POST["name"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $password = htmlspecialchars($_POST["password"]);
+
+    // Define the update query
+    $sql = "UPDATE user SET
+        prename ='" . $prename . "',
+        name ='" . $name . "',
+        email ='" . $email . "',
+        password='" . $password . "'
+        WHERE id=" . $id;
+    // Execute the query and store the new image
+    $mysqli->query($sql);
+    storeImage();
+    echo json_encode(array('status' => 200, 'text' => 'success'));
 }
