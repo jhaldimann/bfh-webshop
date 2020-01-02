@@ -10,7 +10,9 @@ session_start();
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../dist/admin.css">
         <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-        <script type="application/javascript" src="../scripts/admin.js"></script>
+        <script type="application/javascript" src="../scripts/admin-products.js"></script>
+        <script type="application/javascript" src="../scripts/admin-users.js"></script>
+        <script type="application/javascript" src="../scripts/admin-orders.js"></script>
     </head>
     <body>
     <?php
@@ -28,8 +30,13 @@ session_start();
             </form>
         </section>
     <?php } else { ?>
+        <div>
+            <a href="#">Products</a>
+            <a href="#">Users</a>
+            <a href="#">Orders</a>
+        </div>
         <section class="product-form">
-            <?php include('../components/admin/products.php') ?>
+            <?php include('../components/admin/users.php') ?>
         </section>
     <?php } ?>
     </body>

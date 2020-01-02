@@ -10,6 +10,8 @@ if (array_key_exists('login', $_POST)) {
     deleteProduct($_POST["id"]);
 } else if (array_key_exists('insert', $_POST)) {
     insertProduct();
+} else if(array_key_exists('getUsers', $_POST)) {
+    getUsers();
 }
 
 /**
@@ -129,4 +131,23 @@ function storeImage() {
     $uploaddir = $_SERVER['DOCUMENT_ROOT'] . $GLOBALS["path"] . '/images/uploads/';
     $uploadfile = $uploaddir . basename($_FILES['image']['name']);
     move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile);
+}
+
+function getUsers() {
+    $mysqli = connectDB();
+
+    $query = "SELECT * FROM user";
+
+    $myArray = array();
+    if ($result = $mysqli->query($query)) {
+
+        while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $myArray[] = $row;
+        }
+
+        echo json_encode($myArray);
+    }
+
+    $result->close();
+    $mysqli->close();
 }
