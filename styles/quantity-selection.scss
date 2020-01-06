@@ -17,10 +17,11 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: $lightpurple;
   height: 100%;
   width: 30px;
+  cursor: pointer;
 }
 
 .quantity-count:hover {
-  background-color: $lightpurple;
+  background-color: $lighterpurple;
 }
 
 .quantity-count:active {

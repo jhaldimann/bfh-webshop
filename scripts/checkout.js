@@ -36,7 +36,6 @@ let checkout = () => {
 		.then(data => {
 			emptyCart();
 			redirect('confirm&hash=' + data.hash);
-
 		})
 };
 

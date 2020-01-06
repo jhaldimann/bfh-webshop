@@ -39,7 +39,10 @@
   .item-image {
     margin-left: 10px;
     margin-top: 10px;
-    height: 75%;
+    width: 10%;
+    height: 50%;
+    position: absolute;
+    top: 10%;
   }
 
   .item-name {
@@ -47,7 +50,7 @@
   }
 
   .item-price {
-    left: 35%;
+    left: 40%;
   }
 
   .item-total-price {
@@ -82,7 +85,7 @@
   }
 
   .item-remove:hover {
-    transform: scale(1.1);
+    cursor: pointer;
     opacity: .6;
   }
 
