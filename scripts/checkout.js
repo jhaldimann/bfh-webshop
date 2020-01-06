@@ -15,7 +15,6 @@ let checkout = () => {
 
 	// Fill the form data
 	let formData = new FormData;
-	console.log(id);
 	formData.append('id',id.value);
 	formData.append('checkout', 'checkout');
 	formData.append('firstname', firstname.value);

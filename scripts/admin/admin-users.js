@@ -36,7 +36,6 @@ let fillFields = (id) => {
 
 let updateUser = () => {
 	let inputFields = document.querySelector('.edit-user-section').querySelectorAll("input");
-	console.log(inputFields);
 	let formData = new FormData;
 	formData.append('id',inputFields[0].value);
 	formData.append('prename',inputFields[1].value);

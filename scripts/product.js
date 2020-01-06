@@ -107,17 +107,15 @@ let getProducts = () => {
 
 let productsFromSameBrand = (name, id) => {
 	let rootElement = document.querySelector('.same-prod');
-	console.log(rootElement);
 	let formData = new FormData;
 	formData.append('searchstring', name);
 	formData.append('getProducts', 'search');
 	fetch('./utilities/helper.php', {method: 'POST', body: formData})
 		.then(( resp ) => resp.json())
 		.then(function ( products ) {
-			console.log(products);
 			products.forEach((e, index) => {
 				if(e.id !== id) {
-					if(index < 4) {
+					if(index < 3) {
 						rootElement.innerHTML +=
 							`<a class='product-link' href='?site=product&id=${e[ 'id' ]}' >` +
 							`<div class='product'>` +
@@ -129,7 +127,6 @@ let productsFromSameBrand = (name, id) => {
 					}	
 				} else {
 					if(products.length === 1) {
-						console.log(1);
 						document.querySelector('.you-may-also-like').remove();
 						rootElement.remove();
 					}
