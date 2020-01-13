@@ -1,8 +1,12 @@
 <section class="checkout">
     <h2><?= t("customer-info") ?></h2>
     <form onsubmit="checkout(); return false;">
-        <section class="user-checkout-info">
-            <?php echo '<input class="hidden" id="id" value="' . print_r($_SESSION['id'], TRUE) . '"/>' ?>
+        <section class="user-checkout-info"> <?php
+            if(isset($_SESSION['id'])) {
+                echo '<input class="hidden" id="id" value="' . print_r($_SESSION['id'], TRUE) . '"/>';
+            } else {
+                echo '<input class="hidden" id="id" value="0"/>';
+            }?>
             <label>
                 <?= "<input type='text' id='firstname' placeholder='". t("firstname") ."' required/>" ?>
             </label>
