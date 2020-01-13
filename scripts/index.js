@@ -18,7 +18,7 @@ let getRandomPicks = () => {
 					// Create product div
 					let productEl = document.createElement('a');
 					productEl.className = 'product-link';
-					productEl.href = `?site=product&id=${products[ product ][ 'id' ]}`;
+					productEl.href = `?site=product&id=${products[ product ][ 'id' ]}&lang=${getUrlParam('lang')}`;
 					productEl.innerHTML =
 						`<div class="product">` +
 						`<img src="./images/uploads/${products[ product ][ 'image' ]}" alt="${products[ product ][ 'description' ]}" />` +
@@ -95,7 +95,7 @@ let showSlide = ( n ) => {
 	});
 
 	currentSlide = n;
-	slideshowLink.href = `?site=products&type=${categories[ currentSlide ]}`;
+	slideshowLink.href = `?site=products&type=${categories[ currentSlide ]}&lang=${getUrlParam('lang')}`;
 	slideshowCategory.innerHTML = `${categories[ currentSlide ]}`;
 	const key = categories[ currentSlide ];
 	slideShowImages.innerHTML = '';
