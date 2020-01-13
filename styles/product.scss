@@ -77,12 +77,17 @@
         font-weight: bold;
         margin-top: 14px;
         display: inline-block;
+        left: 10%;
+        transform: translateY(-150%);
       }
 
       .add-to-cart-img {
         height: 40px;
         margin-left: 15%;
         float: left;
+        position: absolute;
+        left: 10px;
+        transform: translateY(-50%);
       }
     }
 
