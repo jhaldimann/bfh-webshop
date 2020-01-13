@@ -114,13 +114,19 @@
 
 @media only screen and (max-width: 1000px) {
   .product-details {
+    .you-may-also-like {
+      top: 170%;
+    }
+    .same-prod {
+      top: 180% !important;
+    }
     .product-image {
       width: 70%;
       left: 50%;
       position: absolute;
       transform: translateX(-50%);
       margin: 0;
-      top: 10%;
+      top: 18%;
       display: block;
     }
     .product-image:hover {
@@ -131,7 +137,7 @@
   .information {
     position: absolute;
     left: 50% !important;
-    top: 45% !important;
+    top: 70% !important;
     width: 70%;
     z-index: 0;
     transform: translateX(-50%) scale(1) !important;
