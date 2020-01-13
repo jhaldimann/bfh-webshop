@@ -11,12 +11,17 @@
         <div class="same-brand">
             <?php
             $products = getProducts('search', $product->brand);
+            $productsAdded = 0;
 
-            foreach($products as $i => $p) {
-                if($i == 3) {
+            foreach($products as $p) {
+                if($p->id == $_GET['id']) {
+                    continue;
+                }
+                if($productsAdded == 3) {
                     break;
                 }
                 $p->render();
+                $productsAdded++;
             }
             ?>
         </div>
