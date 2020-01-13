@@ -39,10 +39,10 @@ function loadProducts() {
 						`<td>${products[ product ][ 'id' ]}</td>` +
 						`<td>${products[ product ][ 'brand' ]}</td>` +
 						`<td>${products[ product ][ 'category' ]}</td>` +
-						`<td>${products[ product ][ 'gender' ]}</td>` +
 						`<td>${products[ product ][ 'description' ]}</td>` +
 						`<td>${products[ product ][ 'size' ]}</td>` +
 						`<td>${products[ product ][ 'price' ]}</td>` +
+						`<td>${products[ product ][ 'gender' ]}</td>` +
 						`<td>${products[ product ][ 'quantity' ]}</td>` +
 						`<td>${products[ product ][ 'sale' ]}</td>` +
 						`<td>${products[ product ][ 'image' ]}</td>` +
@@ -66,10 +66,10 @@ function addProduct() {
 
 // Update a single product
 function updateProduct() {
-	let formData = fillFormData('update');
 	fetch('../utilities/admin.php', {method: 'POST', body: fillFormData('update')})
-		.then(( resp ) => resp.json())
+		.then(( resp ) => resp.text())
 		.then(function ( data ) {
+			console.log(data);
 			reRenderTable();
 		});
 }
@@ -77,8 +77,8 @@ function updateProduct() {
 // Auto fill the form data
 function fillFormData( type ) {
 	// Define the names of the input fields
-	let names = ['id-input', 'brand-input', 'category-input', 'gender-input', 'description-input', 'size-input',
-		'price-input', 'quantity-input', 'sale-input', 'image-input'];
+	let names = ['id-input', 'brand-input', 'category-input', 'description-input', 'size-input',
+		'price-input', 'gender-input', 'quantity-input', 'sale-input', 'percent-input', 'image-input'];
 	if (type === 'insert') {
 		names.forEach(( element, index ) => {
 			names[ index ] = 'new-' + element;
@@ -89,27 +89,30 @@ function fillFormData( type ) {
 	let id = document.querySelector(`#${names[ 0 ]}`).value;
 	let brand = document.querySelector(`#${names[ 1 ]}`).value;
 	let category = document.querySelector(`#${names[ 2 ]}`).value;
-	let gender = document.querySelector(`#${names[ 3 ]}`).value;
-	let description = document.querySelector(`#${names[ 4 ]}`).value;
-	let size = document.querySelector(`#${names[ 5 ]}`).value;
-	let price = document.querySelector(`#${names[ 6 ]}`).value;
+	let description = document.querySelector(`#${names[ 3 ]}`).value;
+	let size = document.querySelector(`#${names[ 4 ]}`).value;
+	let price = document.querySelector(`#${names[ 5]}`).value;
+	let gender = document.querySelector(`#${names[ 6]}`).value;
 	let quantity = document.querySelector(`#${names[ 7 ]}`).value;
 	let sale = document.querySelector(`#${names[ 8 ]}`).value;
-	let image = document.querySelector(`#${names[ 9 ]}`);
+	let percent = document.querySelector(`#${names[ 9 ]}`).value;
+	let image = document.querySelector(`#${names[ 10 ]}`);
 
 	// Append the data to the formData
 	let formData = new FormData();
 	formData.append('id', id);
 	formData.append('brand', brand);
 	formData.append('category', category);
-	formData.append('gender', gender);
 	formData.append('description', description);
 	formData.append('size', size);
 	formData.append('price', price);
+	formData.append('gender', gender);
 	formData.append('quantity', quantity);
 	formData.append('sale', sale);
+	formData.append('percent', percent);
 	formData.append('image', image.files[ 0 ]);
 	formData.append(type, type);
+	console.log(image.files);
 	return formData;
 }
 
@@ -124,6 +127,7 @@ function deleteProduct( id ) {
 		.then(( resp ) => resp.json())
 		.then(function ( data ) {
 			console.log(data);
+			window.location.reload();
 		});
 }
 
@@ -177,13 +181,15 @@ function reRenderTable() {
 	let table = document.querySelector('table');
 	table.className += "hide";
 	// Make a timeout to remove all products and reload them
-	window.setTimeout(() => {
+	/*window.setTimeout(() => {
 		table.querySelectorAll('.loaded-tr').forEach(element => {
 			element.remove();
 		});
 		loadProducts();
 		// 2000ms = 2s timeout
-	}, 2000);
+	}, 2000);*/
+	console.log(table.className);
+	window.location.reload();
 }
 
 // Clear all input fields

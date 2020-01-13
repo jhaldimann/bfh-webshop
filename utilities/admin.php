@@ -67,30 +67,38 @@ function updateProduct() {
     $id = htmlspecialchars($_POST["id"]);
     $brand = htmlspecialchars($_POST["brand"]);
     $category = htmlspecialchars($_POST["category"]);
-    $gender = htmlspecialchars($_POST["gender"]);
     $description = htmlspecialchars($_POST["description"]);
     $size = htmlspecialchars($_POST["size"]);
     $price = htmlspecialchars($_POST["price"]);
+    $gender = htmlspecialchars($_POST["gender"]);
     $quantity = htmlspecialchars($_POST["quantity"]);
     $sale = htmlspecialchars($_POST["sale"]);
-    $image = htmlspecialchars($_POST["image"]);
+    $percent = htmlspecialchars($_POST["percent"]);
 
     // Define the update query
     $sql = "UPDATE products SET
         brand ='" . $brand . "',
         category ='" . $category . "',
-        gender ='" . $gender . "',
         description='" . $description . "',
         size ='" . $size . "',
         price ='" . $price . "',
+        gender ='" . $gender . "',
         quantity ='" . $quantity . "',
         sale ='" . $sale . "',
-        image ='" . $_FILES['image']['name'] . "'
-        WHERE id=" . $id;
+        percent ='" . $percent . "'";
+
+    if(isset($_FILES['image'])) {
+        $sql .= ", image ='" . $_FILES['image']['name'] . "'";
+        storeImage();
+    }
+
+    $sql .= " WHERE id = " . $id . ";";
+
 
     // Execute the query and store the new image
     $mysqli->query($sql);
-    storeImage();
+
+
     echo json_encode(array('status' => 200, 'text' => 'success'));
 }
 
@@ -115,16 +123,17 @@ function insertProduct() {
     // Get data from POST and escape special chars
     $brand = htmlspecialchars($_POST["brand"]);
     $category = htmlspecialchars($_POST["category"]);
-    $gender = htmlspecialchars($_POST["gender"]);
     $description = htmlspecialchars($_POST["description"]);
     $size = htmlspecialchars($_POST["size"]);
     $price = htmlspecialchars($_POST["price"]);
+    $gender = htmlspecialchars($_POST["gender"]);
     $quantity = htmlspecialchars($_POST["quantity"]);
     $sale = htmlspecialchars($_POST["sale"]);
+    $percent = htmlspecialchars($_POST["percent"]);
     // Save the image in the upload folder
     storeImage();
-    $sql = "INSERT INTO products (brand, category, gender, description, size, price, quantity, sale, image) 
-            VALUES ('" . $brand . "','" . $category . "','" . $gender . "','" . $description . "','" . $size . "','" . $price . "','" . $quantity . "','" . $sale . "','" . $_FILES['image']['name'] . "'" . ")";
+    $sql = "INSERT INTO products (brand, category, description, size, price, gender, quantity, sale, percent, image) 
+            VALUES ('" . $brand . "','" . $category . "','" . $description . "','" . $size . "','" . $price . "','". $gender . "','" . $quantity . "','" . $sale . "','" . $percent . "','" . $_FILES['image']['name'] . "'" . ")";
 
     $mysqli->query($sql);
     echo json_encode(array('status' => 200, 'text' => 'success'));
@@ -150,7 +159,6 @@ function getUsers() {
         while($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $myArray[] = $row;
         }
-
         echo json_encode($myArray);
     }
 
@@ -169,7 +177,6 @@ function getUserOrders() {
         while($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $myArray[] = $row;
         }
-
         echo json_encode($myArray);
     }
 

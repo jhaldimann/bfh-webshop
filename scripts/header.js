@@ -62,11 +62,12 @@ let search = () => {
 function changeLink( event ) {
 	let input = document.querySelector('.search-text');
 	let element = document.querySelector('.search-link');
+	let lang = getUrlParam('lang');
 	// If the user click enter change page
 	if (event.key === 'Enter') {
-		changePage(`?site=products&type=search&searchstring=${input.value}`);
+		changePage(`?site=products&type=search&searchstring=${input.value}&lang=${lang}`);
 	} else {
-		element.href = `?site=products&type=search&searchstring=${input.value}`;
+		element.href = `?site=products&type=search&searchstring=${input.value}&lang=${lang}`;
 	}
 }
 

@@ -16,4 +16,15 @@ let selectPage = (page) => {
 			}
 		}
 	})
+	
+	localStorage.setItem('page', page); 
+};
+
+let loadPage = () => {
+	let page = localStorage.getItem('page');
+	if(page !== null) {
+		selectPage(page);
+	} else {
+		selectPage('products');
+	}
 };

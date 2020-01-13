@@ -1,6 +1,13 @@
+
+<?php
+$lang = "de";
+if(isset($_GET['lang'])) {
+    $lang = $_GET['lang'];
+}
+?>
 <header class='header'>
     <img class='burger' src='./images/burger.png' alt='burger' onclick="showSidebar()">
-    <a href='/'>
+    <a href='/?lang=<?php echo $lang ?>'>
         <img class='home-logo' src='./images/home.png' alt='home'>
     </a>
     <div id="cart-dropdown" class="cart-dropdown">
@@ -62,10 +69,10 @@
 
 
     <section class="categories">
-        <a href='?site=products&type=caps' class="hover-underline-animation"><p><?php echo t('caps') ?></p></a>
-        <a href='?site=products&type=shirts' class="hover-underline-animation"><p><?php echo t('shirts') ?></p></a>
-        <a href='?site=products&type=sweatshirts' class="hover-underline-animation"><p><?php echo t('sweatshirts') ?></p></a>
-        <a href='?site=products&type=socks' class="hover-underline-animation"><p><?php echo t('socks') ?></p></a>
-        <a href='?site=products&type=shoes' class="hover-underline-animation"><p><?php echo t('shoes') ?></p></a>
+        <a href='?site=products&type=caps&lang=<?php echo $lang ?>' class="hover-underline-animation"><p><?php echo t('caps') ?></p></a>
+        <a href='?site=products&type=shirts&lang=<?php echo $lang ?>' class="hover-underline-animation"><p><?php echo t('shirts') ?></p></a>
+        <a href='?site=products&type=sweatshirts&lang=<?php echo $lang ?>' class="hover-underline-animation"><p><?php echo t('sweatshirts') ?></p></a>
+        <a href='?site=products&type=socks&lang=<?php echo $lang ?>' class="hover-underline-animation"><p><?php echo t('socks') ?></p></a>
+        <a href='?site=products&type=shoes&lang=<?php echo $lang ?>' class="hover-underline-animation"><p><?php echo t('shoes') ?></p></a>
     </section>
 </header>

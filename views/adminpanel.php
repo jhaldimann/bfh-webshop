@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+<?php require_once('../classes/Product.class.php'); ?>
 <?php require_once('../utilities/helper.php'); ?>
 <?php require_once('../utilities/admin.php'); ?>
 <!DOCTYPE html>
@@ -47,6 +48,13 @@ session_start();
                 <?php include('../components/admin/users.php') ?>
             </div>
         </section>
+        <script>
+            loadPage();
+        </script>
     <?php } ?>
     </body>
 </html>
+
+<script>
+
+</script>

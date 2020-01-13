@@ -1,5 +1,6 @@
 <?php
 session_start();
+header("Content-Type: text/html; charset=utf-8");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +24,7 @@ session_start();
     <link rel="icon" type="image/png" href="images/favicon.PNG" />
 </head>
 <body>
+    <?php require_once('./classes/Product.class.php'); ?>
     <?php require_once('./utilities/helper.php'); ?>
     <?php include('./components/header.php'); ?>
     <?php include('./views/login.php'); ?>

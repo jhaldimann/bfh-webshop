@@ -11,13 +11,13 @@ let getProductDetail = () => {
 				`<img class='product-image' src="./images/uploads/${data[ 'image' ]}" alt="${data[ 'description' ]}"/>` +
 				`<div class="information">` +
 				`<h2 class="description-title">${data[ 'brand' ] + " " + data[ 'description' ]}</h2>` +
-				`<label class='product-brand'><b>Brand: </b> ${data[ 'brand' ]} </label>` +
-				`<p>Price: <label>${(data[ 'price' ] / 100 * (100 - data[ 'percent' ]))} CHF</label></p>` +
-				`<label class='product-description'><b>Description: </b> ${data[ 'description' ]} </label>` +
-				`<label class='size-selector-label'>Size: </label>` +
+				`<label class='product-brand'><b>Brand:</b> ${data[ 'brand' ]}</label>` +
+				`<label class='product-description'><b>Description:</b> ${data[ 'description' ]}</label>` +
+				`<label class='size-selector-label'><b>Size:</b> </label>` +
 				`<select class="size-selector">` +
 				`<option value="${data[ 'size' ]}">${data[ 'size' ]}</option>` +
 				`</select>` +
+				`<p class="bold"><b>Price:</b> <label>${(data[ 'price' ] / 100 * (100 - data[ 'percent' ]))} CHF</label></p>` +
 				`<div class='quantity-selection'>` +
 				`<button class='quantity-count quantity-count-minus' onclick='updateQuantity(-1)'>-</button>` +
 				`<input class='quantity-field' type='number' name='quantity' min='1' max='${data[ 'quantity' ]}' value='1'>` +

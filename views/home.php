@@ -1,6 +1,5 @@
 <section class="slideshow">
     <script type="text/javascript">
-      getSaleProducts();
       getProductImagesByCategory();
     </script>
     <div class="slideshow-container">
@@ -27,11 +26,18 @@
         <img class="lightning" src="./images/lightning.png" alt="lightning">
     </div>
     <div class="down-arrow bounce">
-        <a href="#sale1">
+        <a href="#sales">
             <img class="down-arrow-image" src="./images/down_arrow.png" alt="down arrow">
         </a>
     </div>
     <section id="sales" class="main-section sale">
+        <?php
+            $products = getSaleProducts();
+
+            foreach ($products as $product) {
+                $product->render();
+            }
+        ?>
     </section>
 </section>
 

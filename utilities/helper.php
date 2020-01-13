@@ -79,7 +79,7 @@ function getProducts($cat, $search = "") {
     $mysqli = connect();
     $category = htmlspecialchars($cat);
 
-    $myArray = array();
+    $myArray = [];
 
     // Check if category or searchstring
     if($cat == 'none') {
@@ -93,14 +93,19 @@ function getProducts($cat, $search = "") {
     if ($result = $mysqli->query($query)) {
 
         while($row = $result->fetch_array(MYSQLI_ASSOC)) {
-            $myArray[] = $row;
+            //$myArray[] = $row;
+            $product = new Product($row["id"], $row["brand"], $row["size"], $row["category"],
+                                    $row["price"], $row["quantity"], $row['gender'], $row["description"],
+                                    $row["image"], $row["sale"], $row["percent"]);
+
+            $myArray[] = $product;
         }
 
-        echo json_encode($myArray);
-    }
+        $result->close();
+        $mysqli->close();
 
-    $result->close();
-    $mysqli->close();
+        return $myArray;
+    }
 }
 
 /**
@@ -114,7 +119,9 @@ function getProduct($id) {
     if ($result = $mysqli->query("SELECT * FROM products WHERE id = '".$identifier."'")) {
 
         if($row = $result->fetch_array(MYSQLI_ASSOC)) {
-            echo json_encode($row);
+            return new Product($row["id"], $row["brand"], $row["size"], $row["category"],
+                $row["price"], $row["quantity"], $row['gender'], $row["description"],
+                $row["image"], $row["sale"], $row["percent"]);
         }
     }
 
@@ -270,12 +277,16 @@ function getSaleProducts() {
     $myArray = array();
     if ($result = $mysqli->query("SELECT * FROM products WHERE sale = 1 LIMIT 3")) {
         while($row = $result->fetch_array(MYSQLI_ASSOC)) {
-            $myArray[] = $row;
+            $myArray[] = new Product($row["id"], $row["brand"], $row["size"], $row["category"],
+                $row["price"], $row["quantity"], $row['gender'], $row["description"],
+                $row["image"], $row["sale"], $row["percent"]);
         }
-        echo json_encode($myArray);
+
+        $result->close();
+        $mysqli->close();
+
+        return $myArray;
     }
-    $result->close();
-    $mysqli->close();
 }
 
 /**
@@ -317,11 +328,10 @@ function getProductImagesByCategory($nrOfImages) {
  * @return string
  */
 function search($searchparam = "") {
-    $mysqli = connect();
     if($searchparam != "") {
         $searchString = $searchparam;
     } else {
-        $searchString = htmlspecialchars($_POST["searchstring"]);
+        $searchString = htmlspecialchars($_GET["searchstring"]);
     }
 
      return "SELECT * FROM products WHERE 
