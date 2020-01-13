@@ -1,5 +1,3 @@
-// Temp
-var slideIndex = 1;
 // Slideshow
 let images = new Map();
 let slideshow = new Map();
@@ -20,7 +18,7 @@ let getRandomPicks = () => {
 					// Create product div
 					let productEl = document.createElement('a');
 					productEl.className = 'product-link';
-					productEl.href = `?site=product&id=${products[ product ][ 'id' ]}`;
+					productEl.href = `?site=product&id=${products[ product ][ 'id' ]}&lang=${getUrlParam('lang')}`;
 					productEl.innerHTML =
 						`<div class="product">` +
 						`<img src="./images/uploads/${products[ product ][ 'image' ]}" alt="${products[ product ][ 'description' ]}" />` +
@@ -34,35 +32,6 @@ let getRandomPicks = () => {
 					rootElement.appendChild(productEl);
 				}
 			}
-		});
-};
-
-// Get products from the products where product has a discount
-let getSaleProducts = () => {
-	let formData = new FormData;
-	formData.append('getSaleProducts', 'getSaleProducts');
-	// Send request to the backend
-	fetch('./utilities/helper.php', {method: 'POST', body: formData})
-		.then(( resp ) => resp.json())
-		.then(function ( products ) {
-			// Loop over all products
-			products.forEach(( product, index ) => {
-				// Create product div
-				let productEl = document.createElement('a');
-				productEl.href = `?site=product&id=${product.id}`;
-				productEl.innerHTML =
-					`<div id="sale${index + 1}" class="product">` +
-					`<img src="./images/uploads/${product.image}" alt="${product.description}" />` +
-					`<h3>${product.brand} ${product.category}</h3>` +
-					`<p class='percent'>Sale: <label>${product.percent}%</label></p>` +
-					`<p>Price: <label>${(product.price / 100 * (100 - product.percent))} CHF</label></p>` +
-					`<p>Size: <label>${product.size}</label></p>` +
-					`<p>Quantity: <label>${product.quantity}</label></p>` +
-					`</div>`;
-				let rootElement = document.querySelector('.sale');
-				// Append the div to the main div
-				rootElement.appendChild(productEl);
-			});
 		});
 };
 
@@ -126,7 +95,7 @@ let showSlide = ( n ) => {
 	});
 
 	currentSlide = n;
-	slideshowLink.href = `?site=products&type=${categories[ currentSlide ]}`;
+	slideshowLink.href = `?site=products&type=${categories[ currentSlide ]}&lang=${getUrlParam('lang')}`;
 	slideshowCategory.innerHTML = `${categories[ currentSlide ]}`;
 	const key = categories[ currentSlide ];
 	slideShowImages.innerHTML = '';

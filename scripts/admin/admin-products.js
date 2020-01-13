@@ -19,37 +19,6 @@ function checkAdminLogin() {
 				location.reload();
 			}
 		});
-};
-
-// Create a table for the admin backend
-function loadProducts() {
-	const productTable = document.querySelector('#products');
-	// Fill form data
-	let formData = new FormData();
-	formData.append('getProducts', 'none');
-	// Send request to the backend
-	fetch('../utilities/helper.php', {method: 'POST', body: formData})
-		.then(( resp ) => resp.json())
-		.then(function ( products ) {
-			for (let product in products) {
-				if (products.hasOwnProperty(product)) {
-					// Create table rows with the result data
-					productTable.innerHTML +=
-						`<tr class="loaded-tr" onclick="selectField(${products[ product ][ 'id' ]})" id="product${products[ product ][ 'id' ]}">` +
-						`<td>${products[ product ][ 'id' ]}</td>` +
-						`<td>${products[ product ][ 'brand' ]}</td>` +
-						`<td>${products[ product ][ 'category' ]}</td>` +
-						`<td>${products[ product ][ 'description' ]}</td>` +
-						`<td>${products[ product ][ 'size' ]}</td>` +
-						`<td>${products[ product ][ 'price' ]}</td>` +
-						`<td>${products[ product ][ 'gender' ]}</td>` +
-						`<td>${products[ product ][ 'quantity' ]}</td>` +
-						`<td>${products[ product ][ 'sale' ]}</td>` +
-						`<td>${products[ product ][ 'image' ]}</td>` +
-						`</tr>`;
-				}
-			}
-		});
 }
 
 // Add new product
