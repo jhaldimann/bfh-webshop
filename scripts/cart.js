@@ -6,12 +6,18 @@ function populateCart() {
 	cart = JSON.parse(cart);
 	if (cart !== null && cart.length >= 1) {
 		cart.forEach(( item, index ) => {
+			let price = Number(item.price);
+			let sale = '';
+			if(Number(item.sale) > 0) {
+				price = Number(item.price) * ((100 - Number(item.percent)) / 100);
+				sale = ' discount';
+			}
 			itemsInCart.innerHTML +=
 				`<li class="cart-item">` +
 				`<img class="item-image" src="./images/uploads/${item.image}" alt="product">` +
 				`<label class="item-name">${item.brand} ${item.description}</label>` +
-				`<label class="item-price">${item.price} CHF</label>` +
-				`<label class="item-total-price">${calculateTotalPriceForItem(item)} CHF</label>` +
+				`<label class="item-price${sale}">${price} CHF</label>` +
+				`<label class="item-total-price${sale}">${calculateTotalPriceForItem(item)} CHF</label>` +
 				`<div class="quantity-selection">` +
 				`<button class="quantity-count quantity-count-minus" onclick="countQuantity(-1, ${index})">-</button>` +
 				`<input class="quantity-field" type="number" name="quantity" min="1" max="${item.quantity}" value="${item.selectedQuantity}">` +
@@ -44,8 +50,13 @@ function calculateTotalPrice() {
 	cart = JSON.parse(cart);
 	let priceTotal = 0;
 	if (cart !== null) {
-		cart.forEach(( item, index ) => {
-			priceTotal += Number(item.price) * Number(item.selectedQuantity);
+		cart.forEach(( item) => {
+			let price = Number(item.price);
+			if(Number(item.sale) > 0) {
+				price = Number(item.price) * ((100 - Number(item.percent)) / 100);
+			}
+			
+			priceTotal += price * Number(item.selectedQuantity);
 		});
 	} else {
 		totalPriceLabel.innerHTML = "0 CHF";
@@ -54,7 +65,11 @@ function calculateTotalPrice() {
 }
 
 function calculateTotalPriceForItem( item ) {
-	return Number(item.price) * Number(item.selectedQuantity);
+	let price = Number(item.price);
+	if(Number(item.sale) > 0) {
+		price = Number(item.price) * ((100 - Number(item.percent)) / 100);
+	}
+	return price * Number(item.selectedQuantity);
 }
 
 function updateQuantities() {
