@@ -1,36 +1,36 @@
 <section class="checkout">
-    <h2>Customer Information</h2>
+    <h2><?= t("customer-info") ?></h2>
     <form onsubmit="checkout(); return false;">
         <section class="user-checkout-info">
             <?php echo '<input class="hidden" id="id" value="' . print_r($_SESSION['id'], TRUE) . '"/>' ?>
             <label>
-                <input type="text" id="firstname" placeholder="Firstname" required/>
+                <?= "<input type='text' id='firstname' placeholder='". t("firstname") ."' required/>" ?>
             </label>
             <label>
-                <input type="text" id="lastname" placeholder="Lastname" required/>
+                <?= "<input type='text' id='lastname' placeholder='". t("lastname") ."' required/>" ?>
             </label>
             <label>
-                <input type="text" id="address" placeholder="Address" required/>
+               <?= " <input type='text' id='address' placeholder='". t("address") ."' required/>" ?>
             </label>
             <label>
-                <input type="number" id="housenr" placeholder="HouseNr" required/>
+                <?= "<input type='number' id='housenr' placeholder='". t("housenumber") ."' required/>"?>
             </label>
             <label>
-                <input type="number" id="zip" placeholder="Zip" required/>
+                <?= "<input type='number' id='zip' placeholder='". t("zip") ."' required/>"?>
             </label>
             <label>
-                <input type="text" id="city" placeholder="City" required/>
+                <?= "<input type='text' id='city' placeholder='". t("city") ."' required/>" ?>
             </label>
             <label>
-                <input type="text" id="country" placeholder="Country" required/>
+                <?= "<input type='text' id='country' placeholder='". t("country")."' required/>"?>
             </label>
         </section>
 
-        <h2>Creditcard Information</h2>
+        <h2><?= t("cc-info") ?></h2>
         <section class="credit-card">
-            <input type="text" id="cc-owner" placeholder="Owner" required/>
-            <input type="text" id="cc-number" placeholder="Card Number" minlength="16" required/>
-            <input type="text" id="cc-date" placeholder="Date" pattern="(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})" required/>
+            <?= "<input type='text' id='cc-owner' placeholder='". t("owner") ."' required/>" ?>
+            <?= "<input type='text' id='cc-number' placeholder='". t("cc-number") ."' minlength='16' required/>" ?>
+            <?= "<input type='text' id='cc-date' placeholder='". t("cc-date") ."' pattern='(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})' required/>"?>
             <input type="text" id="cc-ccv" placeholder="CCV" minlength="3" pattern="[1-9]\d\d" required/>
         </section>
 
